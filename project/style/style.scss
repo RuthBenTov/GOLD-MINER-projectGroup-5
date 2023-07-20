@@ -110,6 +110,11 @@
   }
 }
 
+
+.rockElem{
+  position: absolute;
+}
+
 @keyframes ropeSideToSide {
   0% {
     transform: rotate(10deg);
