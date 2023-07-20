@@ -1,7 +1,13 @@
 var rope = document.querySelector(".header__rope");
 // rope.animate({transform: "rotate:180deg"})
 document.addEventListener("keydown", handleDown);
-function handleDown() {
-    rope.classList.toggle("active");
-    rope.style.width = "150px";
+function handleDown(ev) {
+    if (ev.key === "ArrowDown") {
+        rope.style.width = "300px";
+        rope.classList.add("active");
+    }
+    else {
+        rope.style.width = "30px";
+        rope.classList.remove("active");
+    }
 }
