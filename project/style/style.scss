@@ -6,6 +6,8 @@
 .container {
   width: 60vw;
   height: 80vh;
+  
+  z-index: -1;
   border: 2px solid black;
   background-color: yellow;
   margin: auto;
@@ -25,6 +27,7 @@
 }
 
 .header {
+  position: relative;
   &__character {
     position: relative;
     width: 20%;
@@ -40,6 +43,17 @@
       bottom: 0;
       left: 40%;
     }
+  }
+  &__rope {
+    position: absolute;
+    left: 50%;
+    width: 40px;
+    z-index: 100;
+    height: 0px;
+    border: 1px solid rgb(6, 6, 6);
+    transform-origin: bottom center;
+    animation:  ropeSideToSide 7s linear infinite;
+
   }
 }
 
@@ -89,5 +103,21 @@
         left: 20%;
       }
     }
+  }
+}
+
+
+@keyframes ropeSideToSide {
+  0% {
+    transform-origin: top;
+    transform: rotate(0);
+  }
+  50% {
+    transform-origin: top;
+    transform: rotate(180deg);
+  }
+  100% {
+    transform-origin: top;
+    transform: rotate(0);
   }
 }
