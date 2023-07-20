@@ -13,13 +13,13 @@
 .container__header {
   width: 100%;
   height: 20%;
-  background-color: #FED034;
+  background-color: #fed034;
 }
 .container__footer {
   position: relative;
   width: 100%;
   height: 80%;
-  background-color: #9E6844;
+  background-color: #9e6844;
 }
 
 .header__character {
@@ -27,7 +27,7 @@
   width: 20%;
   height: 100%;
   margin: auto;
-  background-color: #283F9C;
+  background-color: #283f9c;
   border-radius: 125px 125px 0 0;
 }
 .header__character img {
