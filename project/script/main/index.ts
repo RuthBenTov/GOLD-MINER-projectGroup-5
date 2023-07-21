@@ -5,10 +5,10 @@ document.addEventListener("keydown", handleDown);
 
 function handleDown(ev: any) {
   if (ev.key === "ArrowDown") {
-    rope.style.width = "300px";
+    rope.style.width = "500px";
     rope.classList.add("active");
   }
-  else{
+  else {
     rope.style.width = "30px";
     rope.classList.remove("active");
   }
