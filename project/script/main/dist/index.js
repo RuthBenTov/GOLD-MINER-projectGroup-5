@@ -3,7 +3,7 @@ var rope = document.querySelector(".header__rope");
 document.addEventListener("keydown", handleDown);
 function handleDown(ev) {
     if (ev.key === "ArrowDown") {
-        rope.style.width = "300px";
+        rope.style.width = "500px";
         rope.classList.add("active");
     }
     else {
