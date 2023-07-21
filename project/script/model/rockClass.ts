@@ -1,4 +1,4 @@
-class Rocks {
+export class Rocks {
   public imgSrc: string;
   constructor(
     public type: string, //gold, stone, bag
@@ -21,10 +21,14 @@ class Rocks {
           style="width:${this.width}px; top: ${this.position.yPos}%; left: ${this.position.xPos}%">`;
     }
   }
-}
+};
+
+<<<<<<< Updated upstream
 
 
-
+=======
+import { rockMap1Level1 } from '../maps/dist/maps.js';
+>>>>>>> Stashed changes
 rockMap1Level1.forEach((elem) => elem.renderRock());
 
 function createUniqId(): string {

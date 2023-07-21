@@ -1,7 +1,7 @@
 
 // level 1-------------------------------------------------------------
-
-const rockMap1Level1 = [
+import { Rocks } from "../model/dist/rockClass.js";
+ export const rockMap1Level1 = [
     new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
     new Rocks("stone", 11, 30,{ xPos: 60, yPos: 70 }),
     new Rocks("stone", 9, 30, { xPos: 40, yPos: 20 }),

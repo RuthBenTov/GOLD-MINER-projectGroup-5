@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+exports.Rocks = void 0;
 var Rocks = /** @class */ (function () {
     function Rocks(type, //gold, stone, bag
     value, //how much it worth
@@ -23,7 +26,14 @@ var Rocks = /** @class */ (function () {
     };
     return Rocks;
 }());
+<<<<<<< Updated upstream
 rockMap1Level1.forEach(function (elem) { return elem.renderRock(); });
+=======
+exports.Rocks = Rocks;
+;
+var maps_js_1 = require("../maps/dist/maps.js");
+maps_js_1.rockMap1Level1.forEach(function (elem) { return elem.renderRock(); });
+>>>>>>> Stashed changes
 function createUniqId() {
     return String(Date.now().toString(32) + Math.random().toString(16)).replace(/\./g, "");
 }
