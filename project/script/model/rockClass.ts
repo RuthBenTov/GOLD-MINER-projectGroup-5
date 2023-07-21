@@ -9,7 +9,7 @@ class Rocks {
   ) {
     if (this.type === "gold") this.imgSrc = "../image/gold.png";
     if (this.type === "stone") this.imgSrc = "../image/stone.png";
-    if (this.type==="bag") this.imgSrc = "../image/bag.png";
+    if (this.type === "bag") this.imgSrc = "../image/bag.png";
   }
 
   renderRock() {
