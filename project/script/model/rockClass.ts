@@ -23,6 +23,7 @@ class Rocks {
   }
 }
 
+
 rockMap1Level1.forEach((elem) => elem.renderRock());
 
 function createUniqId(): string {
