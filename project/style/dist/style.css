@@ -36,6 +36,7 @@
   margin: auto;
   background-color: #283f9c;
   border-radius: 125px 125px 0 0;
+  left: -100px;
 }
 .header__character img {
   width: 25%;

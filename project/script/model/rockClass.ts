@@ -57,7 +57,7 @@ const countDown = setInterval (()=> {
   displayTime(timeSecond);
   if(timeSecond <= 0) {
     clearInterval(countDown);
-    alert("Time's up!"); 
+    window.location.href = "/project/view/gameOver.html";
   }
 },1000)
 
