@@ -43,5 +43,5 @@ function checkCollision(ropeRect) {
 // function LiftingTheRocks(item) {
 //     const element = document.querySelector(".rockElem") as HTMLElement;
 //     console.log(element);
-//     element.style.left = rope.left + "px";
+//     element.style.top = rope.top + "px";
 // }
