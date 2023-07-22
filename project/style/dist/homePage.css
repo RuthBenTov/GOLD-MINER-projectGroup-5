@@ -17,3 +17,22 @@ body {
   position: absolute;
   z-index: -1;
 }
+.wrapper #startGame {
+  text-decoration: none;
+  border: 2px solid #B58D01;
+  padding: 4px;
+  width: 50%;
+  text-align: center;
+  background-color: #B58D01;
+  cursor: pointer;
+  color: white;
+}
+.wrapper #signUp {
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 4px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+}
