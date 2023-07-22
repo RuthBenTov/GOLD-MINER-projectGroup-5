@@ -4,18 +4,32 @@
 }
 
 body {
-  width: 80%;
   display: flex;
   justify-content: center;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  margin-top: 2%;
+  width: 50%;
+  height: 85vh;
+  background: url("https://assets.funnygames.org/3/303/53097/672x448/gold-miner.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
-.wrapper img {
+.wrapper__details {
   position: absolute;
-  z-index: -1;
+  display: flex;
+  width: 50%;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  left: 15px;
+  gap: 10px;
+  bottom: 15px;
+}
+.wrapper__details h2 {
+  color: wheat;
 }
 .wrapper #startGame {
   text-decoration: none;
@@ -35,4 +49,19 @@ body {
   text-align: center;
   background-color: white;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    position: relative;
+    background-size: contain;
+    background-position: top center;
+  }
+  .wrapper__details {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    gap: 0;
+    font-size: 9px;
+  }
 }
