@@ -49,8 +49,9 @@ displayTime(timeSecond);
 var countDown = setInterval(function () {
     timeSecond--;
     displayTime(timeSecond);
-    if (timeSecond <= 0 || timeSecond < 1) {
+    if (timeSecond <= 0) {
         clearInterval(countDown);
+        alert("Time's up!");
     }
 }, 1000);
 function displayTime(second) {

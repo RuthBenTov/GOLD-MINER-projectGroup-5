@@ -55,8 +55,9 @@ displayTime(timeSecond);
 const countDown = setInterval (()=> {
   timeSecond -- ;
   displayTime(timeSecond);
-  if(timeSecond <= 0 || timeSecond < 1) {
+  if(timeSecond <= 0) {
     clearInterval(countDown);
+    alert("Time's up!"); 
   }
 },1000)
 

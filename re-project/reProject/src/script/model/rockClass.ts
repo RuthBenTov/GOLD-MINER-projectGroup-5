@@ -1,5 +1,6 @@
 class Rocks {
   public imgSrc: string;
+  public style: { width: string; height: string; position: string; bottom: string; left: string };
   constructor(
     public type: string, //gold, stone, bag
     public value: number, //how much it worth
@@ -10,6 +11,13 @@ class Rocks {
     if (this.type === "gold") this.imgSrc = "../image/gold.png";
     if (this.type === "stone") this.imgSrc = "../image/stone.png";
     if (this.type === "bag") this.imgSrc = "../image/bag.png";
+    this.style = {
+      width: "25%",
+      height: "85%",
+      position: "absolute",
+      bottom: "0",
+      left: "40%",
+    };
   }
 
   renderRock() {
@@ -48,23 +56,26 @@ function createUniqId(): string {
 
 
 // timer
+
+
 const timer = document.querySelector("h1");
-let timeSecond = 70;
+    let timeSecond = 70;
 
-displayTime(timeSecond);
+    displayTime(timeSecond);
 
-const countDown = setInterval (()=> {
-  timeSecond -- ;
-  displayTime(timeSecond);
-  if(timeSecond <= 0 || timeSecond < 1) {
-    clearInterval(countDown);
-  }
-},1000)
+    const countDown = setInterval(() => {
+      timeSecond--;
+      displayTime(timeSecond);
+      if (timeSecond <= 0) { 
+        clearInterval(countDown);
+        alert("Time's up!"); 
+      }
+    }, 1000);
 
-function displayTime(second:number){
-  const min = Math.floor(second / 60);
-  const sec = Math.floor(second % 60);
-  if(timer){
-    timer.innerHTML = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`
-  }
-}
+    function displayTime(second:number) {
+      const min = Math.floor(second / 60);
+      const sec = Math.floor(second % 60);
+      if (timer) {
+        timer.innerHTML = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`;
+      }
+    }

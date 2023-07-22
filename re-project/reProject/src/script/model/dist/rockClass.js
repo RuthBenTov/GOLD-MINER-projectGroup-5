@@ -14,6 +14,13 @@ var Rocks = /** @class */ (function () {
             this.imgSrc = "../image/stone.png";
         if (this.type === "bag")
             this.imgSrc = "../image/bag.png";
+        this.style = {
+            width: "25%",
+            height: "85%",
+            position: "absolute",
+            bottom: "0",
+            left: "40%"
+        };
     }
     Rocks.prototype.renderRock = function () {
         var game = document.querySelector(".container__footer");
@@ -49,8 +56,9 @@ displayTime(timeSecond);
 var countDown = setInterval(function () {
     timeSecond--;
     displayTime(timeSecond);
-    if (timeSecond <= 0 || timeSecond < 1) {
+    if (timeSecond <= 0) {
         clearInterval(countDown);
+        alert("Time's up!");
     }
 }, 1000);
 function displayTime(second) {
