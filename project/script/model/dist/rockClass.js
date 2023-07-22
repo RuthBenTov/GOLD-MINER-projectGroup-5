@@ -43,7 +43,7 @@ function createUniqId() {
     return String(Date.now().toString(32) + Math.random().toString(16)).replace(/\./g, "");
 }
 // timer
-var timer = document.querySelector("h1");
+var timer = document.querySelector(".head__rightSide__timer");
 var timeSecond = 70;
 displayTime(timeSecond);
 var countDown = setInterval(function () {

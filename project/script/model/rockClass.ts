@@ -47,7 +47,7 @@ function createUniqId(): string {
 
 
 // timer
-const timer = document.querySelector("h1");
+const timer = document.querySelector(".head__rightSide__timer");
 let timeSecond = 70;
 
 displayTime(timeSecond);

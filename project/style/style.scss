@@ -17,8 +17,9 @@
     height: 20%;
     background-color: #fed034;
 
-    h1{
+    .head__rightSide__timer{
       position: absolute;
+      font-size: 30px;
     }
   }
 
@@ -51,6 +52,7 @@
   }
   &__rope {
     position: absolute;
+    top: 100%;
     left: 50%;
     width: 40px;
     z-index: 100;

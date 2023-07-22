@@ -16,8 +16,9 @@
   height: 20%;
   background-color: #fed034;
 }
-.container__header h1 {
+.container__header .head__rightSide__timer {
   position: absolute;
+  font-size: 30px;
 }
 .container__footer {
   position: relative;
@@ -46,6 +47,7 @@
 }
 .header__rope {
   position: absolute;
+  top: 100%;
   left: 50%;
   width: 40px;
   z-index: 100;
