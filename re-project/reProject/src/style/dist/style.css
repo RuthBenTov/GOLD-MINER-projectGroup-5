@@ -16,6 +16,9 @@
   height: 20%;
   background-color: #fed034;
 }
+.container__header h1 {
+  position: absolute;
+}
 .container__footer {
   position: relative;
   width: 100%;
