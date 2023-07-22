@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.registration {
+  position: relative;
+  margin-top: 2%;
+  width: 50%;
+  height: 85vh;
+  border: 2px solid black;
+}
+.registration__details {
+  display: flex;
+  flex-direction: column;
+  left: 5px;
+  position: absolute;
+  left: 40%;
+  gap: 30px;
+}
+.registration__details h1 {
+  margin-top: 20px;
+}
+
+.details__userName {
+  display: flex;
+  flex-direction: column;
+}
+.details__email {
+  display: flex;
+  flex-direction: column;
+}
+.details__password {
+  display: flex;
+  flex-direction: column;
+}
