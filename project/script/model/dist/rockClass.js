@@ -51,7 +51,8 @@ var countDown = setInterval(function () {
     displayTime(timeSecond);
     if (timeSecond <= 0) {
         clearInterval(countDown);
-        window.location.href = "/project/view/gameOver.html";
+        alert("game over");
+        // window.location.href = "/project/view/gameOver.html";
     }
 }, 1000);
 function displayTime(second) {
