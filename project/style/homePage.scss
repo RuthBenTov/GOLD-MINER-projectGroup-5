@@ -54,6 +54,15 @@ body {
         cursor: pointer;
         
       }
+
+      #submit {
+        text-decoration: none;
+        border: 2px solid white;
+        width: 100%;
+        text-align: center;
+        background-color: white;
+        cursor: pointer;
+      }
     }
   
     @media (max-width: 768px) {
@@ -67,7 +76,8 @@ body {
           top: 10px;
           left: 10px;
           gap:0;
-          font-size: 9px;
+          font-size: 7px;
+          margin-bottom: 1px;
         }
       }
     }
