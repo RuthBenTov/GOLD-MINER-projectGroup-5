@@ -20,6 +20,12 @@
     .head__rightSide__timer{
       position: absolute;
       font-size: 30px;
+      display: flex;
+      gap: 10px;
+
+      #timerHead{
+        color: red
+      }
     }
   }
 

@@ -19,6 +19,11 @@
 .container__header .head__rightSide__timer {
   position: absolute;
   font-size: 30px;
+  display: flex;
+  gap: 10px;
+}
+.container__header .head__rightSide__timer #timerHead {
+  color: red;
 }
 .container__footer {
   position: relative;
