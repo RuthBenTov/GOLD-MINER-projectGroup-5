@@ -52,11 +52,11 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 //     }
 // }
 
-// function LiftingTheRocks(item) {
-//     const element = document.querySelector(".rockElem") as HTMLElement;
-//     console.log(item);
-//     item.style.top = rope.style.top + "px";
-// }
+function LiftingTheRocks(item) {
+    const element = document.querySelector(".rockElem") as HTMLElement;
+    console.log(item);
+    item.style.top = rope.style.top + "px";
+}
 
 const goldMiner = document.querySelector(
   ".header__character",
