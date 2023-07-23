@@ -44,7 +44,7 @@ function createUniqId() {
 }
 // timer
 var timer = document.querySelector(".head__rightSide__timer #timerValue");
-var timeSecond = 70;
+var timeSecond = 8000;
 displayTime(timeSecond);
 var countDown = setInterval(function () {
     timeSecond--;

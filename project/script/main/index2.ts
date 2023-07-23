@@ -1,4 +1,3 @@
-
 // setInterval(() => {
 //     const rope = document.querySelector(".header__rope") as HTMLElement;;
 //     const ropeRect = rope.getBoundingClientRect();
@@ -25,12 +24,6 @@
 //     });
 // }
 
-
-
-
-
-
-
 const rope = document.querySelector(".header__rope") as HTMLElement;
 // setInterval(() => {
 
@@ -44,7 +37,6 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 //     for (let i = 0; i < rocks.length; i++) {
 //         const rocklocation = rocks[i].getBoundingClientRect();
 //         const item = rocks[i]
-
 
 //         if (
 //             ropeRect.left < rocklocation.right &&
@@ -66,44 +58,60 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 //     item.style.top = rope.style.top + "px";
 // }
 
-
-
-
-const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
+const goldMiner = document.querySelector(
+  ".header__character",
+) as HTMLDivElement;
 //
-function getElementToPlayer(){
-    let playerPosition  =  goldMiner.getBoundingClientRect();
-    console.dir(playerPosition)
-
+function getElementToPlayer(item) {
+  let playerPosition = {
+    x: goldMiner.getBoundingClientRect().left,
+    y: goldMiner.getBoundingClientRect().top,
+//   };
+//   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
+//   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
+  item.style.position = "absolute";
+  item.style.top = -15 + "%";
+  item.style.left = 40+"%";
 }
 
-getElementToPlayer()
-
-
 function LiftingTheRocks(item, ropeBottom, ropeLeft) {
-    item.style.bottom = ropeBottom + "px";
-    item.style.left = ropeLeft + "px";
+  item.style.bottom = ropeBottom + "px";
+  item.style.left = ropeLeft + "px";
 }
 
 function checkCollision(ropeBottom, ropeLeft, ropeRect) {
-    const rocks = document.querySelectorAll(".rockElem");
+  const rocks = document.querySelectorAll(".rockElem");
 
-    for (let i = 0; i < rocks.length; i++) {
-        const rocklocation = rocks[i].getBoundingClientRect();
-        const item = rocks[i];
+  for (let i = 0; i < rocks.length; i++) {
+    const rocklocation = rocks[i].getBoundingClientRect();
+    const item = rocks[i];
 
-        if (
-            ropeRect.left < rocklocation.right &&
-            ropeRect.right > rocklocation.left &&
-            ropeRect.top < rocklocation.bottom &&
-            ropeRect.bottom > rocklocation.top
-        ) {
-            // console.log(ropeBottom, ropeLeft);
-            LiftingTheRocks(item, ropeBottom, ropeLeft);
+    if (
+      ropeRect.left < rocklocation.right &&
+      ropeRect.right > rocklocation.left &&
+      ropeRect.top < rocklocation.bottom &&
+      ropeRect.bottom > rocklocation.top
+    ) {
+      // console.log(ropeBottom, ropeLeft);
+      // LiftingTheRocks(item, ropeBottom, ropeLeft);
+      getElementToPlayer(item);
 
-            // console.log(ropeTop, ropeLeft)
-        }
+      // console.log(ropeTop, ropeLeft)
     }
+  }
+}
+
+function updateTargetPosition() {
+  try {
+    const sourceRect = bart.getBoundingClientRect();
+    const targetRect = shoot.getBoundingClientRect();
+
+    shoot.style.left =
+      parseFloat(getComputedStyle(shoot).left) + offsetX + "px";
+    shoot.style.top = parseFloat(getComputedStyle(shoot).top) + offsetY + "px";
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // function checkCollisionOnRopeMovement(ropeBottom, ropeLeft) {
@@ -119,13 +127,10 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
 // הפעלת הפונקציה כל פרק זמן מסוים
 // setInterval(checkCollisionOnRopeMovement, 10);
 setInterval(() => {
-
-    const ropeBottom = rope.getBoundingClientRect().bottom;
-    const ropeLeft = rope.getBoundingClientRect().left;
-    const ropeRect = rope.getBoundingClientRect();
-    // console.log(ropeBottom, ropeLeft, ropeRect)
-    checkCollision(ropeBottom, ropeLeft, ropeRect);
-    // console.log(ropeRect)
+  const ropeBottom = rope.getBoundingClientRect().bottom;
+  const ropeLeft = rope.getBoundingClientRect().left;
+  const ropeRect = rope.getBoundingClientRect();
+  // console.log(ropeBottom, ropeLeft, ropeRect)
+  checkCollision(ropeBottom, ropeLeft, ropeRect);
+  // console.log(ropeRect)
 }, 10);
-
-
