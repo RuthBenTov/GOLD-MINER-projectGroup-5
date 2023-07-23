@@ -67,44 +67,6 @@
   animation-play-state: paused;
 }
 
-.footer {
-  position: relative;
-}
-.footer__gold img {
-  position: absolute;
-}
-.footer__gold img:nth-child(1) {
-  top: 50%;
-  left: 70%;
-}
-.footer__gold img:nth-child(2) {
-  top: 70%;
-  left: 40%;
-}
-.footer__gold img:nth-child(3) {
-  top: 80%;
-  left: 20%;
-}
-.footer__gold img:nth-child(4) {
-  top: 20%;
-  left: 40%;
-}
-.footer__stone img {
-  position: absolute;
-}
-.footer__stone img:nth-child(1) {
-  top: 10%;
-  left: 80%;
-}
-.footer__stone img:nth-child(2) {
-  top: 65%;
-  left: 60%;
-}
-.footer__stone img:nth-child(3) {
-  top: 55%;
-  left: 20%;
-}
-
 .rockElem {
   position: absolute;
 }
