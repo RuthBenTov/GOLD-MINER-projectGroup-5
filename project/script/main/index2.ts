@@ -66,11 +66,11 @@ function getElementToPlayer(item) {
   let playerPosition = {
     x: goldMiner.getBoundingClientRect().left,
     y: goldMiner.getBoundingClientRect().top,
-//   };
+  };
 //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
 //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
   item.style.position = "absolute";
-  item.style.top = -15 + "%";
+  item.style.top = -40 + "%";
   item.style.left = 40+"%";
 }
 
@@ -95,7 +95,8 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
       // console.log(ropeBottom, ropeLeft);
       // LiftingTheRocks(item, ropeBottom, ropeLeft);
       getElementToPlayer(item);
-
+      rope.style.width = "40px";
+      rope.classList.remove("active");
       // console.log(ropeTop, ropeLeft)
     }
   }
@@ -132,5 +133,6 @@ setInterval(() => {
   const ropeRect = rope.getBoundingClientRect();
   // console.log(ropeBottom, ropeLeft, ropeRect)
   checkCollision(ropeBottom, ropeLeft, ropeRect);
+
   // console.log(ropeRect)
 }, 10);

@@ -52,66 +52,64 @@ var goldMiner = document.querySelector(".header__character");
 function getElementToPlayer(item) {
     var playerPosition = {
         x: goldMiner.getBoundingClientRect().left,
-        y: goldMiner.getBoundingClientRect().top,
-        //   };
-        //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
-        //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
-        item: item,
-        : .style.position = "absolute",
-        item: item,
-        : .style.top = -15 + "%",
-        item: item,
-        : .style.left = 40 + "%"
+        y: goldMiner.getBoundingClientRect().top
     };
-    function LiftingTheRocks(item, ropeBottom, ropeLeft) {
-        item.style.bottom = ropeBottom + "px";
-        item.style.left = ropeLeft + "px";
-    }
-    function checkCollision(ropeBottom, ropeLeft, ropeRect) {
-        var rocks = document.querySelectorAll(".rockElem");
-        for (var i = 0; i < rocks.length; i++) {
-            var rocklocation = rocks[i].getBoundingClientRect();
-            var item_1 = rocks[i];
-            if (ropeRect.left < rocklocation.right &&
-                ropeRect.right > rocklocation.left &&
-                ropeRect.top < rocklocation.bottom &&
-                ropeRect.bottom > rocklocation.top) {
-                // console.log(ropeBottom, ropeLeft);
-                // LiftingTheRocks(item, ropeBottom, ropeLeft);
-                getElementToPlayer(item_1);
-                // console.log(ropeTop, ropeLeft)
-            }
-        }
-    }
-    function updateTargetPosition() {
-        try {
-            var sourceRect = bart.getBoundingClientRect();
-            var targetRect = shoot.getBoundingClientRect();
-            shoot.style.left =
-                parseFloat(getComputedStyle(shoot).left) + offsetX + "px";
-            shoot.style.top = parseFloat(getComputedStyle(shoot).top) + offsetY + "px";
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
-    // function checkCollisionOnRopeMovement(ropeBottom, ropeLeft) {
-    //     const rope = document.querySelector(".header__rope") as HTMLElement;
-    //     // const ropeRect = rope.getBoundingClientRect();
-    //     const ropeStyle = getComputedStyle(rope);
-    //     const ropeTop = ropeRect.offsetTop;
-    //     const ropeLeft = ropeRect.offsetLeft;
-    //     checkCollision(ropeRect, ropeTop, ropeLeft);
-    //     // console.log(ropeTop, ropeLeft)
-    // }
-    // הפעלת הפונקציה כל פרק זמן מסוים
-    // setInterval(checkCollisionOnRopeMovement, 10);
-    setInterval(function () {
-        var ropeBottom = rope.getBoundingClientRect().bottom;
-        var ropeLeft = rope.getBoundingClientRect().left;
-        var ropeRect = rope.getBoundingClientRect();
-        // console.log(ropeBottom, ropeLeft, ropeRect)
-        checkCollision(ropeBottom, ropeLeft, ropeRect);
-        // console.log(ropeRect)
-    }, 10);
+    //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
+    //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
+    item.style.position = "absolute";
+    item.style.top = -40 + "%";
+    item.style.left = 40 + "%";
 }
+function LiftingTheRocks(item, ropeBottom, ropeLeft) {
+    item.style.bottom = ropeBottom + "px";
+    item.style.left = ropeLeft + "px";
+}
+function checkCollision(ropeBottom, ropeLeft, ropeRect) {
+    var rocks = document.querySelectorAll(".rockElem");
+    for (var i = 0; i < rocks.length; i++) {
+        var rocklocation = rocks[i].getBoundingClientRect();
+        var item = rocks[i];
+        if (ropeRect.left < rocklocation.right &&
+            ropeRect.right > rocklocation.left &&
+            ropeRect.top < rocklocation.bottom &&
+            ropeRect.bottom > rocklocation.top) {
+            // console.log(ropeBottom, ropeLeft);
+            // LiftingTheRocks(item, ropeBottom, ropeLeft);
+            getElementToPlayer(item);
+            rope.style.width = "40px";
+            rope.classList.remove("active");
+            // console.log(ropeTop, ropeLeft)
+        }
+    }
+}
+function updateTargetPosition() {
+    try {
+        var sourceRect = bart.getBoundingClientRect();
+        var targetRect = shoot.getBoundingClientRect();
+        shoot.style.left =
+            parseFloat(getComputedStyle(shoot).left) + offsetX + "px";
+        shoot.style.top = parseFloat(getComputedStyle(shoot).top) + offsetY + "px";
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+// function checkCollisionOnRopeMovement(ropeBottom, ropeLeft) {
+//     const rope = document.querySelector(".header__rope") as HTMLElement;
+//     // const ropeRect = rope.getBoundingClientRect();
+//     const ropeStyle = getComputedStyle(rope);
+//     const ropeTop = ropeRect.offsetTop;
+//     const ropeLeft = ropeRect.offsetLeft;
+//     checkCollision(ropeRect, ropeTop, ropeLeft);
+//     // console.log(ropeTop, ropeLeft)
+// }
+// הפעלת הפונקציה כל פרק זמן מסוים
+// setInterval(checkCollisionOnRopeMovement, 10);
+setInterval(function () {
+    var ropeBottom = rope.getBoundingClientRect().bottom;
+    var ropeLeft = rope.getBoundingClientRect().left;
+    var ropeRect = rope.getBoundingClientRect();
+    // console.log(ropeBottom, ropeLeft, ropeRect)
+    checkCollision(ropeBottom, ropeLeft, ropeRect);
+    // console.log(ropeRect)
+}, 10);
