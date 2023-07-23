@@ -1,5 +1,6 @@
 const rope = document.querySelector(".header__rope") as HTMLDivElement;
 const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
+
 document.addEventListener("keydown", handlePress);
 
 function handlePress(ev: any) {
