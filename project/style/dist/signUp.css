@@ -9,6 +9,11 @@ body {
 }
 
 .registration {
+  background: url(https://t4.ftcdn.net/jpg/05/93/63/61/360_F_593636175_EsgfL5Hierf971xfKe699FrwGA8UHBZx.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-shadow: #3A261E 1px 0 10px;
   position: relative;
   margin-top: 2%;
   width: 50%;
@@ -25,17 +30,39 @@ body {
 }
 .registration__details h1 {
   margin-top: 20px;
+  text-align: center;
+  text-shadow: wheat 1px 0 10px;
+  font-size: 40px;
 }
 
 .details__userName {
+  font-weight: 900;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
+  text-shadow: white 1px 0 10px;
 }
 .details__email {
+  font-weight: 900;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
+  text-shadow: white 1px 0 10px;
 }
 .details__password {
+  font-weight: 900;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
+  text-shadow: white 1px 0 10px;
+}
+.details__signUp {
+  text-align: center;
+  border: 2px solid wheat;
+  background-color: wheat;
+  border-radius: 6px;
+}
+.details__signUp a {
+  text-decoration: none;
+  color: white;
 }
