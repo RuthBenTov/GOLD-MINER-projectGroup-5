@@ -47,6 +47,13 @@ var rope = document.querySelector(".header__rope");
 //     console.log(item);
 //     item.style.top = rope.style.top + "px";
 // }
+var goldMiner = document.querySelector(".header__character");
+//
+function getElementToPlayer() {
+    var playerPosition = goldMiner.getBoundingClientRect();
+    console.dir(playerPosition);
+}
+getElementToPlayer();
 function LiftingTheRocks(item, ropeBottom, ropeLeft) {
     item.style.bottom = ropeBottom + "px";
     item.style.left = ropeLeft + "px";

@@ -69,6 +69,15 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 
 
 
+const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
+//
+function getElementToPlayer(){
+    let playerPosition  =  goldMiner.getBoundingClientRect();
+    console.dir(playerPosition)
+
+}
+
+getElementToPlayer()
 
 
 function LiftingTheRocks(item, ropeBottom, ropeLeft) {
@@ -91,6 +100,7 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
         ) {
             // console.log(ropeBottom, ropeLeft);
             LiftingTheRocks(item, ropeBottom, ropeLeft);
+
             // console.log(ropeTop, ropeLeft)
         }
     }
