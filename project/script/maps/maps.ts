@@ -1,20 +1,21 @@
 
 // level 1-------------------------------------------------------------
-
- const rockMap1Level1 = [
-    new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
-    new Rocks("stone", 11, 30,{ xPos: 60, yPos: 70 }),
-    new Rocks("stone", 9, 30, { xPos: 40, yPos: 20 }),
-    new Rocks("stone", 3, 30, { xPos: 30, yPos: 30 }),
-    new Rocks("stone", 14, 30, { xPos: 80, yPos: 20 }),
-    new Rocks("stone", 7, 30, { xPos: 20, yPos: 70 }),
-    new Rocks("bag", 7, 20, { xPos: 70, yPos: 50 }),
-    new Rocks("gold", 600, 90, { xPos: 30, yPos: 55 }),
-    new Rocks("gold", 650, 90, { xPos: 5, yPos: 70 }),
-    new Rocks("gold", 300, 70, { xPos: 70, yPos: 70 }),
-    new Rocks("gold", 90, 30, { xPos: 10, yPos: 29 }),
-    new Rocks("gold", 90, 30, { xPos: 12, yPos: 10 }),
+import {Rocks}  from '../model/dist/rockClass';
+ export const rockMap1Level1 = [
+    new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }, 1),
+    new Rocks("stone", 11, 30,{ xPos: 60, yPos: 70 }, 1),
+    new Rocks("stone", 9, 30, { xPos: 40, yPos: 20 },3 ),
+    new Rocks("stone", 3, 30, { xPos: 30, yPos: 30 },3),
+    new Rocks("stone", 14, 30, { xPos: 80, yPos: 20 },4),
+    new Rocks("stone", 7, 30, { xPos: 20, yPos: 70 },5),
+    new Rocks("bag", 7, 20, { xPos: 70, yPos: 50 },5),
+    new Rocks("gold", 600, 90, { xPos: 30, yPos: 55 },5),
+    new Rocks("gold", 650, 90, { xPos: 5, yPos: 70 },6),
+    new Rocks("gold", 300, 70, { xPos: 70, yPos: 70 },7),
+    new Rocks("gold", 90, 30, { xPos: 10, yPos: 29 },6),
+    new Rocks("gold", 90, 30, { xPos: 12, yPos: 10 },9),
   ];
+
   const rockMap2Level1 = [
 new Rocks("stone", 7, 51, { xPos: 40, yPos: 50 }),
 new Rocks("stone", 11, 30, { xPos: 60, yPos: 60 }),
