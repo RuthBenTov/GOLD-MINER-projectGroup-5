@@ -87,10 +87,10 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
     const item = rocks[i];
 
     if (
-      ropeRect.left < rocklocation.right &&
-      ropeRect.right > rocklocation.left &&
-      ropeRect.top < rocklocation.bottom &&
-      ropeRect.bottom > rocklocation.top
+      ropeRect.left <= rocklocation.right &&
+      ropeRect.right >= rocklocation.left &&
+      ropeRect.top <= rocklocation.bottom &&
+      ropeRect.bottom >= rocklocation.top
     ) {
       // console.log(ropeBottom, ropeLeft);
       // LiftingTheRocks(item, ropeBottom, ropeLeft);
@@ -102,18 +102,18 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
   }
 }
 
-function updateTargetPosition() {
-  try {
-    const sourceRect = bart.getBoundingClientRect();
-    const targetRect = shoot.getBoundingClientRect();
+// function updateTargetPosition() {
+//   try {
+//     const sourceRect = bart.getBoundingClientRect();
+//     const targetRect = shoot.getBoundingClientRect();
 
-    shoot.style.left =
-      parseFloat(getComputedStyle(shoot).left) + offsetX + "px";
-    shoot.style.top = parseFloat(getComputedStyle(shoot).top) + offsetY + "px";
-  } catch (error) {
-    console.error(error);
-  }
-}
+//     shoot.style.left =
+//       parseFloat(getComputedStyle(shoot).left) + offsetX + "px";
+//     shoot.style.top = parseFloat(getComputedStyle(shoot).top) + offsetY + "px";
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 // function checkCollisionOnRopeMovement(ropeBottom, ropeLeft) {
 //     const rope = document.querySelector(".header__rope") as HTMLElement;
