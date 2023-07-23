@@ -24,6 +24,8 @@ var Rocks = /** @class */ (function () {
     return Rocks;
 }());
 ;
+// export default new Rocks;
+// import { rockMap1Level1 } from '../maps/dist/maps';
 var rockMap1Level1 = [
     new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
     new Rocks("stone", 11, 30, { xPos: 60, yPos: 70 }),
