@@ -42,11 +42,11 @@ var rope = document.querySelector(".header__rope");
 //         }
 //     }
 // }
-// function LiftingTheRocks(item) {
-//     const element = document.querySelector(".rockElem") as HTMLElement;
-//     console.log(item);
-//     item.style.top = rope.style.top + "px";
-// }
+function LiftingTheRocks(item) {
+    var element = document.querySelector(".rockElem");
+    console.log(item);
+    item.style.top = rope.style.top + "px";
+}
 var goldMiner = document.querySelector(".header__character");
 //
 function getElementToPlayer(item) {
