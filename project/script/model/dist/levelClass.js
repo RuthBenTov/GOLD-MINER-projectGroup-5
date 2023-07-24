@@ -1,10 +1,10 @@
 var Level = /** @class */ (function () {
-    function Level(NumLevel, targetScore, timeToEnd, map) {
-        if (map === void 0) { map = Math.floor(Math.random() * 3) + 1; }
+    function Level(NumLevel, targetScore, timeToEnd) {
         this.NumLevel = NumLevel;
         this.targetScore = targetScore;
         this.timeToEnd = timeToEnd;
-        this.map = map;
+        var randomMapByLevel = Math.floor(Math.random() * 3);
+        this.map = mapsLevel1[randomMapByLevel];
     }
     return Level;
 }());

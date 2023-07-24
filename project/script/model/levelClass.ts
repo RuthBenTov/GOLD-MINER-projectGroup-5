@@ -1,10 +1,13 @@
 class Level {
+   public map:Rocks[]
   constructor(
     public NumLevel: number,
     public targetScore: number,
     public timeToEnd: number,
-    public map: number = Math.floor(Math.random() * 3) + 1,
-    ) {}
+    ) {
+      let randomMapByLevel = Math.floor(Math.random() * 3) 
+      this.map = mapsLevel1[randomMapByLevel]
+    }
 }
 
 const levels: Level[] = [
