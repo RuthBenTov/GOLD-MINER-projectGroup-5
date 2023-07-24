@@ -20,72 +20,97 @@
     position: relative;
 
     .head__rightSide {
-      position: absolute;
       font-size: 30px;
-      display: flex;
       gap: 10px;
+      position: absolute;
 
-      #timerHead{
-        color: red
+      &__timer,
+      &__level {
+        display: flex;
+      }
+      #timerHead,
+      #levelHead {
+        color: #9e6844;
+      }
+      #timerValue,
+      #levelValue {
+        color: red;
       }
     }
-  }
+    .head__leftSide {
+      font-size: 30px;
+      position: absolute;
+      gap: 10px;
+      right: 0;
+      &__score,
+      &__target {
+        display: flex;
+        #targetHead,
+        #scoreHead {
+          color: #9e6844;
+        }
+        #targetValue {
+          color: red;
+        }
+        #scoreValue {
+          color: rgb(11, 182, 11);
+        }
+      }
+    }
 
+    .header {
+      position: relative;
+
+      &__character {
+        position: relative;
+        width: 20%;
+        height: 100%;
+        margin: auto;
+        background-color: #283f9c;
+        border-radius: 125px 125px 0 0;
+
+        img {
+          width: 25%;
+          height: 85%;
+          position: absolute;
+          bottom: 0;
+          left: 40%;
+        }
+      }
+
+      &__rope {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 40px;
+        z-index: 100;
+        height: 0px;
+        border: 1px solid rgb(6, 6, 6);
+        transform-origin: 0% 0%;
+        animation: ropeSideToSide 5s linear infinite;
+      }
+      
+    }
+    .active{
+      transition: all 3s;
+      animation-play-state: paused;
+    }
+  }
+  
   &__footer {
     position: relative;
     width: 100%;
     height: 80%;
     background-color: #9e6844;
   }
-}
 
-.header {
-  position: relative;
-
-  &__character {
+  .footer {
     position: relative;
-    width: 20%;
-    height: 100%;
-    margin: auto;
-    background-color: #283f9c;
-    border-radius: 125px 125px 0 0;
-  
-
-    img {
-      width: 25%;
-      height: 85%;
-      position: absolute;
-      bottom: 0;
-      left: 40%;
-    }
   }
 
-  &__rope {
+  .rockElem {
     position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 40px;
-    z-index: 100;
-    height: 0px;
-    border: 1px solid rgb(6, 6, 6);
-    transform-origin: 0% 0%;
-    animation: ropeSideToSide 5s linear infinite;
-    
   }
-}
-.active{
-  transition: all 3s;
-  animation-play-state: paused;
-}
-
-.footer {
-position: relative;
-}
-
-
-.rockElem{
-  position: absolute;
-
 }
 
 @keyframes ropeSideToSide {
@@ -102,10 +127,9 @@ position: relative;
   }
 }
 
-
-@keyframes gettingDown{
-  to{
-    width:100vh ;
+@keyframes gettingDown {
+  to {
+    width: 100vh;
   }
 }
 
