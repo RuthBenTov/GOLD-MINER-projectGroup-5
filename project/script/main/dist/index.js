@@ -22,8 +22,7 @@ function handlePress(ev) {
         rope.classList.remove("active");
     }
 }
-//------------------------------------------Timer------------------------------------------
-// timer
+// -------------------------------------timer-------------------------------------------------------------------------------------------
 var timer = document.querySelector(".head__rightSide__timer #timerValue");
 var timeSecond = 8000;
 displayTime(timeSecond);
