@@ -45,7 +45,7 @@ var rope = document.querySelector(".header__rope");
 function LiftingTheRocks(item) {
     var element = document.querySelector(".rockElem");
     console.log(item);
-    item.style.top = rope.style.top + "px";
+    item.style.top = rope.style.top + "5px";
 }
 var goldMiner = document.querySelector(".header__character");
 //

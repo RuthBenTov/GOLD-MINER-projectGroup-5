@@ -55,7 +55,7 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 function LiftingTheRocks(item) {
     const element = document.querySelector(".rockElem") as HTMLElement;
     console.log(item);
-    item.style.top = rope.style.top + "px";
+    item.style.top = rope.style.top + "5px";
 }
 
 const goldMiner = document.querySelector(
