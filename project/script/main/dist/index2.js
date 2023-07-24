@@ -1,9 +1,10 @@
+
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
 function LiftingTheRocks(item) {
     var element = document.querySelector(".rockElem");
     console.log(item);
-    item.style.top = rope.style.top + "px";
+    item.style.top = rope.style.top + "5px";
 }
 function getElementToPlayer(item) {
     var playerPosition = {

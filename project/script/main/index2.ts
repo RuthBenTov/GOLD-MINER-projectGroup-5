@@ -5,7 +5,7 @@ const goldMiner = document.querySelector(".header__character") as HTMLDivElement
 function LiftingTheRocks(item) {
     const element = document.querySelector(".rockElem") as HTMLElement;
     console.log(item);
-    item.style.top = rope.style.top + "px";
+    item.style.top = rope.style.top + "5px";
 }
 
 function getElementToPlayer(item) {
