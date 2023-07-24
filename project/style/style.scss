@@ -15,17 +15,41 @@
   &__header {
     width: 100%;
     height: 20%;
+    position: relative;
     background-color: #fed034;
-
-    .head__rightSide__timer{
-      position: absolute;
-      font-size: 30px;
+.head__rightSide{
+  position: absolute;
+    &__timer, &__level{
+      font-size: 20px;
       display: flex;
       gap: 10px;
-
-      #timerHead{
-        color: red
+      #timerHead, #levelHead{
+        color: #9e6844;
       }
+      #timerValue, #levelValue{
+        color: #e4583b;
+      }
+      
+    }
+    }
+.head__leftSide{
+  position: absolute;
+  right: 0;
+    &__score, &__target{
+      font-size: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      #targetHead, #scoreHead{
+        color: #9e6844;
+      }
+      #targetValue{
+        color: #e4583b;
+      }
+      #scoreValue{
+        color: green;
+      }
+    }
     }
   }
 
@@ -128,6 +152,7 @@
 
 .rockElem{
   position: absolute;
+  background-color: #283f9c;
 
 }
 

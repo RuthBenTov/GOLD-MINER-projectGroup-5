@@ -14,16 +14,41 @@
 .container__header {
   width: 100%;
   height: 20%;
+  position: relative;
   background-color: #fed034;
 }
-.container__header .head__rightSide__timer {
+.container__header .head__rightSide {
   position: absolute;
-  font-size: 30px;
+}
+.container__header .head__rightSide__timer, .container__header .head__rightSide__level {
+  font-size: 20px;
   display: flex;
   gap: 10px;
 }
-.container__header .head__rightSide__timer #timerHead {
-  color: red;
+.container__header .head__rightSide__timer #timerHead, .container__header .head__rightSide__timer #levelHead, .container__header .head__rightSide__level #timerHead, .container__header .head__rightSide__level #levelHead {
+  color: #9e6844;
+}
+.container__header .head__rightSide__timer #timerValue, .container__header .head__rightSide__timer #levelValue, .container__header .head__rightSide__level #timerValue, .container__header .head__rightSide__level #levelValue {
+  color: #e4583b;
+}
+.container__header .head__leftSide {
+  position: absolute;
+  right: 0;
+}
+.container__header .head__leftSide__score, .container__header .head__leftSide__target {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.container__header .head__leftSide__score #targetHead, .container__header .head__leftSide__score #scoreHead, .container__header .head__leftSide__target #targetHead, .container__header .head__leftSide__target #scoreHead {
+  color: #9e6844;
+}
+.container__header .head__leftSide__score #targetValue, .container__header .head__leftSide__target #targetValue {
+  color: #e4583b;
+}
+.container__header .head__leftSide__score #scoreValue, .container__header .head__leftSide__target #scoreValue {
+  color: green;
 }
 .container__footer {
   position: relative;
@@ -69,6 +94,7 @@
 
 .rockElem {
   position: absolute;
+  background-color: #283f9c;
 }
 
 @keyframes ropeSideToSide {
