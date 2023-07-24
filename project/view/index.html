@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>GOLD-MINER expensive game</title>
     <link rel="stylesheet" href="../style/dist/style.css" />
-    <script src="../script/dist/rockClass.js" defer></script>
+    <script src="../script/model/dist/rockClass.js" defer></script>
     <script src="../script/model/dist/playerClass.js" defer></script>
     <script src="../script/model/dist/rockClass.js" defer></script>
     <script src="../script/main/dist/index.js" defer></script>
     <script src="../script/main/dist/index2.js" defer></script>
     <script src="../script/maps/dist/maps.js" defer></script>
+    <script src="../script/model/dist/levelClass.js"></script>
   </head>
   <body>
     <div class="container">
@@ -19,6 +20,20 @@
           <div class="head__rightSide__timer">
             <p id="timerHead">time:</p>
             <p id="timerValue">00:00</p>
+          </div>
+          <div class="head__rightSide__level">
+            <p id="levelHead">level:</p>
+            <p id="levelValue">1</p>
+          </div>
+        </div>
+        <div class="head__leftSide">
+          <div class="head__leftSide__score">
+            <p id="scoreHead">Score:</p>
+            <p id="scoreValue">0</p>
+          </div>
+          <div class="head__leftSide__target">
+            <p id="targetHead">Target:</p>
+            <p id="targetValue">1000</p>
           </div>
         </div>
         <div class="header__character">

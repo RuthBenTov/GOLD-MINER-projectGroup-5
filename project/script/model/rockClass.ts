@@ -24,7 +24,7 @@ class Rocks {
 };
 // export default new Rocks;
 // import { rockMap1Level1 } from '../maps/dist/maps';
-const rockMap1Level1 = [
+const __rockMap1Level1 = [
   new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
   new Rocks("stone", 11, 30,{ xPos: 60, yPos: 70 }),
   new Rocks("stone", 9, 30, { xPos: 40, yPos: 20 }),
@@ -39,7 +39,7 @@ const rockMap1Level1 = [
   new Rocks("gold", 90, 30, { xPos: 12, yPos: 10 }),
 ];
 
-rockMap1Level1.forEach((elem) => elem.renderRock());
+__rockMap1Level1.forEach((elem) => elem.renderRock());
 
 function createUniqId(): string {
   return String(Date.now().toString(32) + Math.random().toString(16)).replace(

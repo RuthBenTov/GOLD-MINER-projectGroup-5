@@ -1,10 +1,9 @@
-
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
 function LiftingTheRocks(item) {
     var element = document.querySelector(".rockElem");
     console.log(item);
-    item.style.top = rope.style.top + "5px";
+    item.style.top = rope.style.top + "px";
 }
 function getElementToPlayer(item) {
     var playerPosition = {
@@ -31,7 +30,6 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
-            // console.log(ropeRect.bottom)
             // console.log(ropeTop, ropeLeft)
         }
     }
