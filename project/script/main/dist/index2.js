@@ -1,10 +1,10 @@
 var rope = document.querySelector(".header__rope");
+var goldMiner = document.querySelector(".header__character");
 function LiftingTheRocks(item) {
     var element = document.querySelector(".rockElem");
     console.log(item);
     item.style.top = rope.style.top + "px";
 }
-var goldMiner = document.querySelector(".header__character");
 //
 function getElementToPlayer(item) {
     var playerPosition = {
@@ -14,13 +14,13 @@ function getElementToPlayer(item) {
     //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
     //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
     item.style.position = "absolute";
-    item.style.top = -40 + "%";
-    item.style.left = 40 + "%";
+    item.style.top = -50 + "%";
+    item.style.left = 50 + "%";
 }
-function LiftingTheRocks(item, ropeBottom, ropeLeft) {
-    item.style.bottom = ropeBottom + "px";
-    item.style.left = ropeLeft + "px";
-}
+// function LiftingTheRocks(item, ropeBottom, ropeLeft) {
+//   item.style.bottom = ropeBottom + "px";
+//   item.style.left = ropeLeft + "px";
+// }
 function checkCollision(ropeBottom, ropeLeft, ropeRect) {
     var rocks = document.querySelectorAll(".rockElem");
     for (var i = 0; i < rocks.length; i++) {
@@ -47,3 +47,4 @@ setInterval(function () {
     checkCollision(ropeBottom, ropeLeft, ropeRect);
     // console.log(ropeRect)
 }, 10);
+//----------------------------------------add rock to scoreboard --------------------------------

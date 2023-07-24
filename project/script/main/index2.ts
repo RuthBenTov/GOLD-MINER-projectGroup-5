@@ -1,5 +1,6 @@
 
 const rope = document.querySelector(".header__rope") as HTMLElement;
+const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
 
 function LiftingTheRocks(item) {
     const element = document.querySelector(".rockElem") as HTMLElement;
@@ -7,9 +8,6 @@ function LiftingTheRocks(item) {
     item.style.top = rope.style.top + "px";
 }
 
-const goldMiner = document.querySelector(
-  ".header__character",
-) as HTMLDivElement;
 //
 function getElementToPlayer(item) {
   let playerPosition = {
@@ -19,14 +17,14 @@ function getElementToPlayer(item) {
 //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
 //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
   item.style.position = "absolute";
-  item.style.top = -40 + "%";
-  item.style.left = 40+"%";
+  item.style.top = -50 + "%";
+  item.style.left = 50+"%";
 }
 
-function LiftingTheRocks(item, ropeBottom, ropeLeft) {
-  item.style.bottom = ropeBottom + "px";
-  item.style.left = ropeLeft + "px";
-}
+// function LiftingTheRocks(item, ropeBottom, ropeLeft) {
+//   item.style.bottom = ropeBottom + "px";
+//   item.style.left = ropeLeft + "px";
+// }
 
 function checkCollision(ropeBottom, ropeLeft, ropeRect) {
   const rocks = document.querySelectorAll(".rockElem");
@@ -59,3 +57,9 @@ setInterval(() => {
 
   // console.log(ropeRect)
 }, 10);
+
+
+
+//----------------------------------------add rock to scoreboard --------------------------------
+
+
