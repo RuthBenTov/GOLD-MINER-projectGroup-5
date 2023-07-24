@@ -102,56 +102,11 @@
 }
 
 .footer {
-  // &__stone {
-  //   img {
-  //     position: absolute;
-
-  //     &:nth-child(1) {
-  //       top: 10%;
-  //       left: 80%;
-  //     }
-
-  //     &:nth-child(2) {
-  //       top: 65%;
-  //       left: 60%;
-  //     }
-
-  //     &:nth-child(3) {
-  //       top: 55%;
-  //       left: 20%;
-  //     }
-  //   }
-  // }
-  // // position: relative;
-  // // &__gold {
-  // //   img {
-  // //     position: absolute;
-
-  // //     &:nth-child(1) {
-  // //       top: 50%;
-  // //       left: 70%;
-  // //     }
-
-  // //     &:nth-child(2) {
-  // //       top: 70%;
-  // //       left: 40%;
-  // //     }
-
-  // //     &:nth-child(3) {
-  // //       top: 80%;
-  // //       left: 20%;
-  // //     }
-
-  // //     &:nth-child(4) {
-  // //       top: 20%;
-  // //       left: 40%;
-  // //     }
-  // //   }
-  // }
+position: relative;
 }
-
 .rockElem {
   position: absolute;
+  background-color: #283f9c;
 }
 
 @keyframes ropeSideToSide {

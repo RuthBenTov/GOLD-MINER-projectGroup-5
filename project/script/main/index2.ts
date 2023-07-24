@@ -21,11 +21,6 @@ function getElementToPlayer(item) {
   item.style.left = 50+"%";
 }
 
-// function LiftingTheRocks(item, ropeBottom, ropeLeft) {
-//   item.style.bottom = ropeBottom + "px";
-//   item.style.left = ropeLeft + "px";
-// }
-
 function checkCollision(ropeBottom, ropeLeft, ropeRect) {
   const rocks = document.querySelectorAll(".rockElem");
 

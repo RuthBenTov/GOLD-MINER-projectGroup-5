@@ -17,10 +17,6 @@ function getElementToPlayer(item) {
     item.style.top = -50 + "%";
     item.style.left = 50 + "%";
 }
-// function LiftingTheRocks(item, ropeBottom, ropeLeft) {
-//   item.style.bottom = ropeBottom + "px";
-//   item.style.left = ropeLeft + "px";
-// }
 function checkCollision(ropeBottom, ropeLeft, ropeRect) {
     var rocks = document.querySelectorAll(".rockElem");
     for (var i = 0; i < rocks.length; i++) {

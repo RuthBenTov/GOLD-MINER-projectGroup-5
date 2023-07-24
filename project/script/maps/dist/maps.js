@@ -164,3 +164,6 @@ var rockMap3Level3 = [
     new Rocks("gold", 90, 60, { xPos: 72, yPos: 60 }),
     new Rocks("gold", 90, 60, { xPos: 32, yPos: 80 }),
 ];
+var mapsLevel1 = [rockMap1Level1, rockMap1Level2, rockMap1Level3];
+var mapsLevel2 = [rockMap2Level1, rockMap2Level2, rockMap2Level3];
+var mapsLevel3 = [rockMap3Level1, rockMap3Level2, rockMap3Level3];
