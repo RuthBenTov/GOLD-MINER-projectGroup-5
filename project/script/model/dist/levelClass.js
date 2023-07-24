@@ -1,11 +1,19 @@
 var Level = /** @class */ (function () {
-    function Level(NumLevel, targetScore, timeToEnd, map) {
-        if (map === void 0) { map = Math.floor(Math.random() * 3) + 1; }
+    function Level(NumLevel, targetScore, timeToEnd) {
         this.NumLevel = NumLevel;
         this.targetScore = targetScore;
         this.timeToEnd = timeToEnd;
-        this.map = map;
+        var randomMapByLevel = Math.floor(Math.random() * 2);
+        if (NumLevel == 1)
+            this.map = mapsLevel1[randomMapByLevel];
+        if (NumLevel == 2)
+            this.map = mapsLevel2[randomMapByLevel];
+        if (NumLevel == 3)
+            this.map = mapsLevel3[randomMapByLevel];
     }
+    Level.prototype.renderLevel = function () {
+        this.map.forEach(function (rock) { return rock.renderRock(); });
+    };
     return Level;
 }());
 var levels = [

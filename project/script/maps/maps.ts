@@ -1,5 +1,5 @@
 // level 1-------------------------------------------------------------
-// import {Rocks}  from '../model/dist/rockClass';
+// import {Rocks}  from "../model/dist/rockClass"
 
 const rockMap1Level1 = [
   new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),

@@ -8,7 +8,6 @@ function LiftingTheRocks(item) {
     item.style.top = rope.style.top + "px";
 }
 
-//
 function getElementToPlayer(item) {
   let playerPosition = {
     x: goldMiner.getBoundingClientRect().left,

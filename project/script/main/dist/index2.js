@@ -5,7 +5,6 @@ function LiftingTheRocks(item) {
     console.log(item);
     item.style.top = rope.style.top + "px";
 }
-//
 function getElementToPlayer(item) {
     var playerPosition = {
         x: goldMiner.getBoundingClientRect().left,
