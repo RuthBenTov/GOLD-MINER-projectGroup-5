@@ -2,8 +2,12 @@ const rope = document.querySelector(".header__rope") as HTMLDivElement;
 const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
 
 
+<<<<<<< HEAD
+//-----------------------------Event Handlers-----------------------------
+=======
 
 //--------------------------------------------key press------------------------------------------------------------------------
+>>>>>>> main
 document.addEventListener("keydown", handlePress);
 
 function handlePress(ev: any) {
@@ -29,7 +33,13 @@ function handlePress(ev: any) {
 }
 
 
+<<<<<<< HEAD
+//------------------------------------------Timer------------------------------------------
+
+// timer
+=======
 // -------------------------------------timer-------------------------------------------------------------------------------------------
+>>>>>>> main
 const timer = document.querySelector(".head__rightSide__timer #timerValue");
 let timeSecond = 8000;
 

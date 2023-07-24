@@ -30,7 +30,6 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
-            // console.log(ropeRect.bottom)
             // console.log(ropeTop, ropeLeft)
         }
     }

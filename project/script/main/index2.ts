@@ -3,9 +3,9 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
 
 function LiftingTheRocks(item) {
-  const element = document.querySelector(".rockElem") as HTMLElement;
-  console.log(item);
-  item.style.top = rope.style.top + "px";
+    const element = document.querySelector(".rockElem") as HTMLElement;
+    console.log(item);
+    item.style.top = rope.style.top + "px";
 }
 
 function getElementToPlayer(item) {
@@ -17,7 +17,7 @@ function getElementToPlayer(item) {
   //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
   item.style.position = "absolute";
   item.style.top = -50 + "%";
-  item.style.left = 50 + "%";
+  item.style.left = 50+"%";
 }
 
 function checkCollision(ropeBottom, ropeLeft, ropeRect) {
@@ -54,5 +54,7 @@ setInterval(() => {
 }, 10);
 
 
+
+//----------------------------------------add rock to scoreboard --------------------------------
 
 
