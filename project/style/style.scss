@@ -15,45 +15,18 @@
   &__header {
     width: 100%;
     height: 20%;
+    position: relative;
     background-color: #fed034;
     position: relative;
 
     .head__rightSide {
       position: absolute;
-      &__timer,
-      &__level {
-        font-size: 20px;
-        display: flex;
-        gap: 10px;
-        #timerHead,
-        #levelHead {
-          color: #9e6844;
-        }
-        #timerValue,
-        #levelValue {
-          color: #e4583b;
-        }
-      }
-    }
-    .head__leftSide {
-      position: absolute;
-      right: 0;
-      &__score,
-      &__target {
-        font-size: 20px;
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        #targetHead,
-        #scoreHead {
-          color: #9e6844;
-        }
-        #targetValue {
-          color: #e4583b;
-        }
-        #scoreValue {
-          color: green;
-        }
+      font-size: 30px;
+      display: flex;
+      gap: 10px;
+
+      #timerHead{
+        color: red
       }
     }
   }
@@ -68,6 +41,7 @@
 
 .header {
   position: relative;
+
   &__character {
     position: relative;
     width: 20%;
@@ -75,6 +49,7 @@
     margin: auto;
     background-color: #283f9c;
     border-radius: 125px 125px 0 0;
+  
 
     img {
       width: 25%;
@@ -84,6 +59,7 @@
       left: 40%;
     }
   }
+
   &__rope {
     position: absolute;
     top: 100%;
@@ -94,9 +70,10 @@
     border: 1px solid rgb(6, 6, 6);
     transform-origin: 0% 0%;
     animation: ropeSideToSide 5s linear infinite;
+    
   }
 }
-.active {
+.active{
   transition: all 3s;
   animation-play-state: paused;
 }
@@ -104,25 +81,30 @@
 .footer {
 position: relative;
 }
-.rockElem {
+
+
+.rockElem{
   position: absolute;
-  background-color: #283f9c;
+
 }
 
 @keyframes ropeSideToSide {
   0% {
     transform: rotate(10deg);
   }
+
   50% {
     transform: rotate(170deg);
   }
+
   100% {
     transform: rotate(10deg);
   }
 }
 
-@keyframes gettingDown {
-  to {
-    width: 100vh;
+
+@keyframes gettingDown{
+  to{
+    width:100vh ;
   }
 }

@@ -14,6 +14,7 @@
 .container__header {
   width: 100%;
   height: 20%;
+  position: relative;
   background-color: #fed034;
   position: relative;
 }
