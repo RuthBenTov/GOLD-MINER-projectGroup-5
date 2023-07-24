@@ -25,10 +25,14 @@
   display: flex;
   gap: 10px;
 }
-.container__header .head__rightSide__timer #timerHead, .container__header .head__rightSide__timer #levelHead, .container__header .head__rightSide__level #timerHead, .container__header .head__rightSide__level #levelHead {
+.container__header .head__rightSide__timer #timerHead,
+.container__header .head__rightSide__timer #levelHead, .container__header .head__rightSide__level #timerHead,
+.container__header .head__rightSide__level #levelHead {
   color: #9e6844;
 }
-.container__header .head__rightSide__timer #timerValue, .container__header .head__rightSide__timer #levelValue, .container__header .head__rightSide__level #timerValue, .container__header .head__rightSide__level #levelValue {
+.container__header .head__rightSide__timer #timerValue,
+.container__header .head__rightSide__timer #levelValue, .container__header .head__rightSide__level #timerValue,
+.container__header .head__rightSide__level #levelValue {
   color: #e4583b;
 }
 .container__header .head__leftSide {
@@ -41,7 +45,9 @@
   flex-direction: row;
   gap: 10px;
 }
-.container__header .head__leftSide__score #targetHead, .container__header .head__leftSide__score #scoreHead, .container__header .head__leftSide__target #targetHead, .container__header .head__leftSide__target #scoreHead {
+.container__header .head__leftSide__score #targetHead,
+.container__header .head__leftSide__score #scoreHead, .container__header .head__leftSide__target #targetHead,
+.container__header .head__leftSide__target #scoreHead {
   color: #9e6844;
 }
 .container__header .head__leftSide__score #targetValue, .container__header .head__leftSide__target #targetValue {
@@ -95,6 +101,7 @@
 .rockElem {
   position: absolute;
   background-color: #283f9c;
+  border-radius: 50%;
 }
 
 @keyframes ropeSideToSide {
