@@ -3,9 +3,17 @@ var Level = /** @class */ (function () {
         this.NumLevel = NumLevel;
         this.targetScore = targetScore;
         this.timeToEnd = timeToEnd;
-        var randomMapByLevel = Math.floor(Math.random() * 3);
-        this.map = mapsLevel1[randomMapByLevel];
+        var randomMapByLevel = Math.floor(Math.random() * 2);
+        if (NumLevel == 1)
+            this.map = mapsLevel1[randomMapByLevel];
+        if (NumLevel == 2)
+            this.map = mapsLevel2[randomMapByLevel];
+        if (NumLevel == 3)
+            this.map = mapsLevel3[randomMapByLevel];
     }
+    Level.prototype.renderLevel = function () {
+        this.map.forEach(function (rock) { return rock.renderRock(); });
+    };
     return Level;
 }());
 var levels = [
