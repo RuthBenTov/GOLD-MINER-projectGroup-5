@@ -43,4 +43,3 @@ setInterval(function () {
     checkCollision(ropeBottom, ropeLeft, ropeRect);
     // console.log(ropeRect)
 }, 10);
-//----------------------------------------add rock to scoreboard --------------------------------
