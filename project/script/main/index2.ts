@@ -85,10 +85,10 @@ function checkCollision(ropeBottom, ropeLeft, ropeRect) {
     const item = rocks[i];
 
     if (
-      ropeRect.left < rocklocation.right &&
-      ropeRect.right > rocklocation.left &&
-      ropeRect.top < rocklocation.bottom &&
-      ropeRect.bottom > rocklocation.top
+      ropeRect.left <= rocklocation.right &&
+      ropeRect.right >= rocklocation.left &&
+      ropeRect.top <= rocklocation.bottom &&
+      ropeRect.bottom >= rocklocation.top
     ) {
       getElementToPlayer(item);
       rope.style.width = "40px";
