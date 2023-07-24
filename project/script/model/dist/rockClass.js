@@ -44,23 +44,3 @@ rockMap1Level1.forEach(function (elem) { return elem.renderRock(); });
 function createUniqId() {
     return String(Date.now().toString(32) + Math.random().toString(16)).replace(/\./g, "");
 }
-// timer
-var timer = document.querySelector(".head__rightSide__timer #timerValue");
-var timeSecond = 8000;
-displayTime(timeSecond);
-var countDown = setInterval(function () {
-    timeSecond--;
-    displayTime(timeSecond);
-    if (timeSecond <= 0) {
-        clearInterval(countDown);
-        alert("game over");
-        // window.location.href = "/project/view/gameOver.html";
-    }
-}, 1000);
-function displayTime(second) {
-    var min = Math.floor(second / 60);
-    var sec = Math.floor(second % 60);
-    if (timer) {
-        timer.innerHTML = "" + (min < 10 ? '0' : '') + min + ":" + (sec < 10 ? '0' : '') + sec;
-    }
-}

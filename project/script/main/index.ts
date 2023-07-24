@@ -1,6 +1,8 @@
 const rope = document.querySelector(".header__rope") as HTMLDivElement;
 const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
 
+
+//-----------------------------Event Handlers-----------------------------
 document.addEventListener("keydown", handlePress);
 
 function handlePress(ev: any) {
@@ -22,5 +24,32 @@ function handlePress(ev: any) {
   } else if (ev.key != "ArrowRight" && ev.key != "ArrowDown" && ev.key != "ArrowLeft") {
     rope.style.width = "40px";
     rope.classList.remove("active");
+  }
+}
+
+
+//------------------------------------------Timer------------------------------------------
+
+// timer
+const timer = document.querySelector(".head__rightSide__timer #timerValue");
+let timeSecond = 8000;
+
+displayTime(timeSecond);
+
+const countDown = setInterval (()=> {
+  timeSecond -- ;
+  displayTime(timeSecond);
+  if(timeSecond <= 0) {
+    clearInterval(countDown);
+    alert("game over")
+    // window.location.href = "/project/view/gameOver.html";
+  }
+},1000)
+
+function displayTime(second:number){
+  const min = Math.floor(second / 60);
+  const sec = Math.floor(second % 60);
+  if(timer){
+    timer.innerHTML = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`
   }
 }
