@@ -16,24 +16,24 @@ function getElementToPlayer(item) {
     item.style.top = -50 + "%";
     item.style.left = 50 + "%";
 }
-function checkCollision(ropeX, ropeY, ropeWidth, ropeHeight) {
+function checkCollision(ropeY, ropeX, ropeWidth, ropeHeight) {
     var rocks = document.querySelectorAll(".rockElem");
     for (var i = 0; i < rocks.length; i++) {
-        var rockX = rocks[i].getBoundingClientRect().x;
-        var rockY = rocks[i].getBoundingClientRect().y;
-        var rockHeight = rocks[i].getBoundingClientRect().height;
         var rockWidth = rocks[i].getBoundingClientRect().width;
+        var rockHeight = rocks[i].getBoundingClientRect().height;
+        var rockX = rocks[i].getBoundingClientRect().x;
+        var rocklY = rocks[i].getBoundingClientRect().y;
         var item = rocks[i];
         if (ropeX < rockX + rockWidth &&
             ropeX + ropeWidth > rockX &&
-            ropeY < rockY + rockHeight &&
-            ropeY + ropeHeight > rockY) {
-            console.log(item);
+            rocklY < ropeY + rockHeight &&
+            rocklY + ropeHeight > ropeY) {
+            // console.log(ropeBottom, ropeLeft);
+            // LiftingTheRocks(item, ropeBottom, ropeLeft);
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
-            // IdentifyTheStone(item)
-            // removingTheStone(item)
+            // console.log(ropeTop, ropeLeft)
         }
     }
 }
@@ -46,21 +46,7 @@ setInterval(function () {
     checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
     // console.log(ropeRect)
 }, 10);
-function IdentifyTheStone(item) {
-    // console.log(item.width, item.value, item.id, item.alt, item.src)
-    // console.log(item.src)
-    var money;
-    if (item.src == "http://127.0.0.1:5500/project/image/gold.png") {
-        console.log("gold");
-    }
-    if (item.src == "http://127.0.0.1:5500/project/image/stone.png") {
-        console.log("stone");
-    }
-    if (item.src == "http://127.0.0.1:5500/project/image/bag.png") {
-        console.log("bag");
-    }
-}
-// function removingTheStone(item) {
-//   if ()
-//     item.style.display = "none"
-// }
+// first.x < second.x + second.width &&
+//   first.x + first.width > second.x &&
+//   first.y < second.y + second.height &&
+//   first.y + first.height > second.y
