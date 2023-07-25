@@ -1,3 +1,5 @@
+console.log("starting game");
+
 const rope = document.querySelector(".header__rope") as HTMLDivElement;
 const goldMiner = document.querySelector(
   ".header__character",
