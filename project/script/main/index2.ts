@@ -1,6 +1,7 @@
-
 const rope = document.querySelector(".header__rope") as HTMLElement;
-const goldMiner = document.querySelector(".header__character") as HTMLDivElement;
+const goldMiner = document.querySelector(
+  ".header__character",
+) as HTMLDivElement;
 
 function LiftingTheRocks(item) {
   const element = document.querySelector(".rockElem") as HTMLElement;
@@ -42,7 +43,6 @@ function checkCollision(ropeX, ropeY, ropeWidth, ropeHeight) {
       rope.classList.remove("active");
       // IdentifyTheStone(item)
       // removingTheStone(item)
-
     }
   }
 }
@@ -57,20 +57,18 @@ setInterval(() => {
   // console.log(ropeRect)
 }, 10);
 
-
-
 function IdentifyTheStone(item) {
   // console.log(item.width, item.value, item.id, item.alt, item.src)
   // console.log(item.src)
   let money: number;
   if (item.src == "http://127.0.0.1:5500/project/image/gold.png") {
-    console.log("gold")
+    console.log("gold");
   }
   if (item.src == "http://127.0.0.1:5500/project/image/stone.png") {
-    console.log("stone")
+    console.log("stone");
   }
   if (item.src == "http://127.0.0.1:5500/project/image/bag.png") {
-    console.log("bag")
+    console.log("bag");
   }
 }
 
@@ -78,6 +76,3 @@ function IdentifyTheStone(item) {
 //   if ()
 //     item.style.display = "none"
 // }
-
-
-
