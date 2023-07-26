@@ -9,6 +9,8 @@ class Level {
     if (NumLevel == 1) this.map = mapsLevel1[randomMapByLevel];
     if (NumLevel == 2) this.map = mapsLevel2[randomMapByLevel];
     if (NumLevel == 3) this.map = mapsLevel3[randomMapByLevel];
+
+    
   }
 
   renderLevel(){

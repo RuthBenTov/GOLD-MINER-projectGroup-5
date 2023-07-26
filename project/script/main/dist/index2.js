@@ -42,7 +42,7 @@ setInterval(function () {
     var ropeY = rope.getBoundingClientRect().y;
     var ropeWidth = rope.getBoundingClientRect().width;
     var ropeHeight = rope.getBoundingClientRect().height;
-    // console.log(ropeBottom, ropeLeft, ropeRect)
+    console.log(ropeWidth, ropeHeight);
     checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
     // console.log(ropeRect)
 }, 10);
