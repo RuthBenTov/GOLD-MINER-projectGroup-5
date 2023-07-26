@@ -1,4 +1,5 @@
 console.log("starting game");
+console.log("hi");
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
 //-----------------------------Event Handlers-----------------------------
