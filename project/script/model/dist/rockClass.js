@@ -33,7 +33,7 @@ var __rockMap1Level1 = [
     new Rocks("stone", 3, 30, { xPos: 30, yPos: 30 }),
     new Rocks("stone", 14, 30, { xPos: 80, yPos: 20 }),
     new Rocks("stone", 7, 30, { xPos: 20, yPos: 70 }),
-    new Rocks("bag", 7, 20, { xPos: 70, yPos: 50 }),
+    new Rocks("bag", -1, 20, { xPos: 70, yPos: 50 }),
     new Rocks("gold", 600, 90, { xPos: 30, yPos: 55 }),
     new Rocks("gold", 650, 90, { xPos: 5, yPos: 70 }),
     new Rocks("gold", 300, 70, { xPos: 70, yPos: 70 }),

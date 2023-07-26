@@ -28,11 +28,10 @@ function checkCollision(ropeX, ropeY, ropeWidth, ropeHeight) {
             ropeX + ropeWidth > rockX &&
             ropeY < rockY + rockHeight &&
             ropeY + ropeHeight > rockY) {
-            console.log(item);
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
-            // IdentifyTheStone(item)
+            IdentifyTheStone(item);
             // removingTheStone(item)
         }
     }
@@ -42,13 +41,23 @@ setInterval(function () {
     var ropeY = rope.getBoundingClientRect().y;
     var ropeWidth = rope.getBoundingClientRect().width;
     var ropeHeight = rope.getBoundingClientRect().height;
+<<<<<<< Updated upstream
     // console.log(ropeBottom, ropeLeft, ropeRect)
+=======
+    // console.log(ropeWidth, ropeHeight);
+>>>>>>> Stashed changes
     checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
     // console.log(ropeRect)
 }, 10);
 function IdentifyTheStone(item) {
     // console.log(item.width, item.value, item.id, item.alt, item.src)
-    // console.log(item.src)
+    console.log(item);
+    console.log(item.id);
+    console.log(__rockMap1Level1);
+    var currentElem = __rockMap1Level1.find(function (elem) { return elem.id === item.id; });
+    console.log(currentElem);
+    // console.log("value:"+ currentElem.value);
+    // console.log("id:" + currentElem.id);
     var money;
     if (item.src == "http://127.0.0.1:5500/project/image/gold.png") {
         console.log("gold");
@@ -59,6 +68,7 @@ function IdentifyTheStone(item) {
     if (item.src == "http://127.0.0.1:5500/project/image/bag.png") {
         console.log("bag");
     }
+    // if(__rockMap1Level1.find(element => element.id == item.id)) {
 }
 // function removingTheStone(item) {
 //   if ()
