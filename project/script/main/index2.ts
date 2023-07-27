@@ -2,49 +2,52 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 const goldMiner = document.querySelector(
   ".header__character",
 ) as HTMLDivElement;
-
-function LiftingTheRocks(item) {
-  const element = document.querySelector(".rockElem") as HTMLElement;
-  console.log(item);
-  item.style.top = rope.style.top + "px";
-}
+const gameBoard = document.querySelector(".container") as HTMLDivElement;
+const gameBoardLeft = gameBoard.getBoundingClientRect().left;
+const gameBoardRight = gameBoard.getBoundingClientRect().right;
+const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
 
 function getElementToPlayer(item) {
   let playerPosition = {
     x: goldMiner.getBoundingClientRect().left,
-    y: goldMiner.getBoundingClientRect().top,
+    y: rope.getBoundingClientRect().top,
   };
   //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
   //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
   item.style.position = "absolute";
   item.style.top = -50 + "%";
   item.style.left = 50 + "%";
+
+  IdentifyTheStone(item);
 }
 
-function checkCollision(ropeX, ropeY, ropeWidth, ropeHeight) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom) {
   const rocks = document.querySelectorAll(".rockElem");
 
   for (let i = 0; i < rocks.length; i++) {
-    const rockX = rocks[i].getBoundingClientRect().x;
-    const rockY = rocks[i].getBoundingClientRect().y;
-    const rockHeight = rocks[i].getBoundingClientRect().height;
-    const rockWidth = rocks[i].getBoundingClientRect().width;
+    const rockLeft = rocks[i].getBoundingClientRect().left;
+    const rockRight = rocks[i].getBoundingClientRect().right;
+    const rockTop = rocks[i].getBoundingClientRect().top;
+    const rockBottom = rocks[i].getBoundingClientRect().bottom;
     const item = rocks[i];
 
     if (
-      ropeX < rockX + rockWidth &&
-      ropeX + ropeWidth > rockX &&
-      ropeY < rockY + rockHeight &&
-      ropeY + ropeHeight > rockY
+      (ropeRight < rockRight &&
+        ropeRight > rockLeft &&
+        ropeBottom < rockBottom &&
+        ropeBottom > rockTop) ||
+      (ropeLeft < rockRight &&
+        ropeLeft > rockLeft &&
+        ropeBottom < rockBottom &&
+        ropeBottom > rockTop)
     ) {
-      console.log(item);
-      getElementToPlayer(item);
       rope.style.width = "40px";
       rope.classList.remove("active");
-      // IdentifyTheStone(item)
+      getElementToPlayer(item);
       // removingTheStone(item)
     }
   }
+<<<<<<< HEAD
 }
 setInterval(() => {
   const ropeX = rope.getBoundingClientRect().x;
@@ -54,23 +57,40 @@ setInterval(() => {
   
   console.log(ropeWidth, ropeHeight);
   checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
+=======
+>>>>>>> main
 
-  // console.log(ropeRect)
-}, 10);
+  if (
+    ropeLeft <= gameBoardLeft ||
+    ropeRight >= gameBoardRight ||
+    ropeBottom >= gameBoardBottom
+  ) {
+    rope.style.width = "40px";
+    rope.classList.remove("active");
+  }
+}
+
+setInterval(() => {
+  const ropeLeft = rope.getBoundingClientRect().left;
+  const ropeRight = rope.getBoundingClientRect().right;
+  const ropeBottom = rope.getBoundingClientRect().bottom;
+
+  checkCollision(ropeLeft, ropeRight, ropeBottom);
+}, 0.5);
 
 function IdentifyTheStone(item) {
-  // console.log(item.width, item.value, item.id, item.alt, item.src)
-  // console.log(item.src)
-  let money: number;
-  if (item.src == "http://127.0.0.1:5500/project/image/gold.png") {
-    console.log("gold");
-  }
-  if (item.src == "http://127.0.0.1:5500/project/image/stone.png") {
-    console.log("stone");
-  }
-  if (item.src == "http://127.0.0.1:5500/project/image/bag.png") {
-    console.log("bag");
-  }
+  console.log(item);
+
+  const thisMap = levels.find((level) => level.isActive === true)!.map;
+  const thisLevel = getLevelsFromLs().find((level) => level.isActive === true)!;
+  const currentElem = thisMap.find((elem) => elem.id === item.id)!;
+  console.log(currentElem);
+
+  thisLevel.score += currentElem.value;
+  document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
+
+  setLevelsInLs(levels);
+  // if(__rockMap1Level1.find(element => element.id == item.id)) {
 }
 
 // function removingTheStone(item) {

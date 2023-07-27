@@ -1,4 +1,6 @@
 console.log("starting game");
+console.log("hi");
+
 
 const rope = document.querySelector(".header__rope") as HTMLDivElement;
 const goldMiner = document.querySelector(
@@ -10,7 +12,7 @@ document.addEventListener("keydown", handlePress);
 
 function handlePress(ev: any) {
   if (ev.key === "ArrowDown") {
-    rope.style.width = "400px";
+    rope.style.width = "1000px";
     rope.classList.add("active");
   }
   if (ev.key === "ArrowLeft") {
@@ -35,9 +37,8 @@ function handlePress(ev: any) {
 //------------------------------------------Timer------------------------------------------
 
 // timer
-// -------------------------------------timer-------------------------------------------------------------------------------------------
 const timer = document.querySelector(".head__rightSide__timer #timerValue");
-let timeSecond = 8000;
+let timeSecond = 80;
 
 displayTime(timeSecond);
 
