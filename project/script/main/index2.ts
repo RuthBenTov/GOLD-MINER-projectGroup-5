@@ -2,8 +2,13 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 const goldMiner = document.querySelector(
   ".header__character",
 ) as HTMLDivElement;
+const gameBoard = document.querySelector(".container") as HTMLDivElement;
+const gameBoardLeft = gameBoard.getBoundingClientRect().left;
+const gameBoardRight = gameBoard.getBoundingClientRect().right;
+const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
 
 function getElementToPlayer(item) {
+  console.log("hi");
   let playerPosition = {
     x: goldMiner.getBoundingClientRect().left,
     y: goldMiner.getBoundingClientRect().top,
@@ -13,6 +18,8 @@ function getElementToPlayer(item) {
   item.style.position = "absolute";
   item.style.top = -50 + "%";
   item.style.left = 50 + "%";
+
+  IdentifyTheStone(item);
 }
 
 function checkCollision(ropeLeft, ropeRight, ropeBottom) {
@@ -29,7 +36,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
       (ropeRight < rockRight &&
         ropeRight > rockLeft &&
         ropeBottom < rockBottom &&
-        ropeBottom > rockTop)||
+        ropeBottom > rockTop)
+        
+        ||
         
       (ropeLeft < rockRight &&
         ropeLeft > rockLeft &&
@@ -40,9 +49,14 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
 
       rope.style.width = "40px";
       rope.classList.remove("active");
-      IdentifyTheStone(item);
       // removingTheStone(item)
     }
+  }
+
+  if(ropeLeft <= gameBoardLeft || ropeRight >= gameBoardRight || ropeBottom >= gameBoardBottom) {
+
+    rope.style.width = "40px";
+    rope.classList.remove("active");
   }
 }
 
@@ -53,14 +67,13 @@ setInterval(() => {
 
   checkCollision(ropeLeft, ropeRight, ropeBottom);
 
-}, 50);
+}, 10);
 
 function IdentifyTheStone(item) {
   // console.log(item.width, item.value, item.id, item.alt, item.src)
   console.log(item);
   console.log(item.id);
   console.log(__rockMap1Level1);
-
   const currentElem = __rockMap1Level1.find((elem) => elem.id === item.id)!;
   console.log(currentElem);
   // console.log("value:"+ currentElem.value);

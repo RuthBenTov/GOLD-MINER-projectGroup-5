@@ -6,7 +6,7 @@ var goldMiner = document.querySelector(".header__character");
 document.addEventListener("keydown", handlePress);
 function handlePress(ev) {
     if (ev.key === "ArrowDown") {
-        rope.style.width = "400px";
+        rope.style.width = "1000px";
         rope.classList.add("active");
     }
     if (ev.key === "ArrowLeft") {

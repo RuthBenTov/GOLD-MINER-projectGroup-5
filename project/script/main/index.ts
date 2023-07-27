@@ -12,7 +12,7 @@ document.addEventListener("keydown", handlePress);
 
 function handlePress(ev: any) {
   if (ev.key === "ArrowDown") {
-    rope.style.width = "400px";
+    rope.style.width = "1000px";
     rope.classList.add("active");
   }
   if (ev.key === "ArrowLeft") {

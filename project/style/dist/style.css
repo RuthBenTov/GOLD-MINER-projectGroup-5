@@ -84,7 +84,7 @@
   animation: ropeSideToSide 5s linear infinite;
 }
 .container__header .active {
-  transition: all 3s;
+  transition: all 6s;
   animation-play-state: paused;
 }
 .container__footer {

@@ -1,6 +1,11 @@
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
+var gameBoard = document.querySelector(".container");
+var gameBoardLeft = gameBoard.getBoundingClientRect().left;
+var gameBoardRight = gameBoard.getBoundingClientRect().right;
+var gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
 function getElementToPlayer(item) {
+    console.log("hi");
     var playerPosition = {
         x: goldMiner.getBoundingClientRect().left,
         y: goldMiner.getBoundingClientRect().top
@@ -10,6 +15,7 @@ function getElementToPlayer(item) {
     item.style.position = "absolute";
     item.style.top = -50 + "%";
     item.style.left = 50 + "%";
+    IdentifyTheStone(item);
 }
 function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     var rocks = document.querySelectorAll(".rockElem");
@@ -22,17 +28,21 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         if ((ropeRight < rockRight &&
             ropeRight > rockLeft &&
             ropeBottom < rockBottom &&
-            ropeBottom > rockTop) ||
-            (ropeLeft < rockRight &&
-                ropeLeft > rockLeft &&
-                ropeBottom < rockBottom &&
-                ropeBottom > rockTop)) {
+            ropeBottom > rockTop)
+            ||
+                (ropeLeft < rockRight &&
+                    ropeLeft > rockLeft &&
+                    ropeBottom < rockBottom &&
+                    ropeBottom > rockTop)) {
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
-            IdentifyTheStone(item);
             // removingTheStone(item)
         }
+    }
+    if (ropeLeft <= gameBoardLeft || ropeRight >= gameBoardRight || ropeBottom >= gameBoardBottom) {
+        rope.style.width = "40px";
+        rope.classList.remove("active");
     }
 }
 setInterval(function () {
@@ -40,7 +50,7 @@ setInterval(function () {
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
     checkCollision(ropeLeft, ropeRight, ropeBottom);
-}, 50);
+}, 10);
 function IdentifyTheStone(item) {
     // console.log(item.width, item.value, item.id, item.alt, item.src)
     console.log(item);
