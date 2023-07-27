@@ -12,6 +12,43 @@ class Rock {
     if (this.type === "bag") this.imgSrc = "../image/bag.png";
   }
 
+  getScore() {
+    if (this.type === "gold") {
+      switch (this.width) {
+        case 90:
+          this.value = 650;
+          break;
+        case 70:
+          this.value = 550;
+          break;
+        case 60:
+          this.value = 300;
+          break;
+        case 30:
+          this.value = 200;
+          break;
+      }
+    }
+    if (this.type === "stone") {
+      switch (this.width) {
+        case 90:
+          this.value = 50;
+          break;
+        case 60:
+          this.value = 20;
+          break;
+        case 30:
+          this.value = 11;
+          break;
+      }
+    }
+    if (this.type === "bag") {
+      this.value = -1;
+    }
+
+    return this.value;
+  }
+
   renderRock() {
     const game = document.querySelector(".container__footer") as HTMLDivElement;
     if (game) {
@@ -21,7 +58,7 @@ class Rock {
           style="width:${this.width}px; top: ${this.position.yPos}%; left: ${this.position.xPos}%">`;
     }
   }
-};
+}
 // // export default new Rocks;
 // // import { rockMap1Level1 } from '../maps/dist/maps';
 // const __rockMap1Level1 = [
@@ -39,10 +76,7 @@ class Rock {
 //   new Rocks("gold", 90, 30, { xPos: 12, yPos: 10 }),
 // ];
 
-
-
 // __rockMap1Level1.forEach((elem) => elem.renderRock());
-
 
 function createUniqId(): string {
   return String(Date.now().toString(32) + Math.random().toString(16)).replace(
@@ -50,5 +84,3 @@ function createUniqId(): string {
     "",
   );
 }
-
-

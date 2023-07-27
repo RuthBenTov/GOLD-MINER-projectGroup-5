@@ -53,10 +53,11 @@ setInterval(function () {
 }, 0.5);
 function IdentifyTheStone(item) {
     console.log(item);
-    var thisMap = levels.find(function (level) { return level.isActive === true; }).map;
-    var thisLevel = getLevelsFromLs().find(function (level) { return level.isActive === true; });
+    var thisLevel = levels.find(function (level) { return level.isActive === true; });
+    var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     console.log(currentElem);
+    thisLevel.score += currentElem.getScore();
     thisLevel.score += currentElem.value;
     document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
     setLevelsInLs(levels);

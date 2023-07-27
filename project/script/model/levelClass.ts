@@ -8,7 +8,7 @@ class Level {
     public isActive: boolean = false,
     public score: number = 0,
   ) {
-    let randomMapByLevel = Math.floor(Math.random() * 2);
+    let randomMapByLevel = Math.floor(Math.random() * 3);
     if (numLevel == 1) this.map = mapsLevel1[randomMapByLevel];
     if (numLevel == 2) this.map = mapsLevel2[randomMapByLevel];
     if (numLevel == 3) this.map = mapsLevel3[randomMapByLevel];
@@ -25,8 +25,8 @@ class Level {
 }
 
 const __levels: Level[] = [
-  new Level(1, 1000, 80),
-  new Level(2, 1200, 80, true),
+  new Level(1, 1000, 80, true),
+  new Level(2, 1200, 80),
   new Level(3, 1700, 90),
 ];
 

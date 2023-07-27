@@ -5,3 +5,6 @@ var player = /** @class */ (function () {
     }
     return player;
 }());
+var players;
+//local
+//

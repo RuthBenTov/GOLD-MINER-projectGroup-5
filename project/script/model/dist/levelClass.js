@@ -7,7 +7,7 @@ var Level = /** @class */ (function () {
         this.timeToEnd = timeToEnd;
         this.isActive = isActive;
         this.score = score;
-        var randomMapByLevel = Math.floor(Math.random() * 2);
+        var randomMapByLevel = Math.floor(Math.random() * 3);
         if (numLevel == 1)
             this.map = mapsLevel1[randomMapByLevel];
         if (numLevel == 2)
@@ -24,8 +24,8 @@ var Level = /** @class */ (function () {
     return Level;
 }());
 var __levels = [
-    new Level(1, 1000, 80),
-    new Level(2, 1200, 80, true),
+    new Level(1, 1000, 80, true),
+    new Level(2, 1200, 80),
     new Level(3, 1700, 90),
 ];
 var levels;

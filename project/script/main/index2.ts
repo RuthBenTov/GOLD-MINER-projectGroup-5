@@ -69,11 +69,14 @@ setInterval(() => {
 function IdentifyTheStone(item) {
   console.log(item);
 
-  const thisMap = levels.find((level) => level.isActive === true)!.map;
-  const thisLevel = getLevelsFromLs().find((level) => level.isActive === true)!;
+  const thisLevel = levels.find((level) => level.isActive === true)!;
+  const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
   console.log(currentElem);
 
+
+
+thisLevel.score += currentElem.getScore()
   thisLevel.score += currentElem.value;
   document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
 

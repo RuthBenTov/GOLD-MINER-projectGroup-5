@@ -15,6 +15,41 @@ var Rock = /** @class */ (function () {
         if (this.type === "bag")
             this.imgSrc = "../image/bag.png";
     }
+    Rock.prototype.getScore = function () {
+        if (this.type === "gold") {
+            switch (this.width) {
+                case 90:
+                    this.value = 650;
+                    break;
+                case 70:
+                    this.value = 550;
+                    break;
+                case 60:
+                    this.value = 300;
+                    break;
+                case 30:
+                    this.value = 200;
+                    break;
+            }
+        }
+        if (this.type === "stone") {
+            switch (this.width) {
+                case 90:
+                    this.value = 50;
+                    break;
+                case 60:
+                    this.value = 20;
+                    break;
+                case 30:
+                    this.value = 11;
+                    break;
+            }
+        }
+        if (this.type === "bag") {
+            this.value = -1;
+        }
+        return this.value;
+    };
     Rock.prototype.renderRock = function () {
         var game = document.querySelector(".container__footer");
         if (game) {
@@ -23,7 +58,6 @@ var Rock = /** @class */ (function () {
     };
     return Rock;
 }());
-;
 // // export default new Rocks;
 // // import { rockMap1Level1 } from '../maps/dist/maps';
 // const __rockMap1Level1 = [

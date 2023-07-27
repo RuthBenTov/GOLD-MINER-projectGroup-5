@@ -14,7 +14,7 @@ var rockMap1Level1 = [
     new Rock("gold", 90, 30, { xPos: 12, yPos: 10 }),
 ];
 var rockMap2Level1 = [
-    new Rock("stone", 7, 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 7, 50, { xPos: 40, yPos: 50 }),
     new Rock("stone", 11, 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 9, 30, { xPos: 40, yPos: 20 }),
     new Rock("stone", 3, 60, { xPos: 20, yPos: 30 }),
@@ -166,3 +166,12 @@ var rockMap3Level3 = [
 var mapsLevel1 = [rockMap1Level1, rockMap1Level2, rockMap1Level3];
 var mapsLevel2 = [rockMap2Level1, rockMap2Level2, rockMap2Level3];
 var mapsLevel3 = [rockMap3Level1, rockMap3Level2, rockMap3Level3];
+///גדלים של זהב:
+90;
+70;
+60;
+30;
+//גדלים של אבנים
+90;
+60;
+30;
