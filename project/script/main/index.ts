@@ -37,9 +37,8 @@ function handlePress(ev: any) {
 //------------------------------------------Timer------------------------------------------
 
 // timer
-// -------------------------------------timer-------------------------------------------------------------------------------------------
 const timer = document.querySelector(".head__rightSide__timer #timerValue");
-let timeSecond = 8000;
+let timeSecond = 80;
 
 displayTime(timeSecond);
 

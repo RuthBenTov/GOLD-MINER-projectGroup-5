@@ -8,10 +8,9 @@ const gameBoardRight = gameBoard.getBoundingClientRect().right;
 const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
 
 function getElementToPlayer(item) {
-  console.log("hi");
   let playerPosition = {
     x: goldMiner.getBoundingClientRect().left,
-    y: goldMiner.getBoundingClientRect().top,
+    y: rope.getBoundingClientRect().top,
   };
   //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
   //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
@@ -45,16 +44,14 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ){        
-      getElementToPlayer(item);
-
       rope.style.width = "40px";
       rope.classList.remove("active");
+      getElementToPlayer(item);
       // removingTheStone(item)
     }
   }
 
   if(ropeLeft <= gameBoardLeft || ropeRight >= gameBoardRight || ropeBottom >= gameBoardBottom) {
-
     rope.style.width = "40px";
     rope.classList.remove("active");
   }
@@ -67,29 +64,20 @@ setInterval(() => {
 
   checkCollision(ropeLeft, ropeRight, ropeBottom);
 
-}, 10);
+}, .5);
 
 function IdentifyTheStone(item) {
-  // console.log(item.width, item.value, item.id, item.alt, item.src)
   console.log(item);
-  console.log(item.id);
-  console.log(__rockMap1Level1);
-  const currentElem = __rockMap1Level1.find((elem) => elem.id === item.id)!;
-  console.log(currentElem);
-  // console.log("value:"+ currentElem.value);
-  // console.log("id:" + currentElem.id);
-
-  let money: number;
-  if (item.src == "http://127.0.0.1:5500/project/image/gold.png") {
-    console.log("gold");
-  }
-  if (item.src == "http://127.0.0.1:5500/project/image/stone.png") {
-    console.log("stone");
-  }
-  if (item.src == "http://127.0.0.1:5500/project/image/bag.png") {
-    console.log("bag");
-  }
-
+  
+   const thisMap = levels.find(level => level.isActive === true)!.map
+   const thisLevel = getLevelsFromLs().find(level => level.isActive === true)!
+   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
+   console.log(currentElem);
+   
+   thisLevel.score += currentElem.value;
+   document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString()  
+   
+   setLevelsInLs(levels);
   // if(__rockMap1Level1.find(element => element.id == item.id)) {
 }
 

@@ -1,5 +1,4 @@
 // level 1-------------------------------------------------------------
-// import {Rocks}  from "../model/dist/rockClass"
 var rockMap1Level1 = [
     new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
     new Rocks("stone", 11, 30, { xPos: 60, yPos: 70 }),

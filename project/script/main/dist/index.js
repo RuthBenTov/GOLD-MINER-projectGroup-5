@@ -28,9 +28,8 @@ function handlePress(ev) {
 }
 //------------------------------------------Timer------------------------------------------
 // timer
-// -------------------------------------timer-------------------------------------------------------------------------------------------
 var timer = document.querySelector(".head__rightSide__timer #timerValue");
-var timeSecond = 8000;
+var timeSecond = 80;
 displayTime(timeSecond);
 var countDown = setInterval(function () {
     timeSecond--;

@@ -5,10 +5,9 @@ var gameBoardLeft = gameBoard.getBoundingClientRect().left;
 var gameBoardRight = gameBoard.getBoundingClientRect().right;
 var gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
 function getElementToPlayer(item) {
-    console.log("hi");
     var playerPosition = {
         x: goldMiner.getBoundingClientRect().left,
-        y: goldMiner.getBoundingClientRect().top
+        y: rope.getBoundingClientRect().top
     };
     //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
     //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
@@ -34,9 +33,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
                     ropeLeft > rockLeft &&
                     ropeBottom < rockBottom &&
                     ropeBottom > rockTop)) {
-            getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
+            getElementToPlayer(item);
             // removingTheStone(item)
         }
     }
@@ -50,26 +49,16 @@ setInterval(function () {
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
     checkCollision(ropeLeft, ropeRight, ropeBottom);
-}, 10);
+}, .5);
 function IdentifyTheStone(item) {
-    // console.log(item.width, item.value, item.id, item.alt, item.src)
     console.log(item);
-    console.log(item.id);
-    console.log(__rockMap1Level1);
-    var currentElem = __rockMap1Level1.find(function (elem) { return elem.id === item.id; });
+    var thisMap = levels.find(function (level) { return level.isActive === true; }).map;
+    var thisLevel = getLevelsFromLs().find(function (level) { return level.isActive === true; });
+    var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     console.log(currentElem);
-    // console.log("value:"+ currentElem.value);
-    // console.log("id:" + currentElem.id);
-    var money;
-    if (item.src == "http://127.0.0.1:5500/project/image/gold.png") {
-        console.log("gold");
-    }
-    if (item.src == "http://127.0.0.1:5500/project/image/stone.png") {
-        console.log("stone");
-    }
-    if (item.src == "http://127.0.0.1:5500/project/image/bag.png") {
-        console.log("bag");
-    }
+    thisLevel.score += currentElem.value;
+    document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
+    setLevelsInLs(levels);
     // if(__rockMap1Level1.find(element => element.id == item.id)) {
 }
 // function removingTheStone(item) {
