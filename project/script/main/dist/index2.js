@@ -1,10 +1,5 @@
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
-function LiftingTheRocks(item) {
-    var element = document.querySelector(".rockElem");
-    console.log(item);
-    item.style.top = rope.style.top + "px";
-}
 function getElementToPlayer(item) {
     var playerPosition = {
         x: goldMiner.getBoundingClientRect().left,
@@ -16,18 +11,23 @@ function getElementToPlayer(item) {
     item.style.top = -50 + "%";
     item.style.left = 50 + "%";
 }
-function checkCollision(ropeX, ropeY, ropeWidth, ropeHeight) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     var rocks = document.querySelectorAll(".rockElem");
     for (var i = 0; i < rocks.length; i++) {
-        var rockX = rocks[i].getBoundingClientRect().x;
-        var rockY = rocks[i].getBoundingClientRect().y;
-        var rockHeight = rocks[i].getBoundingClientRect().height;
-        var rockWidth = rocks[i].getBoundingClientRect().width;
+        var rockLeft = rocks[i].getBoundingClientRect().left;
+        var rockRight = rocks[i].getBoundingClientRect().right;
+        var rockTop = rocks[i].getBoundingClientRect().top;
+        var rockBottom = rocks[i].getBoundingClientRect().bottom;
         var item = rocks[i];
-        if (ropeX < rockX + rockWidth &&
-            ropeX + ropeWidth > rockX &&
-            ropeY < rockY + rockHeight &&
-            ropeY + ropeHeight > rockY) {
+        if ((ropeRight < rockRight &&
+            ropeRight > rockLeft &&
+            ropeBottom < rockBottom &&
+            ropeBottom > rockTop) ||
+            (ropeLeft < rockRight &&
+                ropeLeft > rockLeft &&
+                ropeBottom < rockBottom &&
+                ropeBottom > rockTop)) {
+            console.log("collision");
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
@@ -37,14 +37,15 @@ function checkCollision(ropeX, ropeY, ropeWidth, ropeHeight) {
     }
 }
 setInterval(function () {
-    var ropeX = rope.getBoundingClientRect().x;
-    var ropeY = rope.getBoundingClientRect().y;
-    var ropeWidth = rope.getBoundingClientRect().width;
-    var ropeHeight = rope.getBoundingClientRect().height;
-    // console.log(ropeBottom, ropeLeft, ropeRect)
-    checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
+    var ropeLeft = rope.getBoundingClientRect().left;
+    var ropeRight = rope.getBoundingClientRect().right;
+    var ropeBottom = rope.getBoundingClientRect().bottom;
+    //   const ropeWidth = rope.getBoundingClientRect().width;
+    //   const ropeHeight = rope.getBoundingClientRect().height;
+    console.log(ropeLeft, ropeRight, ropeBottom);
+    checkCollision(ropeLeft, ropeRight, ropeBottom);
     // console.log(ropeRect)
-}, 10);
+}, 50);
 function IdentifyTheStone(item) {
     // console.log(item.width, item.value, item.id, item.alt, item.src)
     console.log(item);
