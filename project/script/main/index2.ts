@@ -50,12 +50,7 @@ setInterval(() => {
   const ropeY = rope.getBoundingClientRect().y;
   const ropeWidth = rope.getBoundingClientRect().width;
   const ropeHeight = rope.getBoundingClientRect().height;
-<<<<<<< Updated upstream
   // console.log(ropeBottom, ropeLeft, ropeRect)
-=======
-  
-  // console.log(ropeWidth, ropeHeight);
->>>>>>> Stashed changes
   checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
 
   // console.log(ropeRect)
