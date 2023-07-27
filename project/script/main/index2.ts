@@ -35,15 +35,12 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
       (ropeRight < rockRight &&
         ropeRight > rockLeft &&
         ropeBottom < rockBottom &&
-        ropeBottom > rockTop)
-        
-        ||
-        
+        ropeBottom > rockTop) ||
       (ropeLeft < rockRight &&
         ropeLeft > rockLeft &&
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
-    ){        
+    ) {
       rope.style.width = "40px";
       rope.classList.remove("active");
       getElementToPlayer(item);
@@ -51,7 +48,11 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     }
   }
 
-  if(ropeLeft <= gameBoardLeft || ropeRight >= gameBoardRight || ropeBottom >= gameBoardBottom) {
+  if (
+    ropeLeft <= gameBoardLeft ||
+    ropeRight >= gameBoardRight ||
+    ropeBottom >= gameBoardBottom
+  ) {
     rope.style.width = "40px";
     rope.classList.remove("active");
   }
@@ -63,21 +64,20 @@ setInterval(() => {
   const ropeBottom = rope.getBoundingClientRect().bottom;
 
   checkCollision(ropeLeft, ropeRight, ropeBottom);
-
-}, .5);
+}, 0.5);
 
 function IdentifyTheStone(item) {
   console.log(item);
-  
-   const thisMap = levels.find(level => level.isActive === true)!.map
-   const thisLevel = getLevelsFromLs().find(level => level.isActive === true)!
-   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
-   console.log(currentElem);
-   
-   thisLevel.score += currentElem.value;
-   document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString()  
-   
-   setLevelsInLs(levels);
+
+  const thisMap = levels.find((level) => level.isActive === true)!.map;
+  const thisLevel = getLevelsFromLs().find((level) => level.isActive === true)!;
+  const currentElem = thisMap.find((elem) => elem.id === item.id)!;
+  console.log(currentElem);
+
+  thisLevel.score += currentElem.value;
+  document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
+
+  setLevelsInLs(levels);
   // if(__rockMap1Level1.find(element => element.id == item.id)) {
 }
 

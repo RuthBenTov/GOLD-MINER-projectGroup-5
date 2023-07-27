@@ -27,19 +27,20 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         if ((ropeRight < rockRight &&
             ropeRight > rockLeft &&
             ropeBottom < rockBottom &&
-            ropeBottom > rockTop)
-            ||
-                (ropeLeft < rockRight &&
-                    ropeLeft > rockLeft &&
-                    ropeBottom < rockBottom &&
-                    ropeBottom > rockTop)) {
+            ropeBottom > rockTop) ||
+            (ropeLeft < rockRight &&
+                ropeLeft > rockLeft &&
+                ropeBottom < rockBottom &&
+                ropeBottom > rockTop)) {
             rope.style.width = "40px";
             rope.classList.remove("active");
             getElementToPlayer(item);
             // removingTheStone(item)
         }
     }
-    if (ropeLeft <= gameBoardLeft || ropeRight >= gameBoardRight || ropeBottom >= gameBoardBottom) {
+    if (ropeLeft <= gameBoardLeft ||
+        ropeRight >= gameBoardRight ||
+        ropeBottom >= gameBoardBottom) {
         rope.style.width = "40px";
         rope.classList.remove("active");
     }
@@ -49,7 +50,7 @@ setInterval(function () {
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
     checkCollision(ropeLeft, ropeRight, ropeBottom);
-}, .5);
+}, 0.5);
 function IdentifyTheStone(item) {
     console.log(item);
     var thisMap = levels.find(function (level) { return level.isActive === true; }).map;
