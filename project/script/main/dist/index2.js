@@ -46,22 +46,11 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     }
 }
 setInterval(function () {
-<<<<<<< HEAD
-    var ropeX = rope.getBoundingClientRect().x;
-    var ropeY = rope.getBoundingClientRect().y;
-    var ropeWidth = rope.getBoundingClientRect().width;
-    var ropeHeight = rope.getBoundingClientRect().height;
-    console.log(ropeWidth, ropeHeight);
-    checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
-    // console.log(ropeRect)
-}, 10);
-=======
     var ropeLeft = rope.getBoundingClientRect().left;
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
     checkCollision(ropeLeft, ropeRight, ropeBottom);
 }, 0.5);
->>>>>>> main
 function IdentifyTheStone(item) {
     console.log(item);
     var thisMap = levels.find(function (level) { return level.isActive === true; }).map;

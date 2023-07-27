@@ -47,18 +47,6 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
       // removingTheStone(item)
     }
   }
-<<<<<<< HEAD
-}
-setInterval(() => {
-  const ropeX = rope.getBoundingClientRect().x;
-  const ropeY = rope.getBoundingClientRect().y;
-  const ropeWidth = rope.getBoundingClientRect().width;
-  const ropeHeight = rope.getBoundingClientRect().height;
-  
-  console.log(ropeWidth, ropeHeight);
-  checkCollision(ropeX, ropeY, ropeWidth, ropeHeight);
-=======
->>>>>>> main
 
   if (
     ropeLeft <= gameBoardLeft ||
