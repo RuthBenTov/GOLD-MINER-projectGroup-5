@@ -1,6 +1,6 @@
 
 class Level {
-  public map: Rocks[];
+  public map: Rock[];
   constructor(
     public numLevel: number,
     public targetScore: number,
@@ -9,21 +9,13 @@ class Level {
     public score: number = 0,
   ) {
     let randomMapByLevel = Math.floor(Math.random() * 2);
-<<<<<<< HEAD
-    if (NumLevel == 1) this.map = mapsLevel1[randomMapByLevel];
-    if (NumLevel == 2) this.map = mapsLevel2[randomMapByLevel];
-    if (NumLevel == 3) this.map = mapsLevel3[randomMapByLevel];
-
-    
-=======
     if (numLevel == 1) this.map = mapsLevel1[randomMapByLevel];
     if (numLevel == 2) this.map = mapsLevel2[randomMapByLevel];
     if (numLevel == 3) this.map = mapsLevel3[randomMapByLevel];
->>>>>>> main
   }
 
   renderLevel() {
-    
+
     document.querySelector("#levelValue")!.innerHTML = this.numLevel.toString();
     document.querySelector("#scoreValue")!.innerHTML = this.score.toString();
     document.querySelector("#targetValue")!.innerHTML = this.targetScore.toString();
@@ -41,12 +33,12 @@ const __levels: Level[] = [
 let levels: Level[];
 
 function getLevelsFromLs() {
-  
+
   const levelsFromLs = JSON.parse(localStorage.getItem("levels")!);
   if (levelsFromLs) {
-    
+
     levels = levelsFromLs.map((levelFromLs) => {
-       return new Level(
+      return new Level(
         levelFromLs.numLevel,
         levelFromLs.targetScore,
         levelFromLs.timeToEnd,
@@ -57,15 +49,15 @@ function getLevelsFromLs() {
   } else {
     localStorage.setItem("levels", JSON.stringify(__levels));
     levels = __levels;
-  }  
+  }
   return levels;
 }
 
-function setLevelsInLs(levels:Level[]){
+function setLevelsInLs(levels: Level[]) {
   localStorage.setItem("levels", JSON.stringify(levels));
 }
 
-function renderCurrentLevel(){
+function renderCurrentLevel() {
   getLevelsFromLs().find((level) => level.isActive == true)!.renderLevel();
 }
 renderCurrentLevel()

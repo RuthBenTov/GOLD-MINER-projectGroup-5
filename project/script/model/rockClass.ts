@@ -1,4 +1,4 @@
-class Rocks {
+class Rock {
   public imgSrc: string;
   constructor(
     public type: string, //gold, stone, bag

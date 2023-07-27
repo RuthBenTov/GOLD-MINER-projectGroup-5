@@ -1,5 +1,5 @@
-var Rocks = /** @class */ (function () {
-    function Rocks(type, //gold, stone, bag
+var Rock = /** @class */ (function () {
+    function Rock(type, //gold, stone, bag
     value, //how much it worth
     width, position, id) {
         if (id === void 0) { id = createUniqId(); }
@@ -15,13 +15,13 @@ var Rocks = /** @class */ (function () {
         if (this.type === "bag")
             this.imgSrc = "../image/bag.png";
     }
-    Rocks.prototype.renderRock = function () {
+    Rock.prototype.renderRock = function () {
         var game = document.querySelector(".container__footer");
         if (game) {
             game.innerHTML += "\n      <img class=\"rockElem\" \n          id=\"" + this.id + "\" src=\"" + this.imgSrc + "\" alt=\"goldImg\" \n          style=\"width:" + this.width + "px; top: " + this.position.yPos + "%; left: " + this.position.xPos + "%\">";
         }
     };
-    return Rocks;
+    return Rock;
 }());
 ;
 // // export default new Rocks;
