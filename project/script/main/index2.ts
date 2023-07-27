@@ -35,9 +35,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         ropeLeft > rockLeft &&
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
-    ){
-        console.log("collision");
-        
+    ){        
       getElementToPlayer(item);
 
       rope.style.width = "40px";
@@ -52,12 +50,9 @@ setInterval(() => {
   const ropeLeft = rope.getBoundingClientRect().left;
   const ropeRight = rope.getBoundingClientRect().right;
   const ropeBottom = rope.getBoundingClientRect().bottom;
-  //   const ropeWidth = rope.getBoundingClientRect().width;
-  //   const ropeHeight = rope.getBoundingClientRect().height;
-  console.log(ropeLeft, ropeRight, ropeBottom);
+
   checkCollision(ropeLeft, ropeRight, ropeBottom);
 
-  // console.log(ropeRect)
 }, 50);
 
 function IdentifyTheStone(item) {

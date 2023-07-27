@@ -27,7 +27,6 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
-            console.log("collision");
             getElementToPlayer(item);
             rope.style.width = "40px";
             rope.classList.remove("active");
@@ -40,11 +39,7 @@ setInterval(function () {
     var ropeLeft = rope.getBoundingClientRect().left;
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
-    //   const ropeWidth = rope.getBoundingClientRect().width;
-    //   const ropeHeight = rope.getBoundingClientRect().height;
-    console.log(ropeLeft, ropeRight, ropeBottom);
     checkCollision(ropeLeft, ropeRight, ropeBottom);
-    // console.log(ropeRect)
 }, 50);
 function IdentifyTheStone(item) {
     // console.log(item.width, item.value, item.id, item.alt, item.src)
