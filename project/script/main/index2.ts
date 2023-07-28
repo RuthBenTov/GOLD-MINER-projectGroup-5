@@ -45,6 +45,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
       rope.classList.remove("active");
       getElementToPlayer(item);
       // removingTheStone(item)
+      // rope.style.animation = "gettingDown 5s linear infinite"
     }
   }
 
