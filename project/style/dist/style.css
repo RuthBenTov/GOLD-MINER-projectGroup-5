@@ -111,18 +111,5 @@
     transform: rotate(10deg);
   }
 }
-@keyframes gettingDown {
-  25% {
-    top: -10px;
-  }
-  50% {
-    top: 150px;
-  }
-  75% {
-    top: 250px;
-  }
-  100% {
-    top: 350px;
-  }
-}
+@keyframes gettingDown {}
 @keyframes gettingUp {}
