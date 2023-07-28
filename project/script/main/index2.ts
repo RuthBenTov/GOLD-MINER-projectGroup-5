@@ -76,7 +76,7 @@ function IdentifyTheStone(item) {
 
 
 
-thisLevel.score += currentElem.getScore()
+  thisLevel.score += currentElem.getScore()
   thisLevel.score += currentElem.value;
   document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
 

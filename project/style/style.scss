@@ -95,6 +95,8 @@
         border: 1px solid rgb(6, 6, 6);
         transform-origin: 0% 0%;
         animation: ropeSideToSide 5s linear infinite;
+        // animation: gettingDown 5s linear infinite;
+        // animation: gettingUp 5s linear infinite;
 
       }
 
@@ -138,13 +140,33 @@
 }
 
 @keyframes gettingDown {
-  to {
-    width: 100vh;
+  25% {
+    top: -10px;
+
+  }
+
+  50% {
+    top: 150px;
+
+
+  }
+
+  75% {
+    top: 250px;
+
+
+  }
+
+  100% {
+    top: 350px;
+
+
+
   }
 }
 
-@keyframes gettingDown {
+@keyframes gettingUp {
   to {
-    width: 100vh;
+    // width: 100vh;
   }
 }
