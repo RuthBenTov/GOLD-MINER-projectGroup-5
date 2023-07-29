@@ -1,9 +1,10 @@
 @mixin style-textName {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
     text-shadow: white 1px 0 10px;
+    font: italic small-caps bold 16px/2 cursive;
 }
 
 * {
@@ -34,13 +35,19 @@
     left: 5px;
     position: absolute;
     left: 40%;
-    gap: 30px;
 
     h1{
         margin-top: 20px;
         text-align: center;
         text-shadow: wheat 1px 0 10px;
         font-size: 40px;
+        font: italic small-caps bold 29px/2 cursive;
+        display: flex;
+        font-size: 15px;
+        justify-content: center;
+        align-items: center;
+        background-color: #C97520;
+        border-radius: 12px;
     }
 
     a {
@@ -50,6 +57,8 @@
     background-color: brown;
     border-radius: 12px;
     color: black;
+    margin-top: 3px;
+    color: wheat;
     }
     }
 }
@@ -70,9 +79,9 @@
     &__signUp{
         text-align: center;
         border: 2px solid wheat;
-        background-color: wheat;
         border-radius: 6px;
-
+        background-color: wheat;
+        
         a{
             text-decoration: none;
             color: white;
@@ -86,17 +95,15 @@
         height: 18vh;
         &__details {
             width: 50%;
-            gap: 2px;
+            gap: 1px;
             left: 3%;
 
             
             h1{
-                font-size: 20px;
                 margin-top: 40px;
-                background-color: #C97520;
-                border-radius: 12px;
                 width: 98%;
-                font-size: 15px;
+                height: 19px;
+    
             }
             
             a {

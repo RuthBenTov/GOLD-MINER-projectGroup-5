@@ -26,13 +26,19 @@ body {
   left: 5px;
   position: absolute;
   left: 40%;
-  gap: 30px;
 }
 .registration-root__details h1 {
   margin-top: 20px;
   text-align: center;
   text-shadow: wheat 1px 0 10px;
   font-size: 40px;
+  font: italic small-caps bold 29px/2 cursive;
+  display: flex;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: #C97520;
+  border-radius: 12px;
 }
 .registration-root__details a {
   text-align: center;
@@ -41,34 +47,39 @@ body {
   background-color: brown;
   border-radius: 12px;
   color: black;
+  margin-top: 3px;
+  color: wheat;
 }
 
 .details__userName {
   font-weight: 900;
-  font-size: 20px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   text-shadow: white 1px 0 10px;
+  font: italic small-caps bold 16px/2 cursive;
 }
 .details__email {
   font-weight: 900;
-  font-size: 20px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   text-shadow: white 1px 0 10px;
+  font: italic small-caps bold 16px/2 cursive;
 }
 .details__password {
   font-weight: 900;
-  font-size: 20px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   text-shadow: white 1px 0 10px;
+  font: italic small-caps bold 16px/2 cursive;
 }
 .details__signUp {
   text-align: center;
   border: 2px solid wheat;
-  background-color: wheat;
   border-radius: 6px;
+  background-color: wheat;
 }
 .details__signUp a {
   text-decoration: none;
@@ -81,16 +92,13 @@ body {
   }
   .registration-root__details {
     width: 50%;
-    gap: 2px;
+    gap: 1px;
     left: 3%;
   }
   .registration-root__details h1 {
-    font-size: 20px;
     margin-top: 40px;
-    background-color: #C97520;
-    border-radius: 12px;
     width: 98%;
-    font-size: 15px;
+    height: 19px;
   }
   .registration-root__details a {
     padding: 0;
