@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/dist/signUp.css">
+    <script src="../script/model/dist/playerClass.js" defer></script>
+    <script src="../script/main/dist/signUp.js" defer></script>
     <title>Sign up</title>
 </head>
 <body>
-    <div class="registration">
-        <div class="registration__details">
+    <div class="registration-root">
+        <form class="form" onsubmit="handleAddPlayer(event)" id="registration" >
+        <div class="registration-root__details">
             <h1>SIGN UP</h1>
             <div class="details__userName">
                 <label for="userName">Username</label>
-                <input type="text" name="" id="userName">
+                <input type="text" name="nameUser" id="userName" placeholder="Username" required>
             </div>
             <div class="details__email">
                 <label for="email">Email</label>
-                <input type="email" name="" id="email">
+                <input type="email" name="email" id="email" placeholder="Email" required>
             </div>
             <div class="details__password">
                 <label for="password">Password</label>
-                <input type="password" name="" id="password">
+                <input type="password" name="password" id="password" placeholder="Create password" required>
             </div>
-            <a href="./homePage.html">SIGN UP</a>
-          
+            <a id="signUpLink" href="./homePage.html">Sign up</a>
         </div>
+    </form>
       </div>
 </body>
 </html>

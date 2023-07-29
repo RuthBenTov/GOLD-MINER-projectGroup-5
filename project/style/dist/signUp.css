@@ -8,19 +8,19 @@ body {
   justify-content: center;
 }
 
-.registration {
-  background: url(https://t4.ftcdn.net/jpg/05/93/63/61/360_F_593636175_EsgfL5Hierf971xfKe699FrwGA8UHBZx.jpg);
+.registration-root {
+  background: url("https://play-lh.googleusercontent.com/uCxWq0akPHi4nrdyXuSrmPTZ5QSAD1j-eTcW57MtvgUBkAJwPW248hnleLzN5b1jfQ=w526-h296-rw");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   background-position: center center;
   text-shadow: #3A261E 1px 0 10px;
   position: relative;
   margin-top: 2%;
   width: 50%;
-  height: 85vh;
-  border: 2px solid black;
+  height: 60vh;
+  border: 0px solid black;
 }
-.registration__details {
+.registration-root__details {
   display: flex;
   flex-direction: column;
   left: 5px;
@@ -28,11 +28,19 @@ body {
   left: 40%;
   gap: 30px;
 }
-.registration__details h1 {
+.registration-root__details h1 {
   margin-top: 20px;
   text-align: center;
   text-shadow: wheat 1px 0 10px;
   font-size: 40px;
+}
+.registration-root__details a {
+  text-align: center;
+  text-decoration: none;
+  padding: 3px;
+  background-color: brown;
+  border-radius: 12px;
+  color: black;
 }
 
 .details__userName {
@@ -65,4 +73,36 @@ body {
 .details__signUp a {
   text-decoration: none;
   color: white;
+}
+
+@media screen and (max-width: 1330px) {
+  .registration-root {
+    height: 18vh;
+  }
+  .registration-root__details {
+    width: 50%;
+    gap: 2px;
+    left: 3%;
+  }
+  .registration-root__details h1 {
+    font-size: 20px;
+    margin-top: 40px;
+    background-color: #C97520;
+    border-radius: 12px;
+    width: 98%;
+    font-size: 15px;
+  }
+  .registration-root__details a {
+    padding: 0;
+  }
+
+  .details__userName, .details__email, .details__password {
+    font-size: 12px;
+  }
+  .details__userName label, .details__email label, .details__password label {
+    display: none;
+  }
+  .details__userName input, .details__email input, .details__password input {
+    font-size: 6px;
+  }
 }

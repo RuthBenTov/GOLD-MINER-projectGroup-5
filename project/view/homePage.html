@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/dist/homePage.css" />
+    <script src="../script/model/dist/playerClass.js" defer></script>
+    <script src="../script/main/dist/signUp.js" defer></script>
     <title>homePage</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="wrapper__details">
         <h2>Log in to your account</h2>
-        <input type="text" placeholder="userName" />
-        <input type="password" placeholder="password" />
-        <a id="submit" href="./index.html">Log in</a>
-        <a id="signUp" href="./signUp.html">you don't have an account? sign up Easily</a>
+        <input type="text" placeholder="Username or Email" id="loginUsername"/>
+        <input type="password" placeholder="password" id="loginPassword"/>
+        <button id="loginBtn">Log in</button>
+        <!-- <a id="submit" href="./index.html">Log in</a> -->
+        <a id="signUp" href="./signUp.html">Don't have an account yet? Create one.</a>
         <a id="startGame" href="./index.html">Let's play one time</a>
       </div>
     </div>
