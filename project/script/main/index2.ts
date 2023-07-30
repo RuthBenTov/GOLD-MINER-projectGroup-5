@@ -20,26 +20,12 @@ function getElementToPlayer(item) {
   IdentifyTheStone(item);
 }
 
-function checkCollision(ropeLeft, ropeRight, ropeBottom) {
-  const rocks = document.querySelectorAll(".rockElem");
+function checkCollision(ropeLeft, ropeRight, ropeBottom, ) {
 
-  for (let i = 0; i < rocks.length; i++) {
-    const rockLeft = rocks[i].getBoundingClientRect().left;
-    const rockRight = rocks[i].getBoundingClientRect().right;
-    const rockTop = rocks[i].getBoundingClientRect().top;
-    const rockBottom = rocks[i].getBoundingClientRect().bottom;
-    const item = rocks[i];
 
-    if (
-      (ropeRight < rockRight &&
-        ropeRight > rockLeft &&
-        ropeBottom < rockBottom &&
-        ropeBottom > rockTop) ||
-      (ropeLeft < rockRight &&
-        ropeLeft > rockLeft &&
-        ropeBottom < rockBottom &&
-        ropeBottom > rockTop)
-    ) {
+    if (checksPosWithElement(ropeLeft, ropeRight, ropeBottom))   
+     {
+      let item = checksPosWithElement(ropeLeft, ropeRight, ropeBottom) 
       rope.style.width = "40px";
       rope.classList.add("returnRope");
       setTimeout(() => {}, 7000)
@@ -47,7 +33,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
       rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
     }
-  }
+  
 
   if (
     ropeLeft <= gameBoardLeft ||
@@ -94,4 +80,27 @@ function resetRope(item) {
     }
   }, itemWight);
   rope.style.animationPlayState = "running";
+}
+
+
+function checksPosWithElement(ropeLeft, ropeRight, ropeBottom){
+  const rocks = document.querySelectorAll(".rockElem");
+
+  for (let i = 0; i < rocks.length; i++) {
+    const rockLeft = rocks[i].getBoundingClientRect().left;
+    const rockRight = rocks[i].getBoundingClientRect().right;
+    const rockTop = rocks[i].getBoundingClientRect().top;
+    const rockBottom = rocks[i].getBoundingClientRect().bottom;
+    const item = rocks[i];
+
+ if ((ropeRight < rockRight &&
+    ropeRight > rockLeft &&
+    ropeBottom < rockBottom &&
+    ropeBottom > rockTop) ||
+  (ropeLeft < rockRight &&
+    ropeLeft > rockLeft &&
+    ropeBottom < rockBottom &&
+    ropeBottom > rockTop))
+    return item
+  }
 }
