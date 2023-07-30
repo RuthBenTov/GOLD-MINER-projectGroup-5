@@ -94,6 +94,10 @@
   transition: all 6s;
   animation-play-state: paused;
 }
+.container__header .returnRope {
+  transition: all 10s;
+  animation-play-state: paused;
+}
 .container__footer {
   position: relative;
   width: 100%;

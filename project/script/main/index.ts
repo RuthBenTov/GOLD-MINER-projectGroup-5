@@ -1,5 +1,4 @@
-console.log("starting game");
-console.log("hi");
+
 
 
 const rope = document.querySelector(".header__rope") as HTMLDivElement;
@@ -30,7 +29,12 @@ function handlePress(ev: any) {
     ev.key != "ArrowLeft"
   ) {
     rope.style.width = "40px";
-    rope.classList.remove("active");
+    // setTimeout(() => {
+      
+    // },3000);
+    rope.style.animationPlayState = "running";
+    rope.style.animation = "ropeSideToSide 5s linear infinite; "
+    // rope.classList.remove("active");
   }
 }
 

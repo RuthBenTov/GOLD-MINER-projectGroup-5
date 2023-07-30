@@ -1,5 +1,3 @@
-console.log("starting game");
-console.log("hi");
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
 //-----------------------------Event Handlers-----------------------------
@@ -23,7 +21,11 @@ function handlePress(ev) {
         ev.key != "ArrowDown" &&
         ev.key != "ArrowLeft") {
         rope.style.width = "40px";
-        rope.classList.remove("active");
+        // setTimeout(() => {
+        // },3000);
+        rope.style.animationPlayState = "running";
+        rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+        // rope.classList.remove("active");
     }
 }
 //------------------------------------------Timer------------------------------------------

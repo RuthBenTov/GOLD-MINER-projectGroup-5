@@ -31,17 +31,22 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
             rope.style.width = "40px";
-            rope.classList.remove("active");
+            rope.classList.add("returnRope");
+            setTimeout(function () { }, 7000);
+            rope.classList.remove("active", "returnRope");
             getElementToPlayer(item);
-            // removingTheStone(item)
-            // rope.style.animation = "gettingDown 5s linear infinite"
         }
     }
     if (ropeLeft <= gameBoardLeft ||
         ropeRight >= gameBoardRight ||
         ropeBottom >= gameBoardBottom) {
         rope.style.width = "40px";
+        rope.classList.add("returnRope");
         rope.classList.remove("active");
+    }
+    else {
+        rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+        rope.classList.remove("returnRope");
     }
 }
 setInterval(function () {
@@ -58,4 +63,15 @@ function IdentifyTheStone(item) {
     thisLevel.score += currentElem.getScore();
     document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
     setLevelsInLs(levels);
+}
+function resetRope(item) {
+    var itemWight = parseInt(item.style.width);
+    setInterval(function () {
+        if (parseInt(rope.style.width) > 40) {
+            rope.style.width = "40px";
+            rope.style.transition = "all " + itemWight / 10 + "s";
+            rope.style.animationPlayState = "paused";
+        }
+    }, itemWight);
+    rope.style.animationPlayState = "running";
 }
