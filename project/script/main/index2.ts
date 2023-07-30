@@ -20,21 +20,34 @@ function getElementToPlayer(item) {
   IdentifyTheStone(item);
 }
 
-function checkCollision(ropeLeft, ropeRight, ropeBottom, ) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom) {
+  const rocks = document.querySelectorAll(".rockElem");
 
+  for (let i = 0; i < rocks.length; i++) {
+    const rockLeft = rocks[i].getBoundingClientRect().left;
+    const rockRight = rocks[i].getBoundingClientRect().right;
+    const rockTop = rocks[i].getBoundingClientRect().top;
+    const rockBottom = rocks[i].getBoundingClientRect().bottom;
+    const item = rocks[i];
 
-    if (checksPosWithElement(ropeLeft, ropeRight, ropeBottom))   
-     {
-      let item = checksPosWithElement(ropeLeft, ropeRight, ropeBottom) 
+    if (
+      (ropeRight < rockRight &&
+        ropeRight > rockLeft &&
+        ropeBottom < rockBottom &&
+        ropeBottom > rockTop) ||
+      (ropeLeft < rockRight &&
+        ropeLeft > rockLeft &&
+        ropeBottom < rockBottom &&
+        ropeBottom > rockTop)
+    ) {
       rope.style.width = "40px";
       rope.classList.add("returnRope");
-      // setTimeout(() => { }, 7000)
-      resetRope(item)
-
+      setTimeout(() => {}, 7000)
+      
       rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
     }
-  
+  }
 
   if (
     ropeLeft <= gameBoardLeft ||
@@ -73,35 +86,12 @@ function IdentifyTheStone(item) {
 
 function resetRope(item) {
   const itemWight = parseInt(item.style.width);
-  setTimeout(() => {
+  setInterval(() => {
     if (parseInt(rope.style.width) > 40) {
       rope.style.width = "40px";
       rope.style.transition = `all ${itemWight / 10}s`;
       rope.style.animationPlayState = "paused";
     }
-  }, 3000);
+  }, itemWight);
   rope.style.animationPlayState = "running";
-}
-
-
-function checksPosWithElement(ropeLeft, ropeRight, ropeBottom){
-  const rocks = document.querySelectorAll(".rockElem");
-
-  for (let i = 0; i < rocks.length; i++) {
-    const rockLeft = rocks[i].getBoundingClientRect().left;
-    const rockRight = rocks[i].getBoundingClientRect().right;
-    const rockTop = rocks[i].getBoundingClientRect().top;
-    const rockBottom = rocks[i].getBoundingClientRect().bottom;
-    const item = rocks[i];
-
- if ((ropeRight < rockRight &&
-    ropeRight > rockLeft &&
-    ropeBottom < rockBottom &&
-    ropeBottom > rockTop) ||
-  (ropeLeft < rockRight &&
-    ropeLeft > rockLeft &&
-    ropeBottom < rockBottom &&
-    ropeBottom > rockTop))
-    return item
-  }
 }

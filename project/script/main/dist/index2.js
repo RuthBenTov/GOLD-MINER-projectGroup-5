@@ -15,14 +15,27 @@ function getElementToPlayer(item) {
     IdentifyTheStone(item);
 }
 function checkCollision(ropeLeft, ropeRight, ropeBottom) {
-    if (checksPosWithElement(ropeLeft, ropeRight, ropeBottom)) {
-        var item = checksPosWithElement(ropeLeft, ropeRight, ropeBottom);
-        rope.style.width = "40px";
-        rope.classList.add("returnRope");
-        // setTimeout(() => { }, 7000)
-        resetRope(item);
-        rope.classList.remove("active", "returnRope");
-        getElementToPlayer(item);
+    var rocks = document.querySelectorAll(".rockElem");
+    for (var i = 0; i < rocks.length; i++) {
+        var rockLeft = rocks[i].getBoundingClientRect().left;
+        var rockRight = rocks[i].getBoundingClientRect().right;
+        var rockTop = rocks[i].getBoundingClientRect().top;
+        var rockBottom = rocks[i].getBoundingClientRect().bottom;
+        var item = rocks[i];
+        if ((ropeRight < rockRight &&
+            ropeRight > rockLeft &&
+            ropeBottom < rockBottom &&
+            ropeBottom > rockTop) ||
+            (ropeLeft < rockRight &&
+                ropeLeft > rockLeft &&
+                ropeBottom < rockBottom &&
+                ropeBottom > rockTop)) {
+            rope.style.width = "40px";
+            rope.classList.add("returnRope");
+            setTimeout(function () { }, 7000);
+            rope.classList.remove("active", "returnRope");
+            getElementToPlayer(item);
+        }
     }
     if (ropeLeft <= gameBoardLeft ||
         ropeRight >= gameBoardRight ||
@@ -53,31 +66,12 @@ function IdentifyTheStone(item) {
 }
 function resetRope(item) {
     var itemWight = parseInt(item.style.width);
-    setTimeout(function () {
+    setInterval(function () {
         if (parseInt(rope.style.width) > 40) {
             rope.style.width = "40px";
             rope.style.transition = "all " + itemWight / 10 + "s";
             rope.style.animationPlayState = "paused";
         }
-    }, 3000);
+    }, itemWight);
     rope.style.animationPlayState = "running";
-}
-function checksPosWithElement(ropeLeft, ropeRight, ropeBottom) {
-    var rocks = document.querySelectorAll(".rockElem");
-    for (var i = 0; i < rocks.length; i++) {
-        var rockLeft = rocks[i].getBoundingClientRect().left;
-        var rockRight = rocks[i].getBoundingClientRect().right;
-        var rockTop = rocks[i].getBoundingClientRect().top;
-        var rockBottom = rocks[i].getBoundingClientRect().bottom;
-        var item = rocks[i];
-        if ((ropeRight < rockRight &&
-            ropeRight > rockLeft &&
-            ropeBottom < rockBottom &&
-            ropeBottom > rockTop) ||
-            (ropeLeft < rockRight &&
-                ropeLeft > rockLeft &&
-                ropeBottom < rockBottom &&
-                ropeBottom > rockTop))
-            return item;
-    }
 }
