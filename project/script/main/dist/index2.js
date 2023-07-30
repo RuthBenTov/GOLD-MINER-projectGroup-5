@@ -32,7 +32,8 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
                 ropeBottom > rockTop)) {
             rope.style.width = "40px";
             rope.classList.add("returnRope");
-            setTimeout(function () { }, 7000);
+            // setTimeout(() => { }, 7000)
+            resetRope(item);
             rope.classList.remove("active", "returnRope");
             getElementToPlayer(item);
         }
@@ -66,12 +67,18 @@ function IdentifyTheStone(item) {
 }
 function resetRope(item) {
     var itemWight = parseInt(item.style.width);
-    setInterval(function () {
+    setTimeout(function () {
         if (parseInt(rope.style.width) > 40) {
             rope.style.width = "40px";
             rope.style.transition = "all " + itemWight / 10 + "s";
             rope.style.animationPlayState = "paused";
         }
-    }, itemWight);
+    }, 3000);
     rope.style.animationPlayState = "running";
 }
+// let isUp = true;
+// function checkRope() {
+//   if (!isUp) {
+//     rope.style.transition = "width "
+//   }
+// }
