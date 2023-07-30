@@ -1,10 +1,8 @@
 var Rock = /** @class */ (function () {
     function Rock(type, //gold, stone, bag
-    value, //how much it worth
     width, position, id) {
         if (id === void 0) { id = createUniqId(); }
         this.type = type;
-        this.value = value;
         this.width = width;
         this.position = position;
         this.id = id;

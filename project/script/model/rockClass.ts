@@ -1,8 +1,8 @@
 class Rock {
   public imgSrc: string;
+  public value: number; //how much it worth
   constructor(
     public type: string, //gold, stone, bag
-    public value: number, //how much it worth
     public width: number,
     public position: { xPos: number; yPos: number },
     public id = createUniqId(),
