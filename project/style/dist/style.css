@@ -8,13 +8,11 @@
   height: 80vh;
   z-index: -1;
   border: 2px solid black;
-  background-color: yellow;
   margin: auto;
 }
 .container__header {
   width: 100%;
-  height: 20%;
-  position: relative;
+  height: 21%;
   background-color: #fed034;
   position: relative;
 }
@@ -51,8 +49,15 @@
 .container__header .head__leftSide__score #targetValue, .container__header .head__leftSide__target #targetValue {
   color: red;
 }
-.container__header .head__leftSide__score #scoreValue, .container__header .head__leftSide__target #scoreValue {
-  color: #0bb60b;
+.container__footer {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  background: url("https://st2.depositphotos.com/1526816/6712/v/450/depositphotos_67127449-stock-illustration-underground-scene-with-dinosaur-bones.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
 }
 .container__header .header {
   position: relative;
@@ -87,16 +92,12 @@
   transition: all 6s;
   animation-play-state: paused;
 }
-.container__footer {
-  position: relative;
-  width: 100%;
-  height: 80%;
-  background-color: #9e6844;
+#loginStatus, #logOut {
+  cursor: pointer;
 }
-.container .footer {
-  position: relative;
-}
-.container .rockElem {
+
+.rockElem {
+
   position: absolute;
 }
 
