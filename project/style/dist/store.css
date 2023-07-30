@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.storeContainer {
+  position: relative;
+  margin-top: 2%;
+  width: 50%;
+  height: 85vh;
+  background: url("https://i.ytimg.com/vi/SxMUg7DDMEg/maxresdefault.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
