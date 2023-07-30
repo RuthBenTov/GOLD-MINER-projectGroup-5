@@ -15,6 +15,29 @@ body {
   height: 85vh;
   background: url("https://i.ytimg.com/vi/SxMUg7DDMEg/maxresdefault.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 130% 100%;
   background-position: center center;
+}
+.storeContainer img:nth-child(1) {
+  position: absolute;
+  bottom: 29%;
+  left: 25%;
+}
+.storeContainer img:nth-child(2) {
+  position: absolute;
+  bottom: 29%;
+  left: 5%;
+}
+
+@media (max-width: 768px) {
+  .storeContainer {
+    position: relative;
+    background-size: 131% 60%;
+    background-position: top center;
+  }
+  .storeContainer img:nth-child(1), .storeContainer img:nth-child(2) {
+    position: absolute;
+    width: 20%;
+    bottom: 58%;
+  }
 }
