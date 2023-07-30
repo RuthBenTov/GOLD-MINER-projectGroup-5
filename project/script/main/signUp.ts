@@ -62,3 +62,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
       players.push(new Player(playerData.nameUser, playerData.email, playerData.password));
     });
   }
+

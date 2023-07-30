@@ -1,4 +1,4 @@
-class Rocks {
+class Rock {
   public imgSrc: string;
   constructor(
     public type: string, //gold, stone, bag
@@ -12,6 +12,43 @@ class Rocks {
     if (this.type === "bag") this.imgSrc = "../image/bag.png";
   }
 
+  getScore() {
+    if (this.type === "gold") {
+      switch (this.width) {
+        case 90:
+          this.value = 650;
+          break;
+        case 70:
+          this.value = 550;
+          break;
+        case 60:
+          this.value = 300;
+          break;
+        case 30:
+          this.value = 200;
+          break;
+      }
+    }
+    if (this.type === "stone") {
+      switch (this.width) {
+        case 90:
+          this.value = 50;
+          break;
+        case 60:
+          this.value = 20;
+          break;
+        case 30:
+          this.value = 11;
+          break;
+      }
+    }
+    if (this.type === "bag") {
+      this.value = -1;
+    }
+
+    return this.value;
+  }
+
   renderRock() {
     const game = document.querySelector(".container__footer") as HTMLDivElement;
     if (game) {
@@ -21,54 +58,29 @@ class Rocks {
           style="width:${this.width}px; top: ${this.position.yPos}%; left: ${this.position.xPos}%">`;
     }
   }
-};
-// export default new Rocks;
-// import { rockMap1Level1 } from '../maps/dist/maps';
-const rockMap1Level1 = [
-  new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
-  new Rocks("stone", 11, 30,{ xPos: 60, yPos: 70 }),
-  new Rocks("stone", 9, 30, { xPos: 40, yPos: 20 }),
-  new Rocks("stone", 3, 30, { xPos: 30, yPos: 30 }),
-  new Rocks("stone", 14, 30, { xPos: 80, yPos: 20 }),
-  new Rocks("stone", 7, 30, { xPos: 20, yPos: 70 }),
-  new Rocks("bag", 7, 20, { xPos: 70, yPos: 50 }),
-  new Rocks("gold", 600, 90, { xPos: 30, yPos: 55 }),
-  new Rocks("gold", 650, 90, { xPos: 5, yPos: 70 }),
-  new Rocks("gold", 300, 70, { xPos: 70, yPos: 70 }),
-  new Rocks("gold", 90, 30, { xPos: 10, yPos: 29 }),
-  new Rocks("gold", 90, 30, { xPos: 12, yPos: 10 }),
-];
+}
+// // export default new Rocks;
+// // import { rockMap1Level1 } from '../maps/dist/maps';
+// const __rockMap1Level1 = [
+//   new Rocks("stone", 7, 30, { xPos: 50, yPos: 50 }),
+//   new Rocks("stone", 11, 30, { xPos: 60, yPos: 70 }),
+//   new Rocks("stone", 9, 30, { xPos: 40, yPos: 20 }),
+//   new Rocks("stone", 3, 30, { xPos: 30, yPos: 30 }),
+//   new Rocks("stone", 14, 30, { xPos: 80, yPos: 20 }),
+//   new Rocks("stone", 7, 30, { xPos: 20, yPos: 70 }),
+//   new Rocks("bag", -1 , 20, { xPos: 70, yPos: 50 }),
+//   new Rocks("gold", 600, 90, { xPos: 30, yPos: 55 }),
+//   new Rocks("gold", 650, 90, { xPos: 5, yPos: 70 }),
+//   new Rocks("gold", 300, 70, { xPos: 70, yPos: 70 }),
+//   new Rocks("gold", 90, 30, { xPos: 10, yPos: 29 }),
+//   new Rocks("gold", 90, 30, { xPos: 12, yPos: 10 }),
+// ];
 
-rockMap1Level1.forEach((elem) => elem.renderRock());
+// __rockMap1Level1.forEach((elem) => elem.renderRock());
 
 function createUniqId(): string {
   return String(Date.now().toString(32) + Math.random().toString(16)).replace(
     /\./g,
     "",
   );
-}
-
-
-// timer
-const timer = document.querySelector(".head__rightSide__timer #timerValue");
-let timeSecond = 8000;
-
-displayTime(timeSecond);
-
-const countDown = setInterval (()=> {
-  timeSecond -- ;
-  displayTime(timeSecond);
-  if(timeSecond <= 0) {
-    clearInterval(countDown);
-    alert("game over")
-    // window.location.href = "/project/view/gameOver.html";
-  }
-},1000)
-
-function displayTime(second:number){
-  const min = Math.floor(second / 60);
-  const sec = Math.floor(second % 60);
-  if(timer){
-    timer.innerHTML = `${min < 10 ? '0' : ''}${min}:${sec < 10 ? '0' : ''}${sec}`
-  }
 }

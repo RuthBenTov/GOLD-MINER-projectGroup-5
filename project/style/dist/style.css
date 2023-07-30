@@ -14,14 +14,39 @@
   width: 100%;
   height: 21%;
   background-color: #fed034;
+  position: relative;
 }
-.container__header .head__rightSide__timer {
-  position: absolute;
+.container__header .head__rightSide {
   font-size: 30px;
-  display: flex;
   gap: 10px;
+  position: absolute;
 }
-.container__header .head__rightSide__timer #timerHead {
+.container__header .head__rightSide__timer, .container__header .head__rightSide__level {
+  display: flex;
+}
+.container__header .head__rightSide #timerHead,
+.container__header .head__rightSide #levelHead {
+  color: #9e6844;
+}
+.container__header .head__rightSide #timerValue,
+.container__header .head__rightSide #levelValue {
+  color: red;
+}
+.container__header .head__leftSide {
+  font-size: 30px;
+  position: absolute;
+  gap: 10px;
+  right: 0;
+}
+.container__header .head__leftSide__score, .container__header .head__leftSide__target {
+  display: flex;
+}
+.container__header .head__leftSide__score #targetHead,
+.container__header .head__leftSide__score #scoreHead, .container__header .head__leftSide__target #targetHead,
+.container__header .head__leftSide__target #scoreHead {
+  color: #9e6844;
+}
+.container__header .head__leftSide__score #targetValue, .container__header .head__leftSide__target #targetValue {
   color: red;
 }
 .container__footer {
@@ -32,12 +57,12 @@
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-}
 
-.header {
+}
+.container__header .header {
   position: relative;
 }
-.header__character {
+.container__header .header__character {
   position: relative;
   width: 20%;
   height: 100%;
@@ -45,14 +70,14 @@
   background-color: #283f9c;
   border-radius: 125px 125px 0 0;
 }
-.header__character img {
+.container__header .header__character img {
   width: 25%;
   height: 85%;
   position: absolute;
   bottom: 0;
   left: 40%;
 }
-.header__rope {
+.container__header .header__rope {
   position: absolute;
   top: 100%;
   left: 50%;
@@ -63,17 +88,16 @@
   transform-origin: 0% 0%;
   animation: ropeSideToSide 5s linear infinite;
 }
-
-.active {
-  transition: all 3s;
+.container__header .active {
+  transition: all 6s;
   animation-play-state: paused;
 }
-
 #loginStatus, #logOut {
   cursor: pointer;
 }
 
 .rockElem {
+
   position: absolute;
 }
 
@@ -89,7 +113,21 @@
   }
 }
 @keyframes gettingDown {
-  to {
-    width: 100vh;
+  25% {
+    width: 50px;
+    transform: rotate(95deg);
+  }
+  50% {
+    width: 150px;
+    transform: rotate(95deg);
+  }
+  75% {
+    width: 200px;
+    transform: rotate(95deg);
+  }
+  100% {
+    width: 350px;
+    transform: rotate(95deg);
   }
 }
+@keyframes gettingUp {}

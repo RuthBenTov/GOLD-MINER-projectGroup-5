@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>GOLD-MINER expensive game</title>
     <link rel="stylesheet" href="../style/dist/style.css" />
-    <!-- <script src="../script/dist/rockClass.js" defer></script> -->
+    <script src="../script/model/dist/rockClass.js" defer></script>
+    <script src="../script/model/dist/playerClass.js" defer></script>
     <script src="../script/model/dist/rockClass.js" defer></script>
     <script src="../script/model/dist/playerClass.js" defer></script>
     <script src="../script/main/dist/index.js" defer></script>
@@ -14,6 +15,7 @@
     <!-- <script src="../script/model/dist/playerClass.js" defer></script> -->
     <!-- <script src="../script/main/dist/signUp.js" defer></script> -->
     <!-- <script src="./signUp.html" defer></script> -->
+    <script src="../script/model/dist/levelClass.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -23,24 +25,42 @@
             <p id="timerHead">time:</p>
             <p id="timerValue">00:00</p>
           </div>
+          <div class="head__rightSide__level">
+            <p id="levelHead">level:</p>
+            <p id="levelValue">1</p>
+          </div>
+        </div>
+        <div class="head__leftSide">
+          <div class="head__leftSide__score">
+            <p id="scoreHead">Score:</p>
+            <p id="scoreValue">0</p>
+          </div>
+          <div class="head__leftSide__target">
+            <p id="targetHead">Target:</p>
+            <p id="targetValue">1000</p>
+          </div>
         </div>
         <div class="header__character">
           <img src="../image/goldMiner.png" alt="goldMiner" />
           <div class="header__rope"></div>
         </div>
-</div>
-    <div class="container__footer">
-      <div class="footer__gold">
-        <!-- <img style="top: 40px;" src="../image/gold.png" alt="goldImg">
+      </div>
+      <div class="container__footer">
+        <div class="footer__gold">
+          <!-- <img style="top: 40px;" src="../image/gold.png" alt="goldImg">
                 <img src="../image/gold.png" alt="goldImg" >
                 <img src="../image/gold.png" alt="goldImg">
                 <img src="../image/gold.png" alt="goldImg"> -->
-      </div>
-      <div class="footer__stone">
-        <!-- <img src="../image/stone.png" alt="stoneImg">
+        </div>
+        <div class="footer__stone">
+          <!-- <img src="../image/stone.png" alt="stoneImg">
                 <img src="../image/stone.png" alt="stoneImg">
                 <img src="../image/stone.png" alt="stoneImg"> -->
+        </div>
       </div>
+      <div id="userData"></div>
+    <span id="loginStatus">Log in</span>
+    <a id="logOut" href="./homePage.html">Log out</a>
     </div>
     <div id="userData"></div>
     <span id="loginStatus">Log in</span>
