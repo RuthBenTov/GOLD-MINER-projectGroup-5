@@ -9,8 +9,6 @@ function getElementToPlayer(item) {
         x: goldMiner.getBoundingClientRect().left,
         y: rope.getBoundingClientRect().top
     };
-    //   const offsetY = item.getBoundingClientRect.top - playerPosition.y;
-    //   const offsetX = item.getBoundingClientRect.left - playerPosition.x;
     item.style.position = "absolute";
     item.style.top = -50 + "%";
     item.style.left = 50 + "%";
@@ -57,14 +55,7 @@ function IdentifyTheStone(item) {
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
-    console.log(currentElem);
     thisLevel.score += currentElem.getScore();
-    thisLevel.score += currentElem.value;
     document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
     setLevelsInLs(levels);
-    // if(__rockMap1Level1.find(element => element.id == item.id)) {
 }
-// function removingTheStone(item) {
-//   if ()
-//     item.style.display = "none"
-// }

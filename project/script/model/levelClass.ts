@@ -36,7 +36,9 @@ function getLevelsFromLs() {
 
   const levelsFromLs = JSON.parse(localStorage.getItem("levels")!);
   if (levelsFromLs) {
-
+  levelsFromLs.forEach((level) =>level.score =0)
+  localStorage.setItem("levels", JSON.stringify(levelsFromLs))
+  
     levels = levelsFromLs.map((levelFromLs) => {
       return new Level(
         levelFromLs.numLevel,
@@ -46,6 +48,7 @@ function getLevelsFromLs() {
         levelFromLs.score,
       );
     });
+
   } else {
     localStorage.setItem("levels", JSON.stringify(__levels));
     levels = __levels;
