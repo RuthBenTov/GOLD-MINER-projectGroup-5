@@ -29,12 +29,7 @@ function handlePress(ev: any) {
     ev.key != "ArrowLeft"
   ) {
     rope.style.width = "40px";
-    // setTimeout(() => {
-      
-    // },3000);
-    rope.style.animationPlayState = "running";
-    rope.style.animation = "ropeSideToSide 5s linear infinite; "
-    // rope.classList.remove("active");
+    rope.classList.remove("active");
   }
 }
 

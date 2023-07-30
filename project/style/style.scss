@@ -102,7 +102,7 @@
         height: 0px;
         border: 1px solid rgb(6, 6, 6);
         transform-origin: 0% 0%;
-        animation: ropeSideToSide 5s linear infinite;
+        animation: ropeSideToSide 5s linear infinite ;
       }
 
     }
@@ -154,6 +154,7 @@
 }
 
 @keyframes ropeSideToSide {
+  
   0% {
     transform: rotate(10deg);
   }
@@ -168,24 +169,25 @@
 }
 
 @keyframes gettingDown {
+
   25% {
     width: 50px;
-    transform: rotate(95deg)
+    // transform: rotate(95deg)
   }
 
   50% {
     width: 150px;
-    transform: rotate(95deg)
+    // transform: rotate(95deg)
   }
 
   75% {
     width: 200px;
-    transform: rotate(95deg)
+    // transform: rotate(95deg)
   }
 
   100% {
     width: 350px;
-    transform: rotate(95deg)
+    // transform: rotate(95deg)
   }
 }
 

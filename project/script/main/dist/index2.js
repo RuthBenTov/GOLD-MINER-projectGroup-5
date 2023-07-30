@@ -45,7 +45,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         rope.classList.remove("active");
     }
     else {
-        rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+        // rope.style.animation = "ropeSideToSide 5s linear infinite; ";
         rope.classList.remove("returnRope");
     }
 }
