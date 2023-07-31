@@ -14,10 +14,10 @@ var rockMap1Level1 = [
     new Rock("gold", 30, { xPos: 12, yPos: 10 }),
 ];
 var rockMap2Level1 = [
-    new Rock("stone", 50, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 60, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 30, { xPos: 40, yPos: 20 }),
-    new Rock("stone", 60, { xPos: 20, yPos: 30 }),
+    // new Rock("stone",60, { xPos: 20, yPos: 30 }),
     new Rock("stone", 30, { xPos: 80, yPos: 20 }),
     new Rock("stone", 30, { xPos: 20, yPos: 70 }),
     new Rock("bag", 20, { xPos: 80, yPos: 50 }),
@@ -28,12 +28,12 @@ var rockMap2Level1 = [
     new Rock("gold", 30, { xPos: 12, yPos: 10 }),
 ];
 var rockMap3Level1 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 60, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 20, yPos: 30 }),
     new Rock("stone", 90, { xPos: 80, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 20, yPos: 70 }),
     new Rock("bag", 20, { xPos: 80, yPos: 50 }),
     new Rock("gold", 90, { xPos: 45, yPos: 65 }),
     new Rock("gold", 90, { xPos: 5, yPos: 50 }),
@@ -43,15 +43,15 @@ var rockMap3Level1 = [
 ];
 //level2-----------------------------------------------------------------
 var rockMap1Level2 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 30, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 10, yPos: 30 }),
     new Rock("stone", 90, { xPos: 65, yPos: 10 }),
-    new Rock("stone", 90, { xPos: 80, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
-    new Rock("stone", 70, { xPos: 30, yPos: 70 }),
-    new Rock("stone", 80, { xPos: 60, yPos: 70 }),
+    // new Rock("stone", 90, { xPos: 80, yPos: 20 }),
+    // new Rock("stone",50, { xPos: 20, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 30, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 60, yPos: 70 }),
     new Rock("bag", 20, { xPos: 60, yPos: 50 }),
     new Rock("gold", 90, { xPos: 75, yPos: 65 }),
     new Rock("gold", 90, { xPos: 5, yPos: 50 }),
@@ -61,15 +61,15 @@ var rockMap1Level2 = [
     new Rock("gold", 60, { xPos: 32, yPos: 40 }),
 ];
 var rockMap2Level2 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 60, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 10, yPos: 30 }),
-    new Rock("stone", 90, { xPos: 25, yPos: 10 }),
+    new Rock("stone", 30, { xPos: 25, yPos: 10 }),
     new Rock("stone", 90, { xPos: 80, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
-    new Rock("stone", 70, { xPos: 30, yPos: 70 }),
-    new Rock("stone", 80, { xPos: 60, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 20, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 30, yPos: 70 }),
+    new Rock("stone", 50, { xPos: 60, yPos: 70 }),
     new Rock("bag", 20, { xPos: 50, yPos: 50 }),
     new Rock("gold", 90, { xPos: 75, yPos: 65 }),
     new Rock("gold", 90, { xPos: 5, yPos: 50 }),
@@ -79,15 +79,15 @@ var rockMap2Level2 = [
     new Rock("gold", 60, { xPos: 32, yPos: 40 }),
 ];
 var rockMap3Level2 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 30, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 10, yPos: 30 }),
     new Rock("stone", 90, { xPos: 25, yPos: 10 }),
     new Rock("stone", 90, { xPos: 80, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
-    new Rock("stone", 70, { xPos: 30, yPos: 70 }),
-    new Rock("stone", 80, { xPos: 60, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 20, yPos: 70 }),
+    // new Rock("stone",70, { xPos: 30, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 60, yPos: 70 }),
     new Rock("bag", 20, { xPos: 50, yPos: 50 }),
     new Rock("gold", 90, { xPos: 45, yPos: 65 }),
     new Rock("gold", 90, { xPos: 15, yPos: 47 }),
@@ -95,20 +95,21 @@ var rockMap3Level2 = [
     new Rock("gold", 30, { xPos: 65, yPos: 29 }),
     new Rock("gold", 30, { xPos: 12, yPos: 10 }),
     new Rock("gold", 60, { xPos: 32, yPos: 40 }),
+    new Rock("gold", 60, { xPos: 22, yPos: 60 }),
 ];
 //level 3 -----------------------------------------------------------------------
 var rockMap1Level3 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 60, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 10, yPos: 30 }),
     new Rock("stone", 90, { xPos: 25, yPos: 10 }),
-    new Rock("stone", 90, { xPos: 80, yPos: 20 }),
+    // new Rock("stone", 90, { xPos: 80, yPos: 20 }),
     new Rock("stone", 90, { xPos: 60, yPos: 10 }),
     new Rock("stone", 90, { xPos: 50, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
-    new Rock("stone", 70, { xPos: 30, yPos: 70 }),
-    new Rock("stone", 80, { xPos: 60, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 20, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 30, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 60, yPos: 70 }),
     new Rock("bag", 20, { xPos: 50, yPos: 50 }),
     new Rock("gold", 90, { xPos: 45, yPos: 65 }),
     new Rock("gold", 90, { xPos: 15, yPos: 47 }),
@@ -120,7 +121,7 @@ var rockMap1Level3 = [
     new Rock("gold", 60, { xPos: 32, yPos: 80 }),
 ];
 var rockMap2Level3 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 60, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 10, yPos: 30 }),
@@ -128,9 +129,9 @@ var rockMap2Level3 = [
     new Rock("stone", 90, { xPos: 80, yPos: 20 }),
     new Rock("stone", 90, { xPos: 60, yPos: 10 }),
     new Rock("stone", 90, { xPos: 50, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
-    new Rock("stone", 70, { xPos: 30, yPos: 70 }),
-    new Rock("stone", 80, { xPos: 60, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 20, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 30, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 60, yPos: 70 }),
     new Rock("bag", 20, { xPos: 50, yPos: 50 }),
     new Rock("gold", 90, { xPos: 45, yPos: 65 }),
     new Rock("gold", 90, { xPos: 5, yPos: 47 }),
@@ -142,7 +143,7 @@ var rockMap2Level3 = [
     new Rock("gold", 60, { xPos: 32, yPos: 80 }),
 ];
 var rockMap3Level3 = [
-    new Rock("stone", 51, { xPos: 40, yPos: 50 }),
+    new Rock("stone", 60, { xPos: 40, yPos: 50 }),
     new Rock("stone", 30, { xPos: 60, yPos: 60 }),
     new Rock("stone", 60, { xPos: 40, yPos: 20 }),
     new Rock("stone", 60, { xPos: 10, yPos: 30 }),
@@ -150,9 +151,9 @@ var rockMap3Level3 = [
     new Rock("stone", 90, { xPos: 80, yPos: 20 }),
     new Rock("stone", 90, { xPos: 60, yPos: 10 }),
     new Rock("stone", 90, { xPos: 50, yPos: 20 }),
-    new Rock("stone", 50, { xPos: 20, yPos: 70 }),
-    new Rock("stone", 70, { xPos: 30, yPos: 70 }),
-    new Rock("stone", 80, { xPos: 60, yPos: 70 }),
+    new Rock("stone", 30, { xPos: 20, yPos: 70 }),
+    new Rock("stone", 60, { xPos: 30, yPos: 70 }),
+    new Rock("stone", 90, { xPos: 60, yPos: 70 }),
     new Rock("bag", 20, { xPos: 50, yPos: 50 }),
     new Rock("gold", 90, { xPos: 45, yPos: 65 }),
     new Rock("gold", 90, { xPos: 5, yPos: 47 }),
@@ -173,4 +174,5 @@ var mapsLevel3 = [rockMap3Level1, rockMap3Level2, rockMap3Level3];
 30;
 //גדלים של אבנים
 60;
+90;
 30;

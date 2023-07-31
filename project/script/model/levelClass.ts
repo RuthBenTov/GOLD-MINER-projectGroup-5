@@ -16,6 +16,8 @@ class Level {
 
   renderLevel() {
 
+    resetScore()
+
     document.querySelector("#levelValue")!.innerHTML = this.numLevel.toString();
     document.querySelector("#scoreValue")!.innerHTML = this.score.toString();
     document.querySelector("#targetValue")!.innerHTML = this.targetScore.toString();
@@ -36,9 +38,7 @@ function getLevelsFromLs() {
 
   const levelsFromLs = JSON.parse(localStorage.getItem("levels")!);
   if (levelsFromLs) {
-  levelsFromLs.forEach((level) =>level.score =0)
-  localStorage.setItem("levels", JSON.stringify(levelsFromLs))
-  
+  resetScore()
     levels = levelsFromLs.map((levelFromLs) => {
       return new Level(
         levelFromLs.numLevel,
@@ -63,4 +63,14 @@ function setLevelsInLs(levels: Level[]) {
 function renderCurrentLevel() {
   getLevelsFromLs().find((level) => level.isActive == true)!.renderLevel();
 }
-renderCurrentLevel()
+
+
+function resetScore(){
+  console.log("reset score");
+
+  const levelsFromLs = JSON.parse(localStorage.getItem("levels")!);
+  if (levelsFromLs) {
+  levelsFromLs.forEach((level) =>level.score =0)
+  localStorage.setItem("levels", JSON.stringify(levelsFromLs))
+  }
+}

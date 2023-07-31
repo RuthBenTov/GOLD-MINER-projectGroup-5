@@ -6,6 +6,10 @@ const gameBoard = document.querySelector(".container") as HTMLDivElement;
 const gameBoardLeft = gameBoard.getBoundingClientRect().left;
 const gameBoardRight = gameBoard.getBoundingClientRect().right;
 const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
+const addValuePop =document.querySelector("#addScoreDiv h1") as HTMLHeadElement;
+const character = document.querySelector(".header__character img") as HTMLImageElement 
+
+
 
 function getElementToPlayer(item) {
   let playerPosition = {
@@ -20,7 +24,7 @@ function getElementToPlayer(item) {
   IdentifyTheStone(item);
 }
 
-function checkCollision(ropeLeft, ropeRight, ropeBottom) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
   const rocks = document.querySelectorAll(".rockElem");
 
   for (let i = 0; i < rocks.length; i++) {
@@ -31,19 +35,20 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     const item = rocks[i];
 
     if (
-      (ropeRight < rockRight &&
+      (ropeTop != ropeRight &&
+        ropeRight < rockRight &&
         ropeRight > rockLeft &&
         ropeBottom < rockBottom &&
         ropeBottom > rockTop) ||
-      (ropeLeft < rockRight &&
+      (ropeTop != ropeLeft &&
+        ropeLeft < rockRight &&
         ropeLeft > rockLeft &&
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
       rope.style.width = "40px";
       rope.classList.add("returnRope");
-      setTimeout(() => {}, 7000)
-      
+      setTimeout(() => {}, 7000);
       rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
     }
@@ -67,21 +72,30 @@ setInterval(() => {
   const ropeLeft = rope.getBoundingClientRect().left;
   const ropeRight = rope.getBoundingClientRect().right;
   const ropeBottom = rope.getBoundingClientRect().bottom;
+  const ropeTop = rope.getBoundingClientRect().top;
 
-  checkCollision(ropeLeft, ropeRight, ropeBottom);
+  checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
 }, 0.5);
 
 function IdentifyTheStone(item) {
   console.log(item);
-
+  // const levels = getLevelsFromLs();
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
 
-  thisLevel.score += currentElem.getScore();
-  document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
-
-  setLevelsInLs(levels);
+  changeCharacter(currentElem)
+  
+  if (currentElem) {
+    thisLevel.score += currentElem.getScore();
+    document.querySelector("#scoreValue")!.innerHTML =
+      thisLevel.score.toString();
+  
+      addValuePop.innerHTML = currentElem.getScore().toString();
+      playPopAnimation()
+  
+    setLevelsInLs(levels);
+  }
 }
 
 function resetRope(item) {
@@ -94,4 +108,30 @@ function resetRope(item) {
     }
   }, itemWight);
   rope.style.animationPlayState = "running";
+}
+
+
+
+function playPopAnimation() {
+  addValuePop.classList.add('popMoveAnimation');
+
+  addValuePop.addEventListener('animationend', function() {
+    addValuePop.classList.remove('popMoveAnimation');
+  });
+}
+
+
+
+function  changeCharacter(currentElem: Rock){
+  if(currentElem.type === "gold" || currentElem.type === "bag"){
+    character.src = "/project/image/happy-gold miner.png"
+  }
+
+  if(currentElem.type === "stone"){
+    character.src = "/project/image/effort- gold miner.png"
+  }
+
+  //reset ------------------------------------------------------------------------
+
+
 }

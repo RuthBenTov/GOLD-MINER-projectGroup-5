@@ -40,7 +40,6 @@ const timer = document.querySelector(".head__rightSide__timer #timerValue");
 let timeSecond = 80;
 
 displayTime(timeSecond);
-
 const countDown = setInterval(() => {
   timeSecond--;
   displayTime(timeSecond);
@@ -48,6 +47,7 @@ const countDown = setInterval(() => {
     clearInterval(countDown);
     alert("game over");
     // window.location.href = "/project/view/gameOver.html";
+    checkPassLevel(levels.find(l=> l.isActive)!.score )
   }
 }, 1000);
 

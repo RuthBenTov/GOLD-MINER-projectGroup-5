@@ -16,6 +16,7 @@ var Level = /** @class */ (function () {
             this.map = mapsLevel3[randomMapByLevel];
     }
     Level.prototype.renderLevel = function () {
+        resetScore();
         document.querySelector("#levelValue").innerHTML = this.numLevel.toString();
         document.querySelector("#scoreValue").innerHTML = this.score.toString();
         document.querySelector("#targetValue").innerHTML = this.targetScore.toString();
@@ -32,8 +33,7 @@ var levels;
 function getLevelsFromLs() {
     var levelsFromLs = JSON.parse(localStorage.getItem("levels"));
     if (levelsFromLs) {
-        levelsFromLs.forEach(function (level) { return level.score = 0; });
-        localStorage.setItem("levels", JSON.stringify(levelsFromLs));
+        resetScore();
         levels = levelsFromLs.map(function (levelFromLs) {
             return new Level(levelFromLs.numLevel, levelFromLs.targetScore, levelFromLs.timeToEnd, levelFromLs.isActive, levelFromLs.score);
         });
@@ -50,4 +50,11 @@ function setLevelsInLs(levels) {
 function renderCurrentLevel() {
     getLevelsFromLs().find(function (level) { return level.isActive == true; }).renderLevel();
 }
-renderCurrentLevel();
+function resetScore() {
+    console.log("reset score");
+    var levelsFromLs = JSON.parse(localStorage.getItem("levels"));
+    if (levelsFromLs) {
+        levelsFromLs.forEach(function (level) { return level.score = 0; });
+        localStorage.setItem("levels", JSON.stringify(levelsFromLs));
+    }
+}

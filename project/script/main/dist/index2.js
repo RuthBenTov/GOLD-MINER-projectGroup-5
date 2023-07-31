@@ -4,6 +4,8 @@ var gameBoard = document.querySelector(".container");
 var gameBoardLeft = gameBoard.getBoundingClientRect().left;
 var gameBoardRight = gameBoard.getBoundingClientRect().right;
 var gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
+var addValuePop = document.querySelector("#addScoreDiv h1");
+var character = document.querySelector(".header__character img");
 function getElementToPlayer(item) {
     var playerPosition = {
         x: goldMiner.getBoundingClientRect().left,
@@ -14,7 +16,7 @@ function getElementToPlayer(item) {
     item.style.left = 50 + "%";
     IdentifyTheStone(item);
 }
-function checkCollision(ropeLeft, ropeRight, ropeBottom) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     var rocks = document.querySelectorAll(".rockElem");
     for (var i = 0; i < rocks.length; i++) {
         var rockLeft = rocks[i].getBoundingClientRect().left;
@@ -22,11 +24,13 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         var rockTop = rocks[i].getBoundingClientRect().top;
         var rockBottom = rocks[i].getBoundingClientRect().bottom;
         var item = rocks[i];
-        if ((ropeRight < rockRight &&
+        if ((ropeTop != ropeRight &&
+            ropeRight < rockRight &&
             ropeRight > rockLeft &&
             ropeBottom < rockBottom &&
             ropeBottom > rockTop) ||
-            (ropeLeft < rockRight &&
+            (ropeTop != ropeLeft &&
+                ropeLeft < rockRight &&
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
@@ -53,16 +57,24 @@ setInterval(function () {
     var ropeLeft = rope.getBoundingClientRect().left;
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
-    checkCollision(ropeLeft, ropeRight, ropeBottom);
+    var ropeTop = rope.getBoundingClientRect().top;
+    checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
 }, 0.5);
 function IdentifyTheStone(item) {
     console.log(item);
+    // const levels = getLevelsFromLs();
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
-    thisLevel.score += currentElem.getScore();
-    document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
-    setLevelsInLs(levels);
+    changeCharacter(currentElem);
+    if (currentElem) {
+        thisLevel.score += currentElem.getScore();
+        document.querySelector("#scoreValue").innerHTML =
+            thisLevel.score.toString();
+        addValuePop.innerHTML = currentElem.getScore().toString();
+        playPopAnimation();
+        setLevelsInLs(levels);
+    }
 }
 function resetRope(item) {
     var itemWight = parseInt(item.style.width);
@@ -74,4 +86,19 @@ function resetRope(item) {
         }
     }, itemWight);
     rope.style.animationPlayState = "running";
+}
+function playPopAnimation() {
+    addValuePop.classList.add('popMoveAnimation');
+    addValuePop.addEventListener('animationend', function () {
+        addValuePop.classList.remove('popMoveAnimation');
+    });
+}
+function changeCharacter(currentElem) {
+    if (currentElem.type === "gold" || currentElem.type === "bag") {
+        character.src = "/project/image/happy-gold miner.png";
+    }
+    if (currentElem.type === "stone") {
+        character.src = "/project/image/effort- gold miner.png";
+    }
+    //reset ------------------------------------------------------------------------
 }

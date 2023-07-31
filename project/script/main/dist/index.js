@@ -36,6 +36,7 @@ var countDown = setInterval(function () {
         clearInterval(countDown);
         alert("game over");
         // window.location.href = "/project/view/gameOver.html";
+        checkPassLevel(levels.find(function (l) { return l.isActive; }).score);
     }
 }, 1000);
 function displayTime(second) {
