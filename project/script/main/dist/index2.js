@@ -60,9 +60,12 @@ function IdentifyTheStone(item) {
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
-    thisLevel.score += currentElem.getScore();
-    document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
-    setLevelsInLs(levels);
+    if (currentElem) {
+        thisLevel.score += currentElem.getScore();
+        document.querySelector("#scoreValue").innerHTML =
+            thisLevel.score.toString();
+        setLevelsInLs(levels);
+    }
 }
 function resetRope(item) {
     var itemWight = parseInt(item.style.width);

@@ -27,7 +27,7 @@ function handlePress(ev) {
 //------------------------------------------Timer------------------------------------------
 // timer
 var timer = document.querySelector(".head__rightSide__timer #timerValue");
-var timeSecond = 80;
+var timeSecond = 10;
 displayTime(timeSecond);
 var countDown = setInterval(function () {
     timeSecond--;
@@ -36,6 +36,7 @@ var countDown = setInterval(function () {
         clearInterval(countDown);
         alert("game over");
         // window.location.href = "/project/view/gameOver.html";
+        checkPassLevel(levels.find(function (l) { return l.isActive; }).score);
     }
 }, 1000);
 function displayTime(second) {

@@ -42,8 +42,8 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     ) {
       rope.style.width = "40px";
       rope.classList.add("returnRope");
-      setTimeout(() => {}, 7000)
-      
+      setTimeout(() => {}, 7000);
+
       rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
     }
@@ -73,15 +73,15 @@ setInterval(() => {
 
 function IdentifyTheStone(item) {
   console.log(item);
-
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
-
-  thisLevel.score += currentElem.getScore();
-  document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
-
-  setLevelsInLs(levels);
+  if (currentElem) {
+    thisLevel.score += currentElem.getScore();
+    document.querySelector("#scoreValue")!.innerHTML =
+      thisLevel.score.toString();
+    setLevelsInLs(levels);
+  }
 }
 
 function resetRope(item) {
