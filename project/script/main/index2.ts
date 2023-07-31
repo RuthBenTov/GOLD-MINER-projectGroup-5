@@ -6,6 +6,10 @@ const gameBoard = document.querySelector(".container") as HTMLDivElement;
 const gameBoardLeft = gameBoard.getBoundingClientRect().left;
 const gameBoardRight = gameBoard.getBoundingClientRect().right;
 const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
+const addValuePop =document.querySelector("#addScoreDiv h1") as HTMLHeadElement;
+const character = document.querySelector(".header__character img") as HTMLImageElement 
+
+
 
 function getElementToPlayer(item) {
   let playerPosition = {
@@ -79,12 +83,17 @@ function IdentifyTheStone(item) {
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
-  console.log(currentElem);
+
+  changeCharacter(currentElem)
   
   if (currentElem) {
     thisLevel.score += currentElem.getScore();
     document.querySelector("#scoreValue")!.innerHTML =
       thisLevel.score.toString();
+  
+      addValuePop.innerHTML = currentElem.getScore().toString();
+      playPopAnimation()
+  
     setLevelsInLs(levels);
   }
 }
@@ -99,4 +108,30 @@ function resetRope(item) {
     }
   }, itemWight);
   rope.style.animationPlayState = "running";
+}
+
+
+
+function playPopAnimation() {
+  addValuePop.classList.add('popMoveAnimation');
+
+  addValuePop.addEventListener('animationend', function() {
+    addValuePop.classList.remove('popMoveAnimation');
+  });
+}
+
+
+
+function  changeCharacter(currentElem: Rock){
+  if(currentElem.type === "gold" || currentElem.type === "bag"){
+    character.src = "/project/image/happy-gold miner.png"
+  }
+
+  if(currentElem.type === "stone"){
+    character.src = "/project/image/effort- gold miner.png"
+  }
+
+  //reset ------------------------------------------------------------------------
+
+
 }

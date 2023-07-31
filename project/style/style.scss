@@ -7,7 +7,7 @@
   width: 60vw;
   height: 80vh;
 
-  z-index: -1;
+  z-index: -10;
   border: 2px solid black;
   margin: auto;
 
@@ -64,32 +64,39 @@
       }
     }
 
+    #addScoreDiv{
+      h1{
+        position: absolute;
+        display: inline-block;
+        z-index: 1000;
+        color: rgb(0, 0, 0);
+        bottom: 15%;
+        left: 60%;
+        opacity: 0%;
+      }
+      .popMoveAnimation{
+        animation: fadeInOutAnimation 2s ;
+      }
+    }
+
     .header {
       position: relative;
-
-      #addScoreDiv{
-        position: absolute;
-        z-index: 10000;
-        color: aqua;
-        background-color: #9e6844;
-        top: 0;
-        left: 0;
-      }
+// z-index: -3;
 
       &__character {
         position: relative;
         width: 20%;
         height: 100%;
         margin: auto;
-        background-color: #283f9c;
+        background-color: #4259b4;
         border-radius: 125px 125px 0 0;
+        box-shadow: 0px 5px 10px 3px #384b97;
 
         img {
-          width: 25%;
           height: 85%;
           position: absolute;
           bottom: 0;
-          left: 40%;
+          left: 15%;
         }
       }
 
@@ -199,10 +206,17 @@
 
 
 @keyframes fadeInOutAnimation {
-  0%, 100% {
+  0%{
     opacity: 0;
   }
-  50% {
+  20% {
     opacity: 1;
+  }
+  100%{
+   left:80%;
+   bottom:60%
+   ;
+  display: none;
+  opacity: 0%;
   }
 }
