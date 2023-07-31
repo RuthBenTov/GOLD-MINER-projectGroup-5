@@ -6,10 +6,12 @@ const gameBoard = document.querySelector(".container") as HTMLDivElement;
 const gameBoardLeft = gameBoard.getBoundingClientRect().left;
 const gameBoardRight = gameBoard.getBoundingClientRect().right;
 const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
-const addValuePop =document.querySelector("#addScoreDiv h1") as HTMLHeadElement;
-const character = document.querySelector(".header__character img") as HTMLImageElement 
-
-
+const addValuePop = document.querySelector(
+  "#addScoreDiv h1",
+) as HTMLHeadElement;
+const character = document.querySelector(
+  ".header__character img",
+) as HTMLImageElement;
 
 function getElementToPlayer(item) {
   let playerPosition = {
@@ -46,10 +48,10 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
-      rope.style.width = "40px";
-      rope.classList.add("returnRope");
-      setTimeout(() => {}, 7000);
-      rope.classList.remove("active", "returnRope");
+      // rope.style.width = "40px";
+      // rope.classList.add("returnRope");
+      // setTimeout(() => {}, 7000);
+      // rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
     }
   }
@@ -60,11 +62,13 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     ropeBottom >= gameBoardBottom
   ) {
     rope.style.width = "40px";
-    rope.classList.add("returnRope");
     rope.classList.remove("active");
+    ropeGetUp()
+
+    
   } else {
-    // rope.style.animation = "ropeSideToSide 5s linear infinite; ";
-    rope.classList.remove("returnRope");
+    rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+    // rope.classList.remove("returnRope");
   }
 }
 
@@ -84,54 +88,129 @@ function IdentifyTheStone(item) {
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
 
-  changeCharacter(currentElem)
-  
+  changeCharacter(currentElem);
+  // ropeGetUp(currentElem)
+  ropeGetUp(currentElem, () => {
+    console.log("finsh!!!");
+  });
+
   if (currentElem) {
     thisLevel.score += currentElem.getScore();
     document.querySelector("#scoreValue")!.innerHTML =
       thisLevel.score.toString();
-  
-      addValuePop.innerHTML = currentElem.getScore().toString();
-      playPopAnimation()
-  
+
+    addValuePop.innerHTML = currentElem.getScore().toString();
+    playPopAnimation();
+
     setLevelsInLs(levels);
   }
 }
 
-function resetRope(item) {
-  const itemWight = parseInt(item.style.width);
-  setInterval(() => {
-    if (parseInt(rope.style.width) > 40) {
-      rope.style.width = "40px";
-      rope.style.transition = `all ${itemWight / 10}s`;
-      rope.style.animationPlayState = "paused";
-    }
-  }, itemWight);
-  rope.style.animationPlayState = "running";
-}
-
-
+// function resetRope(item) {
+//   const itemWight = parseInt(item.style.width);
+//   setInterval(() => {
+//     if (parseInt(rope.style.width) > 40) {
+//       rope.style.width = "40px";
+//       rope.style.transition = `all ${itemWight / 10}s`;
+//       rope.style.animationPlayState = "paused";
+//     }
+//   }, itemWight);
+//   rope.style.animationPlayState = "running";
+// }
 
 function playPopAnimation() {
-  addValuePop.classList.add('popMoveAnimation');
+  addValuePop.classList.add("popMoveAnimation");
 
-  addValuePop.addEventListener('animationend', function() {
-    addValuePop.classList.remove('popMoveAnimation');
+  addValuePop.addEventListener("animationend", function () {
+    addValuePop.classList.remove("popMoveAnimation");
   });
 }
 
-
-
-function  changeCharacter(currentElem: Rock){
-  if(currentElem.type === "gold" || currentElem.type === "bag"){
-    character.src = "/project/image/happy-gold miner.png"
+function changeCharacter(currentElem: Rock) {
+  if (currentElem.type === "gold" || currentElem.type === "bag") {
+    character.src = "/project/image/happy-gold miner.png";
   }
 
-  if(currentElem.type === "stone"){
-    character.src = "/project/image/effort- gold miner.png"
+  if (currentElem.type === "stone") {
+    character.src = "/project/image/effort- gold miner.png";
   }
 
-  //reset ------------------------------------------------------------------------
+  //reset ------------------------------------------------------------------------????
+}
+function ropeGetUp(currentElem:Rock = null) {
+  let wait = 3
+  if(currentElem){
+    wait = currentElem.width
+  }
+  console.log("get up!!");
+  rope.style.width = "40px";
+  rope.style.transition = wait-10 + "s"; 
+  setTimeout(
+  ()=> { rope.style.animationPlayState = "running"}
+    , wait*100
+  )
+}
+
+  // rope.classList.add("returnRope")
+
+  //   var id = null;
+  //   var width = getRopeLength();
+
+  //  rope.style.transition = "0s"
+  //   clearInterval(id);
+  //   id = setInterval(move, 30);
+
+  //   function move() {
+  //     if (width  <= 40) {
+  //       clearInterval(id);
+  //       // console.log("finished!");
+  //       callback(); // Call the callback function once the animation is finished.
+  //     } else {
+  //       width--;
+  //       rope.style.width = width + 'px';
+  //     }
+  //   }
+}
 
 
+// Your animation code goes here.
+// This code will only be executed after the "finished!" message is printed.
+
+// function ropeGetUp(currentElem: Rock){
+
+//   console.log("get up!!");
+
+//   var id = null;
+//     var width = getRopeLength()
+//     clearInterval(id);
+//     id = setInterval(move, 10);
+//     function move() {
+//       if (width  <= 40) {
+//         clearInterval(id);
+//         console.log("finished!");
+//       } else {
+//         width --;
+//         rope.style.width = width + 'px';
+//       }
+//       // rope.classList.remove("active")
+//     }
+// }
+
+function getRopeLength() {
+  const ropeLeft = rope.getBoundingClientRect().left;
+  const ropeRight = rope.getBoundingClientRect().right;
+  const ropeBottom = rope.getBoundingClientRect().bottom;
+  const ropeTop = rope.getBoundingClientRect().top;
+
+  return Math.round(
+    Math.sqrt(
+      Math.pow(ropeTop - ropeBottom, 2) + Math.pow(ropeRight - ropeLeft, 2),
+    ),
+  );
+}
+
+rope.addEventListener("animationend", handleAnimationEnd);
+
+function handleAnimationEnd(event) {
+  console.dir(event);
 }

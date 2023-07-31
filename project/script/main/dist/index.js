@@ -5,6 +5,8 @@ document.addEventListener("keydown", handlePress);
 function handlePress(ev) {
     if (ev.key === "ArrowDown") {
         rope.style.width = "1000px";
+        rope.style.transition = "4s";
+        rope.style.animationPlayState = "paused";
         rope.classList.add("active");
     }
     if (ev.key === "ArrowLeft") {

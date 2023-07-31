@@ -99,7 +99,8 @@
   animation-play-state: paused;
 }
 .container__header .returnRope {
-  transition: all 10s;
+  animation-name: gettingUp;
+  animation-duration: 4s;
   animation-play-state: paused;
 }
 .container__footer {
@@ -156,7 +157,11 @@
     width: 350px;
   }
 }
-@keyframes gettingUp {}
+@keyframes gettingUp {
+  to {
+    width: 40px;
+  }
+}
 @keyframes fadeInOutAnimation {
   0% {
     opacity: 0;

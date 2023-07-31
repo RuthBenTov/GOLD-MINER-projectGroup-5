@@ -34,10 +34,10 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
-            rope.style.width = "40px";
-            rope.classList.add("returnRope");
-            setTimeout(function () { }, 7000);
-            rope.classList.remove("active", "returnRope");
+            // rope.style.width = "40px";
+            // rope.classList.add("returnRope");
+            // setTimeout(() => {}, 7000);
+            // rope.classList.remove("active", "returnRope");
             getElementToPlayer(item);
         }
     }
@@ -45,12 +45,12 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeRight >= gameBoardRight ||
         ropeBottom >= gameBoardBottom) {
         rope.style.width = "40px";
-        rope.classList.add("returnRope");
         rope.classList.remove("active");
+        ropeGetUp();
     }
     else {
-        // rope.style.animation = "ropeSideToSide 5s linear infinite; ";
-        rope.classList.remove("returnRope");
+        rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+        // rope.classList.remove("returnRope");
     }
 }
 setInterval(function () {
@@ -67,6 +67,10 @@ function IdentifyTheStone(item) {
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     changeCharacter(currentElem);
+    // ropeGetUp(currentElem)
+    ropeGetUp(currentElem, function () {
+        console.log("finsh!!!");
+    });
     if (currentElem) {
         thisLevel.score += currentElem.getScore();
         document.querySelector("#scoreValue").innerHTML =
@@ -76,21 +80,21 @@ function IdentifyTheStone(item) {
         setLevelsInLs(levels);
     }
 }
-function resetRope(item) {
-    var itemWight = parseInt(item.style.width);
-    setInterval(function () {
-        if (parseInt(rope.style.width) > 40) {
-            rope.style.width = "40px";
-            rope.style.transition = "all " + itemWight / 10 + "s";
-            rope.style.animationPlayState = "paused";
-        }
-    }, itemWight);
-    rope.style.animationPlayState = "running";
-}
+// function resetRope(item) {
+//   const itemWight = parseInt(item.style.width);
+//   setInterval(() => {
+//     if (parseInt(rope.style.width) > 40) {
+//       rope.style.width = "40px";
+//       rope.style.transition = `all ${itemWight / 10}s`;
+//       rope.style.animationPlayState = "paused";
+//     }
+//   }, itemWight);
+//   rope.style.animationPlayState = "running";
+// }
 function playPopAnimation() {
-    addValuePop.classList.add('popMoveAnimation');
-    addValuePop.addEventListener('animationend', function () {
-        addValuePop.classList.remove('popMoveAnimation');
+    addValuePop.classList.add("popMoveAnimation");
+    addValuePop.addEventListener("animationend", function () {
+        addValuePop.classList.remove("popMoveAnimation");
     });
 }
 function changeCharacter(currentElem) {
@@ -100,5 +104,46 @@ function changeCharacter(currentElem) {
     if (currentElem.type === "stone") {
         character.src = "/project/image/effort- gold miner.png";
     }
-    //reset ------------------------------------------------------------------------
+    //reset ------------------------------------------------------------------------????
+}
+function ropeGetUp(currentElem) {
+    if (currentElem === void 0) { currentElem = null; }
+    var wait = 3;
+    if (currentElem) {
+        wait = currentElem.width;
+    }
+    console.log("get up!!");
+    rope.style.width = "40px";
+    rope.style.transition = wait - 10 + "s";
+    setTimeout(function () { rope.style.animationPlayState = "running"; }, wait * 100);
+}
+// Your animation code goes here.
+// This code will only be executed after the "finished!" message is printed.
+// function ropeGetUp(currentElem: Rock){
+//   console.log("get up!!");
+//   var id = null;
+//     var width = getRopeLength()
+//     clearInterval(id);
+//     id = setInterval(move, 10);
+//     function move() {
+//       if (width  <= 40) {
+//         clearInterval(id);
+//         console.log("finished!");
+//       } else {
+//         width --;
+//         rope.style.width = width + 'px';
+//       }
+//       // rope.classList.remove("active")
+//     }
+// }
+function getRopeLength() {
+    var ropeLeft = rope.getBoundingClientRect().left;
+    var ropeRight = rope.getBoundingClientRect().right;
+    var ropeBottom = rope.getBoundingClientRect().bottom;
+    var ropeTop = rope.getBoundingClientRect().top;
+    return Math.round(Math.sqrt(Math.pow(ropeTop - ropeBottom, 2) + Math.pow(ropeRight - ropeLeft, 2)));
+}
+rope.addEventListener("animationend", handleAnimationEnd);
+function handleAnimationEnd(event) {
+    console.dir(event);
 }
