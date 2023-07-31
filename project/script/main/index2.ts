@@ -137,51 +137,6 @@ function ropeGetUp(currentElem:Rock = null) {
   )
 }
 
-  // rope.classList.add("returnRope")
-
-  //   var id = null;
-  //   var width = getRopeLength();
-
-  //  rope.style.transition = "0s"
-  //   clearInterval(id);
-  //   id = setInterval(move, 30);
-
-  //   function move() {
-  //     if (width  <= 40) {
-  //       clearInterval(id);
-  //       // console.log("finished!");
-  //       callback(); // Call the callback function once the animation is finished.
-  //     } else {
-  //       width--;
-  //       rope.style.width = width + 'px';
-  //     }
-  //   }
-}
-
-
-// Your animation code goes here.
-// This code will only be executed after the "finished!" message is printed.
-
-// function ropeGetUp(currentElem: Rock){
-
-//   console.log("get up!!");
-
-//   var id = null;
-//     var width = getRopeLength()
-//     clearInterval(id);
-//     id = setInterval(move, 10);
-//     function move() {
-//       if (width  <= 40) {
-//         clearInterval(id);
-//         console.log("finished!");
-//       } else {
-//         width --;
-//         rope.style.width = width + 'px';
-//       }
-//       // rope.classList.remove("active")
-//     }
-// }
-
 function getRopeLength() {
   const ropeLeft = rope.getBoundingClientRect().left;
   const ropeRight = rope.getBoundingClientRect().right;

@@ -104,25 +104,6 @@ function ropeGetUp(currentElem) {
     rope.style.transition = wait / 2 + "s";
     setTimeout(function () { rope.style.animationPlayState = "running"; }, wait / 2 * getRopeLength());
 }
-// Your animation code goes here.
-// This code will only be executed after the "finished!" message is printed.
-// function ropeGetUp(currentElem: Rock){
-//   console.log("get up!!");
-//   var id = null;
-//     var width = getRopeLength()
-//     clearInterval(id);
-//     id = setInterval(move, 10);
-//     function move() {
-//       if (width  <= 40) {
-//         clearInterval(id);
-//         console.log("finished!");
-//       } else {
-//         width --;
-//         rope.style.width = width + 'px';
-//       }
-//       // rope.classList.remove("active")
-//     }
-// }
 function getRopeLength() {
     var ropeLeft = rope.getBoundingClientRect().left;
     var ropeRight = rope.getBoundingClientRect().right;
