@@ -6,6 +6,7 @@ const gameBoard = document.querySelector(".container") as HTMLDivElement;
 const gameBoardLeft = gameBoard.getBoundingClientRect().left;
 const gameBoardRight = gameBoard.getBoundingClientRect().right;
 const gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
+const addValuePop =document.querySelector("#addScoreDiv h1") as HTMLHeadElement;
 
 function getElementToPlayer(item) {
   let playerPosition = {
@@ -79,12 +80,15 @@ function IdentifyTheStone(item) {
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
-  console.log(currentElem);
   
   if (currentElem) {
     thisLevel.score += currentElem.getScore();
     document.querySelector("#scoreValue")!.innerHTML =
       thisLevel.score.toString();
+  
+      addValuePop.innerHTML = currentElem.getScore().toString();
+      playPopAnimation()
+  
     setLevelsInLs(levels);
   }
 }
@@ -99,4 +103,14 @@ function resetRope(item) {
     }
   }, itemWight);
   rope.style.animationPlayState = "running";
+}
+
+
+
+function playPopAnimation() {
+  addValuePop.classList.add('popMoveAnimation');
+  // Remove the animation class after the animation completes
+  addValuePop.addEventListener('animationend', function() {
+    addValuePop.classList.remove('popMoveAnimation');
+  });
 }

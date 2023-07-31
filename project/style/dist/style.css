@@ -6,7 +6,7 @@
 .container {
   width: 60vw;
   height: 80vh;
-  z-index: -1;
+  z-index: -10;
   border: 2px solid black;
   margin: auto;
 }
@@ -53,16 +53,20 @@
 .container__header .head__leftSide__score #scoreValue, .container__header .head__leftSide__target #scoreValue {
   color: #0bb60b;
 }
+.container__header #addScoreDiv h1 {
+  position: absolute;
+  display: inline-block;
+  z-index: 1000;
+  color: black;
+  bottom: 15%;
+  left: 60%;
+  opacity: 0%;
+}
+.container__header #addScoreDiv .popMoveAnimation {
+  animation: fadeInOutAnimation 2s;
+}
 .container__header .header {
   position: relative;
-}
-.container__header .header #addScoreDiv {
-  position: absolute;
-  z-index: 10000;
-  color: aqua;
-  background-color: #9e6844;
-  top: 0;
-  left: 0;
 }
 .container__header .header__character {
   position: relative;
@@ -154,10 +158,16 @@
 }
 @keyframes gettingUp {}
 @keyframes fadeInOutAnimation {
-  0%, 100% {
+  0% {
     opacity: 0;
   }
-  50% {
+  20% {
     opacity: 1;
+  }
+  100% {
+    left: 80%;
+    bottom: 60%;
+    display: none;
+    opacity: 0%;
   }
 }
