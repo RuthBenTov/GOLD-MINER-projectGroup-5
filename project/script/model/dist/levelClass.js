@@ -33,6 +33,7 @@ var levels;
 function getLevelsFromLs() {
     var levelsFromLs = JSON.parse(localStorage.getItem("levels"));
     if (levelsFromLs) {
+        resetScore();
         levels = levelsFromLs.map(function (levelFromLs) {
             return new Level(levelFromLs.numLevel, levelFromLs.targetScore, levelFromLs.timeToEnd, levelFromLs.isActive, levelFromLs.score);
         });

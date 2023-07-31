@@ -20,7 +20,7 @@ function getElementToPlayer(item) {
   IdentifyTheStone(item);
 }
 
-function checkCollision(ropeLeft, ropeRight, ropeBottom) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
   const rocks = document.querySelectorAll(".rockElem");
 
   for (let i = 0; i < rocks.length; i++) {
@@ -31,11 +31,13 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
     const item = rocks[i];
 
     if (
-      (ropeRight < rockRight &&
+      (ropeTop != ropeRight &&
+        ropeRight < rockRight &&
         ropeRight > rockLeft &&
         ropeBottom < rockBottom &&
         ropeBottom > rockTop) ||
-      (ropeLeft < rockRight &&
+      (ropeTop != ropeLeft &&
+        ropeLeft < rockRight &&
         ropeLeft > rockLeft &&
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
@@ -43,7 +45,6 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
       rope.style.width = "40px";
       rope.classList.add("returnRope");
       setTimeout(() => {}, 7000);
-
       rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
     }
@@ -67,15 +68,19 @@ setInterval(() => {
   const ropeLeft = rope.getBoundingClientRect().left;
   const ropeRight = rope.getBoundingClientRect().right;
   const ropeBottom = rope.getBoundingClientRect().bottom;
+  const ropeTop = rope.getBoundingClientRect().top;
 
-  checkCollision(ropeLeft, ropeRight, ropeBottom);
+  checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
 }, 0.5);
 
 function IdentifyTheStone(item) {
   console.log(item);
+  // const levels = getLevelsFromLs();
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
+  console.log(currentElem);
+  
   if (currentElem) {
     thisLevel.score += currentElem.getScore();
     document.querySelector("#scoreValue")!.innerHTML =

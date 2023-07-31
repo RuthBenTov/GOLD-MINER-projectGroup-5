@@ -14,7 +14,7 @@ function getElementToPlayer(item) {
     item.style.left = 50 + "%";
     IdentifyTheStone(item);
 }
-function checkCollision(ropeLeft, ropeRight, ropeBottom) {
+function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     var rocks = document.querySelectorAll(".rockElem");
     for (var i = 0; i < rocks.length; i++) {
         var rockLeft = rocks[i].getBoundingClientRect().left;
@@ -22,11 +22,13 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom) {
         var rockTop = rocks[i].getBoundingClientRect().top;
         var rockBottom = rocks[i].getBoundingClientRect().bottom;
         var item = rocks[i];
-        if ((ropeRight < rockRight &&
+        if ((ropeTop != ropeRight &&
+            ropeRight < rockRight &&
             ropeRight > rockLeft &&
             ropeBottom < rockBottom &&
             ropeBottom > rockTop) ||
-            (ropeLeft < rockRight &&
+            (ropeTop != ropeLeft &&
+                ropeLeft < rockRight &&
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
@@ -53,13 +55,16 @@ setInterval(function () {
     var ropeLeft = rope.getBoundingClientRect().left;
     var ropeRight = rope.getBoundingClientRect().right;
     var ropeBottom = rope.getBoundingClientRect().bottom;
-    checkCollision(ropeLeft, ropeRight, ropeBottom);
+    var ropeTop = rope.getBoundingClientRect().top;
+    checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
 }, 0.5);
 function IdentifyTheStone(item) {
     console.log(item);
+    // const levels = getLevelsFromLs();
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
+    console.log(currentElem);
     if (currentElem) {
         thisLevel.score += currentElem.getScore();
         document.querySelector("#scoreValue").innerHTML =

@@ -1,20 +1,21 @@
 function checkPassLevel(score) {
-    var thisLevel = getLevelsFromLs().find(function (l) { return l.isActive === true; });
-    console.log(thisLevel.score);
-    var thisLevelIndex = getLevelsFromLs().findIndex(function (l) { return l.isActive === true; });
+    var levels = getLevelsFromLs();
+    var thisLevel = levels.find(function (l) { return l.isActive === true; });
+    var thisLevelIndex = levels.findIndex(function (l) { return l.isActive === true; });
     //passed level
     if (thisLevel.score >= thisLevel.targetScore) {
-        window.location.href = "/project/view/betweenLevels.html";
-        getLevelsFromLs()[thisLevelIndex].isActive = false;
         addMoneyToPlayer(thisLevel);
-        if (getLevelsFromLs.length == thisLevelIndex) {
-            console.log(thisLevelIndex);
-            console.log(getLevelsFromLs.length);
+        alert("you done!");
+        window.location.href = "/project/view/betweenLevels.html";
+        levels[thisLevelIndex].isActive = false;
+        levels[thisLevelIndex + 1].isActive = true;
+        setLevelsInLs(levels);
+        if (levels.length == thisLevelIndex) {
             alert("you done all level , good job!");
-            getLevelsFromLs()[1].isActive = true;
+            levels[1].isActive = true;
         }
         else {
-            getLevelsFromLs()[thisLevelIndex + 1].isActive = true;
+            levels[thisLevelIndex + 1].isActive = true;
         }
     }
     //didn't passed level
