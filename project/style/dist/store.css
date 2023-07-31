@@ -18,15 +18,89 @@ body {
   background-size: 130% 100%;
   background-position: center center;
 }
-.storeContainer img:nth-child(1) {
+.storeContainer__nextLevel {
+  font-size: 30px;
+  position: absolute;
+  right: 35px;
+  top: 15%;
+  border: 2px solid #04A801;
+  background-color: #006600;
+  color: #04A801;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-shadow: #FC0 1px 0 10px;
+  box-shadow: 1px 2px 12px black;
+}
+.storeContainer h2 {
+  position: absolute;
+  top: 24%;
+  width: 65%;
+  left: 2%;
+  font-size: 24px;
+  height: 16%;
+  display: flex;
+  text-align: center;
+  border: 3px solid black;
+  background-color: white;
+  border-radius: 8px;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.storeContainer__circle {
+  border: 2px solid black;
+  width: 2%;
+  height: 3%;
+  background-color: white;
+  border-radius: 11px;
+  position: absolute;
+}
+.storeContainer__circle--one {
+  top: 41%;
+  left: 58%;
+}
+.storeContainer__circle--two {
+  top: 45%;
+  left: 61%;
+}
+.storeContainer__circle--three {
+  top: 49%;
+  left: 64%;
+}
+.storeContainer__dynamite img {
   position: absolute;
   bottom: 29%;
   left: 25%;
+  cursor: pointer;
 }
-.storeContainer img:nth-child(2) {
+.storeContainer__dynamite p {
+  position: absolute;
+  display: none;
+  width: 80%;
+  text-align: center;
+  font-weight: 900;
+  color: #fcd883;
+  bottom: 12%;
+  left: 10%;
+  text-shadow: #FC0 1px 0 10px;
+}
+.storeContainer__time img {
   position: absolute;
   bottom: 29%;
   left: 5%;
+  cursor: pointer;
+}
+.storeContainer__time p {
+  position: absolute;
+  display: none;
+  width: 80%;
+  text-align: center;
+  font-weight: 900;
+  color: #fcd883;
+  bottom: 12%;
+  left: 10%;
+  text-shadow: #FC0 1px 0 10px;
 }
 
 @media (max-width: 768px) {
@@ -34,6 +108,34 @@ body {
     position: relative;
     background-size: 131% 60%;
     background-position: top center;
+  }
+  .storeContainer__nextLevel {
+    font-size: 12px;
+    right: 9px;
+    top: 8%;
+  }
+  .storeContainer h2 {
+    top: 8%;
+    font-size: 9px;
+  }
+  .storeContainer__circle {
+    height: 2%;
+  }
+  .storeContainer__circle--one {
+    top: 25%;
+  }
+  .storeContainer__circle--two {
+    top: 28%;
+  }
+  .storeContainer__circle--three {
+    top: 31%;
+  }
+  .storeContainer p {
+    display: none;
+    top: 48%;
+    font-size: 11px;
+    left: 6%;
+    width: 90%;
   }
   .storeContainer img:nth-child(1), .storeContainer img:nth-child(2) {
     position: absolute;
