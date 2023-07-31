@@ -116,10 +116,15 @@ function changeCharacter(currentElem: Rock) {
 
 function ropeGetUp( thisLevel:Level, currentElem:Rock = null) {
   let wait = 3
+  // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
+  
   if(currentElem){
     wait = currentElem.width
   }
-  console.log("get up!!");
+
+  // rockHtml.style.top = "100%"
+  // rockHtml.style.left = "50%"
+  // rockHtml.style.transition = wait/2 + "s"
   rope.style.width = "40px";
   rope.style.transition = wait/2 + "s"; 
   setTimeout(
