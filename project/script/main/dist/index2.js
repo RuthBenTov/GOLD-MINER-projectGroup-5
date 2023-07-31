@@ -46,7 +46,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom >= gameBoardBottom) {
         rope.style.width = "40px";
         rope.classList.remove("active");
-        ropeGetUp();
+        ropeGetUp(levels);
     }
     else {
         rope.style.animation = "ropeSideToSide 5s linear infinite; ";
@@ -67,16 +67,8 @@ function IdentifyTheStone(item) {
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     changeCharacter(currentElem);
-    // ropeGetUp(currentElem)
-    ropeGetUp(currentElem);
-    if (currentElem) {
-        thisLevel.score += currentElem.getScore();
-        document.querySelector("#scoreValue").innerHTML =
-            thisLevel.score.toString();
-        addValuePop.innerHTML = currentElem.getScore().toString();
-        playPopAnimation();
-        setLevelsInLs(levels);
-    }
+    ropeGetUp(thisLevel, currentElem);
+    //-----------------------------------------------------------------------------
 }
 function playPopAnimation() {
     addValuePop.classList.add("popMoveAnimation");
@@ -91,9 +83,8 @@ function changeCharacter(currentElem) {
     if (currentElem.type === "stone") {
         character.src = "/project/image/effort- gold miner.png";
     }
-    //reset ------------------------------------------------------------------------????
 }
-function ropeGetUp(currentElem) {
+function ropeGetUp(thisLevel, currentElem) {
     if (currentElem === void 0) { currentElem = null; }
     var wait = 3;
     if (currentElem) {
@@ -102,7 +93,11 @@ function ropeGetUp(currentElem) {
     console.log("get up!!");
     rope.style.width = "40px";
     rope.style.transition = wait / 2 + "s";
-    setTimeout(function () { rope.style.animationPlayState = "running"; }, wait / 2 * getRopeLength());
+    setTimeout(function () {
+        rope.style.animationPlayState = "running";
+        character.src = "/project/image/gold miner.png";
+        addScoreAnimation(currentElem, thisLevel);
+    }, wait / 2 * getRopeLength());
 }
 function getRopeLength() {
     var ropeLeft = rope.getBoundingClientRect().left;
@@ -114,4 +109,13 @@ function getRopeLength() {
 rope.addEventListener("animationend", handleAnimationEnd);
 function handleAnimationEnd(event) {
     console.dir(event);
+}
+function addScoreAnimation(currentElem, thisLevel) {
+    console.log(currentElem);
+    thisLevel.score += currentElem.getScore();
+    document.querySelector("#scoreValue").innerHTML =
+        thisLevel.score.toString();
+    addValuePop.innerHTML = currentElem.getScore().toString();
+    playPopAnimation();
+    setLevelsInLs(levels);
 }

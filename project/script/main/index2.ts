@@ -63,7 +63,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
   ) {
     rope.style.width = "40px";
     rope.classList.remove("active");
-    ropeGetUp()
+    ropeGetUp(levels)
 
     
   } else {
@@ -89,19 +89,9 @@ function IdentifyTheStone(item) {
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
 
   changeCharacter(currentElem);
-  // ropeGetUp(currentElem)
-  ropeGetUp(currentElem)
+  ropeGetUp(thisLevel, currentElem)
 
-  if (currentElem) {
-    thisLevel.score += currentElem.getScore();
-    document.querySelector("#scoreValue")!.innerHTML =
-      thisLevel.score.toString();
-
-    addValuePop.innerHTML = currentElem.getScore().toString();
-    playPopAnimation();
-
-    setLevelsInLs(levels);
-  }
+ //-----------------------------------------------------------------------------
 }
 
 function playPopAnimation() {
@@ -121,9 +111,10 @@ function changeCharacter(currentElem: Rock) {
     character.src = "/project/image/effort- gold miner.png";
   }
 
-  //reset ------------------------------------------------------------------------????
 }
-function ropeGetUp(currentElem:Rock = null) {
+
+
+function ropeGetUp( thisLevel:Level, currentElem:Rock = null) {
   let wait = 3
   if(currentElem){
     wait = currentElem.width
@@ -132,7 +123,11 @@ function ropeGetUp(currentElem:Rock = null) {
   rope.style.width = "40px";
   rope.style.transition = wait/2 + "s"; 
   setTimeout(
-  ()=> { rope.style.animationPlayState = "running"}
+  ()=> {
+     rope.style.animationPlayState = "running"
+     character.src = "/project/image/gold miner.png"
+     addScoreAnimation(currentElem, thisLevel)
+    }
     , wait/2*getRopeLength()
   )
 }
@@ -154,4 +149,18 @@ rope.addEventListener("animationend", handleAnimationEnd);
 
 function handleAnimationEnd(event) {
   console.dir(event);
+}
+
+
+function addScoreAnimation(currentElem:Rock, thisLevel:Level){
+  console.log(currentElem);
+  
+  thisLevel.score += currentElem.getScore();
+  document.querySelector("#scoreValue")!.innerHTML =
+    thisLevel.score.toString();
+
+  addValuePop.innerHTML = currentElem.getScore().toString();
+  playPopAnimation();
+
+  setLevelsInLs(levels);
 }
