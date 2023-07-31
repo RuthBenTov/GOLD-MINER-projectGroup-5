@@ -89,7 +89,7 @@ body {
   color: white;
 }
 
-@media screen and (max-width: 1330px) {
+@media screen and (max-width: 768px) {
   .registration-root {
     height: 18vh;
   }
