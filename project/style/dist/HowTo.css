@@ -1,0 +1,26 @@
+.container {
+  width: 65vw;
+  height: 85vh;
+  z-index: -1;
+  border: 2px solid black;
+  margin: auto;
+  background: url("https://play-lh.googleusercontent.com/uCxWq0akPHi4nrdyXuSrmPTZ5QSAD1j-eTcW57MtvgUBkAJwPW248hnleLzN5b1jfQ=w526-h296-rw") no-repeat center center/cover;
+}
+.container p {
+  color: black;
+  font-weight: 900;
+  text-align: center;
+  position: relative;
+  top: 42vh;
+  background-color: wheat;
+  border-radius: 10px;
+  padding: 3px;
+}
+.container img {
+  width: 250px;
+  height: 120px;
+  border-radius: 20px;
+  position: relative;
+  top: 40vh;
+  left: 23vw;
+}
