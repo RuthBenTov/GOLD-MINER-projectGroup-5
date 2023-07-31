@@ -37,7 +37,7 @@ function handlePress(ev: any) {
 
 // timer
 const timer = document.querySelector(".head__rightSide__timer #timerValue");
-let timeSecond = 8000;
+let timeSecond = 80;
 
 displayTime(timeSecond);
 const countDown = setInterval(() => {
