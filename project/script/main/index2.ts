@@ -90,9 +90,7 @@ function IdentifyTheStone(item) {
 
   changeCharacter(currentElem);
   // ropeGetUp(currentElem)
-  ropeGetUp(currentElem, () => {
-    console.log("finsh!!!");
-  });
+  ropeGetUp(currentElem)
 
   if (currentElem) {
     thisLevel.score += currentElem.getScore();
@@ -105,18 +103,6 @@ function IdentifyTheStone(item) {
     setLevelsInLs(levels);
   }
 }
-
-// function resetRope(item) {
-//   const itemWight = parseInt(item.style.width);
-//   setInterval(() => {
-//     if (parseInt(rope.style.width) > 40) {
-//       rope.style.width = "40px";
-//       rope.style.transition = `all ${itemWight / 10}s`;
-//       rope.style.animationPlayState = "paused";
-//     }
-//   }, itemWight);
-//   rope.style.animationPlayState = "running";
-// }
 
 function playPopAnimation() {
   addValuePop.classList.add("popMoveAnimation");
@@ -144,10 +130,10 @@ function ropeGetUp(currentElem:Rock = null) {
   }
   console.log("get up!!");
   rope.style.width = "40px";
-  rope.style.transition = wait-10 + "s"; 
+  rope.style.transition = wait/2 + "s"; 
   setTimeout(
   ()=> { rope.style.animationPlayState = "running"}
-    , wait*100
+    , wait/2*getRopeLength()
   )
 }
 

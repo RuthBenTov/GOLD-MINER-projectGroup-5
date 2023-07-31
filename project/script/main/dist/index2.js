@@ -68,9 +68,7 @@ function IdentifyTheStone(item) {
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     changeCharacter(currentElem);
     // ropeGetUp(currentElem)
-    ropeGetUp(currentElem, function () {
-        console.log("finsh!!!");
-    });
+    ropeGetUp(currentElem);
     if (currentElem) {
         thisLevel.score += currentElem.getScore();
         document.querySelector("#scoreValue").innerHTML =
@@ -80,17 +78,6 @@ function IdentifyTheStone(item) {
         setLevelsInLs(levels);
     }
 }
-// function resetRope(item) {
-//   const itemWight = parseInt(item.style.width);
-//   setInterval(() => {
-//     if (parseInt(rope.style.width) > 40) {
-//       rope.style.width = "40px";
-//       rope.style.transition = `all ${itemWight / 10}s`;
-//       rope.style.animationPlayState = "paused";
-//     }
-//   }, itemWight);
-//   rope.style.animationPlayState = "running";
-// }
 function playPopAnimation() {
     addValuePop.classList.add("popMoveAnimation");
     addValuePop.addEventListener("animationend", function () {
@@ -114,8 +101,8 @@ function ropeGetUp(currentElem) {
     }
     console.log("get up!!");
     rope.style.width = "40px";
-    rope.style.transition = wait - 10 + "s";
-    setTimeout(function () { rope.style.animationPlayState = "running"; }, wait * 100);
+    rope.style.transition = wait / 2 + "s";
+    setTimeout(function () { rope.style.animationPlayState = "running"; }, wait / 2 * getRopeLength());
 }
 // Your animation code goes here.
 // This code will only be executed after the "finished!" message is printed.
