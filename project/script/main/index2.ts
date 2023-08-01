@@ -198,7 +198,7 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 
 function liftTheStone(item) {
   item.classList.add("liftTheStone");
-  item.style.animationDuration = "0.5s"; /* קבע זמן האנימציה ל-4 שניות */
+  item.style.animationDuration = "5s"; /* קבע זמן האנימציה ל-4 שניות */
 
   item.addEventListener('animationend', () => {
 
