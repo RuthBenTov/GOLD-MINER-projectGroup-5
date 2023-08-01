@@ -61,3 +61,25 @@ function displayTime(second: number) {
       }${sec}`;
   }
 }
+
+
+// -------------------------Get items from store page to the current page---------------------
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  // Get the stored images inforamation from localStorage
+  const clickedImgSrc = localStorage.getItem("clickedImgSrc");
+
+  if(clickedImgSrc){
+    // Creating an image ELement
+    const imgElement = document.createElement("img");
+    imgElement.src = clickedImgSrc;
+    // Append the image element to the header content
+    const containerHeader = document.querySelector(".container__header__itemsFromStore") as HTMLDivElement;
+    if(containerHeader){
+      containerHeader.append(imgElement);
+    }
+
+    // // Clear the stored data to prevent showing the same image again
+    // localStorage.removeItem("clickedImgSrc");
+  }
+});

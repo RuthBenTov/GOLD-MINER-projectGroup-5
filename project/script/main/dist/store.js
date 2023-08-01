@@ -9,6 +9,8 @@ dynamiteImg.addEventListener("mouseout", function () {
 });
 dynamiteImg.addEventListener("click", function () {
     dynamiteImg.style.display = "none";
+    // Store the clicked image information in localStorage
+    localStorage.setItem("clickedImgSrc", dynamiteImg.src);
 });
 // Adding styles to the pocket watch image
 var timeImg = document.querySelector(".storeContainer__time img");
@@ -21,6 +23,8 @@ timeImg.addEventListener("mouseout", function () {
 });
 timeImg.addEventListener("click", function () {
     timeImg.style.display = "none";
+    // Store the clicked image information in localSrotage
+    localStorage.setItem("clickedImgSrc", timeImg.src);
 });
 document.addEventListener("DOMContentLoaded", function () {
     var nextLevel = document.querySelector(".storeContainer__nextLevel");

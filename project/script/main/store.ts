@@ -13,6 +13,9 @@ dynamiteImg.addEventListener("mouseout", ()=> {
 
 dynamiteImg.addEventListener("click", ()=>{
     dynamiteImg.style.display = "none";
+
+    // Store the clicked image information in localStorage
+    localStorage.setItem("clickedImgSrc", dynamiteImg.src);
 });
 
 
@@ -30,6 +33,9 @@ timeImg.addEventListener("mouseout", ()=> {
 
 timeImg.addEventListener("click", ()=>{
     timeImg.style.display = "none";
+
+    // Store the clicked image information in localSrotage
+    localStorage.setItem("clickedImgSrc", timeImg.src);
 });
 
 

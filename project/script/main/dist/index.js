@@ -48,3 +48,20 @@ function displayTime(second) {
         timer.innerHTML = "" + (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
     }
 }
+// -------------------------Get items from store page to the current page---------------------
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the stored images inforamation from localStorage
+    var clickedImgSrc = localStorage.getItem("clickedImgSrc");
+    if (clickedImgSrc) {
+        // Creating an image ELement
+        var imgElement = document.createElement("img");
+        imgElement.src = clickedImgSrc;
+        // Append the image element to the header content
+        var containerHeader = document.querySelector(".container__header__itemsFromStore");
+        if (containerHeader) {
+            containerHeader.append(imgElement);
+        }
+        // // Clear the stored data to prevent showing the same image again
+        // localStorage.removeItem("clickedImgSrc");
+    }
+});
