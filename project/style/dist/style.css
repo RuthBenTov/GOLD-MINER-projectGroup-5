@@ -36,6 +36,11 @@
   cursor: pointer;
   box-shadow: #99853f 1px 0 10px;
   border: 1px solid #FED034;
+  transition: all 0.3;
+}
+.container__header__exitLevel:hover {
+  scale: 1.05;
+  text-shadow: 0px 0px 2px #99853f;
 }
 .container__header .head__rightSide {
   font-size: 30px;

@@ -24,7 +24,8 @@ function checkPassLevel(score:number) {
   //didn't passed level
   if (thisLevel.score < thisLevel.targetScore) {
     addMoneyToPlayer(thisLevel);
-    window.location.href = "/project/view/gameOver.html";
+    window.location.href = "/project/view/store.html";    
+    document.querySelector("storeContainer__nextLevel a")!.innerHTML = "retry level"
   }
 }
 
@@ -40,3 +41,5 @@ function addMoneyToPlayer(thisLevel: Level) {
     localStorage.setItem("playersMoney", JSON.stringify(__playersMoney));
   }
 }
+
+
