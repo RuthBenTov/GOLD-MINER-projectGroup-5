@@ -1,5 +1,6 @@
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
+var rocks = document.querySelectorAll(".rockElem");
 var gameBoard = document.querySelector(".container");
 var gameBoardLeft = gameBoard.getBoundingClientRect().left;
 var gameBoardRight = gameBoard.getBoundingClientRect().right;
@@ -11,9 +12,9 @@ function getElementToPlayer(item) {
         x: goldMiner.getBoundingClientRect().left,
         y: rope.getBoundingClientRect().top
     };
-    item.style.position = "absolute";
-    item.style.top = -50 + "%";
-    item.style.left = 50 + "%";
+    // item.style.position = "absolute";
+    // item.style.top = -50 + "%";
+    // item.style.left = 50 + "%";
     IdentifyTheStone(item);
 }
 function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
@@ -39,6 +40,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
             // setTimeout(() => {}, 7000);
             // rope.classList.remove("active", "returnRope");
             getElementToPlayer(item);
+            console.log(item);
         }
     }
     if (ropeLeft <= gameBoardLeft ||
@@ -67,7 +69,7 @@ function IdentifyTheStone(item) {
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     changeCharacter(currentElem);
-    ropeGetUp(thisLevel, currentElem);
+    ropeGetUp(item, thisLevel, currentElem);
     //-----------------------------------------------------------------------------
 }
 function playPopAnimation() {
@@ -84,10 +86,11 @@ function changeCharacter(currentElem) {
         character.src = "/project/image/effort- gold miner.png";
     }
 }
-function ropeGetUp(thisLevel, currentElem) {
+function ropeGetUp(item, thisLevel, currentElem) {
     if (currentElem === void 0) { currentElem = null; }
     var wait = 3;
     // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
+    liftTheStone(item);
     if (currentElem) {
         wait = currentElem.width;
     }
@@ -121,4 +124,13 @@ function addScoreAnimation(currentElem, thisLevel) {
     addValuePop.innerHTML = currentElem.getScore().toString();
     playPopAnimation();
     setLevelsInLs(levels);
+}
+function liftTheStone(item) {
+    item.classList.add("liftTheStone");
+    item.style.transition = "40s";
+    console.log(item.id);
+    item.addEventListener("animationend", function () {
+        addValuePop.classList.remove("liftTheStone");
+        item.classList.add("none");
+    });
 }
