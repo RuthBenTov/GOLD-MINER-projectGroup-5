@@ -18,6 +18,17 @@ body {
   background-size: 130% 100%;
   background-position: center center;
 }
+.storeContainer .playersMoney {
+  border: 3px solid #fc0;
+  background-color: black;
+  font-size: 25px;
+  border-radius: 10px;
+  color: #0eff09;
+  position: absolute;
+  padding: 2px;
+  margin: 5px;
+  display: inline;
+}
 .storeContainer__nextLevel {
   font-size: 30px;
   position: absolute;

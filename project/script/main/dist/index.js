@@ -65,3 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // localStorage.removeItem("clickedImgSrc");
     }
 });
+function checkPassLevelFromExitBtn() {
+    checkPassLevel(levels.find(function (l) { return l.isActive; }).score);
+}

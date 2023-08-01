@@ -49,4 +49,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 });
 
+function renderMoney(){
+    const moneyFromLs = JSON.parse(localStorage.getItem("playersMoney")!)
+    const scoreDive = document.querySelector(".playersMoney") as HTMLDivElement
+
+    scoreDive.innerHTML = moneyFromLs + "$"
+}
+
+renderMoney()
+
 
