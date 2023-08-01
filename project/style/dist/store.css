@@ -43,6 +43,10 @@ body {
   text-shadow: rgba(255, 228, 122, 0.596) 1px 0 3px;
   box-shadow: 1px 2px 12px black;
 }
+.storeContainer__nextLevel a {
+  text-decoration: none;
+  color: #0eff09;
+}
 .storeContainer__nextLevel:hover {
   scale: 1.01;
   text-shadow: rgba(255, 228, 122, 0.865) 1px 0 5px;

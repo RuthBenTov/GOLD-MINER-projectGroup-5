@@ -6,7 +6,7 @@ function checkPassLevel(score) {
     if (thisLevel.score >= thisLevel.targetScore) {
         addMoneyToPlayer(thisLevel);
         alert("you done!");
-        window.location.href = "/project/view/betweenLevels.html";
+        window.location.href = "/project/view/store.html";
         levels[thisLevelIndex].isActive = false;
         levels[thisLevelIndex + 1].isActive = true;
         setLevelsInLs(levels);

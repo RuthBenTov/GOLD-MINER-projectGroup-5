@@ -4,6 +4,7 @@ const dynamiteInto = document.querySelector(".storeContainer__dynamite p") as HT
 
 
 dynamiteImg.addEventListener("mouseover", ()=>{
+    
     dynamiteInto.style.display = "block";
 });
 
