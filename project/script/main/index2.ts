@@ -40,12 +40,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
-      // rope.style.width = "40px";
-      // rope.classList.add("returnRope");
-      // setTimeout(() => {}, 7000);
-      // rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
-      console.log(item)
     }
   }
 
@@ -57,7 +52,6 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     rope.style.width = "40px";
     rope.classList.remove("active");
     ropeGetUp(levels)
-
 
   } else {
     rope.style.animation = "ropeSideToSide 5s linear infinite; ";
@@ -120,10 +114,10 @@ function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
       rope.style.animationPlayState = "running"
       character.src = "/project/image/gold miner.png"
       addScoreAnimation(currentElem, thisLevel)
-
     }
     , wait / 2 * getRopeLength()
   )
+
 }
 
 function getRopeLength() {

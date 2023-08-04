@@ -28,12 +28,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
-            // rope.style.width = "40px";
-            // rope.classList.add("returnRope");
-            // setTimeout(() => {}, 7000);
-            // rope.classList.remove("active", "returnRope");
             getElementToPlayer(item);
-            console.log(item);
         }
     }
     if (ropeLeft <= gameBoardLeft ||
