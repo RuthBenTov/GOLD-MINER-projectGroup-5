@@ -37,16 +37,6 @@
   cursor: pointer;
   box-shadow: #99853f 1px 0 10px;
   border: 1px solid #FED034;
-  right: 21%;
-  font-size: 25px;
-  width: 8%;
-  top: 8px;
-  border-radius: 12px;
-  background-color: #FED034;
-  color: #9e6844;
-  cursor: pointer;
-  box-shadow: #99853f 1px 0 10px;
-  border: 1px solid #FED034;
   transition: all 0.3;
 }
 .container__header__exitLevel:hover {
@@ -162,7 +152,7 @@
 }
 
 .liftTheStone {
-  animation: gettingUp 5s linear 1;
+  animation: gettingUp 5s linear infinite;
 }
 
 .active {

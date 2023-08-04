@@ -45,6 +45,7 @@
 
     &__exitLevel {
       position: absolute;
+<<<<<<< HEAD
       right: 21%;
       font-size: 25px;
       width: 8%;
@@ -55,25 +56,25 @@
       cursor: pointer;
       box-shadow: #99853f 1px 0 10px;
       border: 1px solid #FED034;
-      right: 21%;
-      font-size: 25px;
-      width: 8%;
-      top: 8px;
-      border-radius: 12px;
-      background-color: #FED034;
-      color: #9e6844;
-      cursor: pointer;
-      box-shadow: #99853f 1px 0 10px;
-      border: 1px solid #FED034;
-      transition: all 0.3;
+=======
+    right: 21%;
+    font-size: 25px;
+    width: 8%;
+    top: 8px;
+    border-radius: 12px;
+    background-color: #FED034;
+    color: #9e6844;
+    cursor: pointer;
+    box-shadow: #99853f 1px 0 10px;
+    border: 1px solid #FED034;
+    transition: all 0.3;
 
-      &:hover {
-        scale: 1.05;
-        text-shadow: 0px 0px 2px #99853f;
+    &:hover{
+      scale: 1.05;
+      text-shadow: 0px 0px 2px #99853f ;
 
-      }
-
-
+    }
+>>>>>>> 429c62194e5e8679597c2164826bae77f834e2eb
     }
 
 
@@ -90,14 +91,14 @@
       #timerHead,
       #levelHead {
         color: #9e6844;
-        text-shadow: 0px 0px 2px #845536ba;
+        text-shadow:  0px 0px 2px #845536ba;
 
       }
 
       #timerValue,
       #levelValue {
         color: red;
-        text-shadow: 0px 0px 2px #845536ba;
+        text-shadow:  0px 0px 2px #845536ba;
 
       }
     }
@@ -117,18 +118,18 @@
         #targetHead,
         #scoreHead {
           color: #9e6844;
-          text-shadow: 0px 0px 2px #845536ba;
+          text-shadow:  0px 0px 2px #845536ba;
         }
 
         #targetValue {
           color: red;
-          text-shadow: 0px 0px 2px #845536ba;
+          text-shadow:  0px 0px 2px #845536ba;
 
         }
 
         #scoreValue {
           color: rgb(11, 182, 11);
-          text-shadow: 0px 0px 2px #845536ba;
+          text-shadow:  0px 0px 2px #845536ba;
 
         }
       }
@@ -162,7 +163,7 @@
         background-color: #4259b4;
         border-radius: 125px 125px 0 0;
         box-shadow: 0px 5px 10px 3px #384b97;
-
+        
         img {
           height: 85%;
           transition: all .4s;
@@ -222,7 +223,7 @@
 }
 
 .liftTheStone {
-  animation: gettingUp 5s linear 1;
+  animation: gettingUp 5s linear infinite;
 }
 
 .active {
