@@ -4,7 +4,6 @@ const dynamiteInto = document.querySelector(".storeContainer__dynamite p") as HT
 
 
 dynamiteImg.addEventListener("mouseover", ()=>{
-    
     dynamiteInto.style.display = "block";
 });
 
@@ -49,14 +48,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
         })
     }
 });
-
-function renderMoney(){
-    const moneyFromLs = JSON.parse(localStorage.getItem("playersMoney")!)
-    const scoreDive = document.querySelector(".playersMoney") as HTMLDivElement
-
-    scoreDive.innerHTML = moneyFromLs + "$"
-}
-
-renderMoney()
 
 

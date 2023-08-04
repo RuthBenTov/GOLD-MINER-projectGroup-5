@@ -37,11 +37,6 @@
   cursor: pointer;
   box-shadow: #99853f 1px 0 10px;
   border: 1px solid #FED034;
-  transition: all 0.3;
-}
-.container__header__exitLevel:hover {
-  scale: 1.05;
-  text-shadow: 0px 0px 2px #99853f;
 }
 .container__header .head__rightSide {
   font-size: 30px;
@@ -54,12 +49,10 @@
 .container__header .head__rightSide #timerHead,
 .container__header .head__rightSide #levelHead {
   color: #9e6844;
-  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__rightSide #timerValue,
 .container__header .head__rightSide #levelValue {
   color: red;
-  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__leftSide {
   font-size: 30px;
@@ -74,15 +67,12 @@
 .container__header .head__leftSide__score #scoreHead, .container__header .head__leftSide__target #targetHead,
 .container__header .head__leftSide__target #scoreHead {
   color: #9e6844;
-  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__leftSide__score #targetValue, .container__header .head__leftSide__target #targetValue {
   color: red;
-  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__leftSide__score #scoreValue, .container__header .head__leftSide__target #scoreValue {
   color: #0bb60b;
-  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header #addScoreDiv h1 {
   position: absolute;
@@ -110,7 +100,6 @@
 }
 .container__header .header__character img {
   height: 85%;
-  transition: all 0.4s;
   position: absolute;
   bottom: 0;
   left: 15%;

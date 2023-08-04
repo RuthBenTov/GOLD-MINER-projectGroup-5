@@ -35,9 +35,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-function renderMoney() {
-    var moneyFromLs = JSON.parse(localStorage.getItem("playersMoney"));
-    var scoreDive = document.querySelector(".playersMoney");
-    scoreDive.innerHTML = moneyFromLs + "$";
-}
-renderMoney();

@@ -83,7 +83,3 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // localStorage.removeItem("clickedImgSrc");
   }
 });
-
-function checkPassLevelFromExitBtn(){
-  checkPassLevel(levels.find(l=> l.isActive)!.score )
-}
