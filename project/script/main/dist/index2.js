@@ -28,6 +28,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
+            liftTheStone(item);
             getElementToPlayer(item);
         }
     }
@@ -107,16 +108,16 @@ function addScoreAnimation(currentElem, thisLevel) {
     playPopAnimation();
     setLevelsInLs(levels);
 }
-// function liftTheStone(item) {
-//   item.classList.add("liftTheStone");
-//   item.style.animationDuration = "5s"; /*לא למחוק*/
-//   // const targetRect = goldMiner.getBoundingClientRect();
-//   // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
-//   // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
-//   item.addEventListener('animationend', () => {
-//     item.style.display = 'none';
-//   });
-// }
+function liftTheStone(item) {
+    item.classList.add("liftTheStone");
+    item.style.animationDuration = "5s"; /*לא למחוק*/
+    // const targetRect = goldMiner.getBoundingClientRect();
+    // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
+    // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
+    item.addEventListener('animationend', function () {
+        item.style.display = 'none';
+    });
+}
 // function liftTheStone(item, targetElement) {
 //   const targetRect = goldMiner.getBoundingClientRect();
 //   const gettingUpKeyframes = `

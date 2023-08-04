@@ -40,6 +40,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
+      liftTheStone(item)
       getElementToPlayer(item);
     }
   }
@@ -156,20 +157,20 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 
 
 
-// function liftTheStone(item) {
-//   item.classList.add("liftTheStone");
-//   item.style.animationDuration = "5s"; /*לא למחוק*/
+function liftTheStone(item) {
+  item.classList.add("liftTheStone");
+  item.style.animationDuration = "5s"; /*לא למחוק*/
 
-//   // const targetRect = goldMiner.getBoundingClientRect();
-//   // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
-//   // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
+  // const targetRect = goldMiner.getBoundingClientRect();
+  // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
+  // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
 
-//   item.addEventListener('animationend', () => {
+  item.addEventListener('animationend', () => {
 
-//     item.style.display = 'none';
+    item.style.display = 'none';
 
-//   });
-// }
+  });
+}
 
 // function liftTheStone(item, targetElement) {
 //   const targetRect = goldMiner.getBoundingClientRect();
