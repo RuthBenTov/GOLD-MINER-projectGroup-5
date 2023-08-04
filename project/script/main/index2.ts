@@ -15,6 +15,7 @@ const character = document.querySelector(
 ) as HTMLImageElement;
 
 function getElementToPlayer(item) {
+  
   IdentifyTheStone(item);
 }
 
@@ -40,8 +41,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
-      liftTheStone(item)
+     clearInterval(checkCollisionInterval)
       getElementToPlayer(item);
+      liftTheStone(item)
     }
   }
 
@@ -56,18 +58,23 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
 
   } else {
     rope.style.animation = "ropeSideToSide 5s linear infinite; ";
-    // rope.classList.remove("returnRope");
+     // rope.classList.remove("returnRope");
   }
 }
 
-setInterval(() => {
+
+let checkCollisionInterval
+
+function startCollisionInterval() {
+checkCollisionInterval = setInterval(() => {
   const ropeLeft = rope.getBoundingClientRect().left;
   const ropeRight = rope.getBoundingClientRect().right;
   const ropeBottom = rope.getBoundingClientRect().bottom;
   const ropeTop = rope.getBoundingClientRect().top;
 
   checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-}, 0.5);
+}, 10);
+}
 
 function IdentifyTheStone(item) {
   
@@ -112,9 +119,11 @@ function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
   rope.style.transition = wait / 2 + "s";
   setTimeout(
     () => {
+      
       rope.style.animationPlayState = "running"
       character.src = "/project/image/gold miner.png"
       addScoreAnimation(currentElem, thisLevel)
+      startCollisionInterval(); 
     }
     , wait / 2 * getRopeLength()
   )
@@ -142,7 +151,7 @@ function handleAnimationEnd(event) {
 
 
 function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
-  console.log(currentElem);
+  console.log("currentElem");
 
   thisLevel.score += currentElem.getScore();
   document.querySelector("#scoreValue")!.innerHTML =
@@ -194,3 +203,6 @@ function liftTheStone(item) {
 //     item.style.display = 'none';
 //   });
 // }
+
+
+startCollisionInterval(); 

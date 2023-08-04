@@ -28,8 +28,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
                 ropeLeft > rockLeft &&
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
-            liftTheStone(item);
+            clearInterval(checkCollisionInterval);
             getElementToPlayer(item);
+            liftTheStone(item);
         }
     }
     if (ropeLeft <= gameBoardLeft ||
@@ -44,13 +45,16 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         // rope.classList.remove("returnRope");
     }
 }
-setInterval(function () {
-    var ropeLeft = rope.getBoundingClientRect().left;
-    var ropeRight = rope.getBoundingClientRect().right;
-    var ropeBottom = rope.getBoundingClientRect().bottom;
-    var ropeTop = rope.getBoundingClientRect().top;
-    checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-}, 0.5);
+var checkCollisionInterval;
+function startCollisionInterval() {
+    checkCollisionInterval = setInterval(function () {
+        var ropeLeft = rope.getBoundingClientRect().left;
+        var ropeRight = rope.getBoundingClientRect().right;
+        var ropeBottom = rope.getBoundingClientRect().bottom;
+        var ropeTop = rope.getBoundingClientRect().top;
+        checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
+    }, 10);
+}
 function IdentifyTheStone(item) {
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
     var thisMap = thisLevel.map;
@@ -86,6 +90,7 @@ function ropeGetUp(item, thisLevel, currentElem) {
         rope.style.animationPlayState = "running";
         character.src = "/project/image/gold miner.png";
         addScoreAnimation(currentElem, thisLevel);
+        startCollisionInterval();
     }, wait / 2 * getRopeLength());
 }
 function getRopeLength() {
@@ -100,7 +105,7 @@ function handleAnimationEnd(event) {
     console.dir(event);
 }
 function addScoreAnimation(currentElem, thisLevel) {
-    console.log(currentElem);
+    console.log("currentElem");
     thisLevel.score += currentElem.getScore();
     document.querySelector("#scoreValue").innerHTML =
         thisLevel.score.toString();
@@ -137,3 +142,4 @@ function liftTheStone(item) {
 //     item.style.display = 'none';
 //   });
 // }
+startCollisionInterval();
