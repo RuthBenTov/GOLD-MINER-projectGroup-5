@@ -8,13 +8,6 @@ var gameBoardBottom = gameBoard.getBoundingClientRect().bottom;
 var addValuePop = document.querySelector("#addScoreDiv h1");
 var character = document.querySelector(".header__character img");
 function getElementToPlayer(item) {
-    var playerPosition = {
-        x: goldMiner.getBoundingClientRect().left,
-        y: rope.getBoundingClientRect().top
-    };
-    // item.style.position = "absolute";
-    // item.style.top = -50 + "%";
-    // item.style.left = 50 + "%";
     IdentifyTheStone(item);
 }
 function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
@@ -63,8 +56,6 @@ setInterval(function () {
     checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
 }, 0.5);
 function IdentifyTheStone(item) {
-    // console.log(item);
-    // const levels = getLevelsFromLs();
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
@@ -90,13 +81,9 @@ function ropeGetUp(item, thisLevel, currentElem) {
     if (currentElem === void 0) { currentElem = null; }
     var wait = 3;
     // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
-    liftTheStone(item);
     if (currentElem) {
         wait = currentElem.width;
     }
-    // rockHtml.style.top = "100%"
-    // rockHtml.style.left = "50%"
-    // rockHtml.style.transition = wait/2 + "s"
     rope.style.width = "40px";
     rope.style.transition = wait / 2 + "s";
     setTimeout(function () {
@@ -125,16 +112,16 @@ function addScoreAnimation(currentElem, thisLevel) {
     playPopAnimation();
     setLevelsInLs(levels);
 }
-function liftTheStone(item) {
-    item.classList.add("liftTheStone");
-    item.style.animationDuration = "5s"; /*לא למחוק*/
-    // const targetRect = goldMiner.getBoundingClientRect();
-    // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
-    // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
-    item.addEventListener('animationend', function () {
-        item.style.display = 'none';
-    });
-}
+// function liftTheStone(item) {
+//   item.classList.add("liftTheStone");
+//   item.style.animationDuration = "5s"; /*לא למחוק*/
+//   // const targetRect = goldMiner.getBoundingClientRect();
+//   // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
+//   // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
+//   item.addEventListener('animationend', () => {
+//     item.style.display = 'none';
+//   });
+// }
 // function liftTheStone(item, targetElement) {
 //   const targetRect = goldMiner.getBoundingClientRect();
 //   const gettingUpKeyframes = `
