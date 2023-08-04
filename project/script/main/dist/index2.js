@@ -53,7 +53,7 @@ function startCollisionInterval() {
         var ropeBottom = rope.getBoundingClientRect().bottom;
         var ropeTop = rope.getBoundingClientRect().top;
         checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-    }, 10);
+    }, .5);
 }
 function IdentifyTheStone(item) {
     var thisLevel = levels.find(function (level) { return level.isActive === true; });

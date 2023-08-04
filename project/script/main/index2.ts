@@ -73,7 +73,7 @@ checkCollisionInterval = setInterval(() => {
   const ropeTop = rope.getBoundingClientRect().top;
 
   checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-}, 10);
+}, .5);
 }
 
 function IdentifyTheStone(item) {
@@ -116,7 +116,7 @@ function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
   }
 
   rope.style.width = "40px";
-  rope.style.transition = wait / 2 + "s";
+  rope.style.transition = wait/2 + "s";
   setTimeout(
     () => {
       
@@ -125,7 +125,7 @@ function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
       addScoreAnimation(currentElem, thisLevel)
       startCollisionInterval(); 
     }
-    , wait / 2 * getRopeLength()
+    , wait/2  * getRopeLength()
   )
 
 }
