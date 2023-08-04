@@ -2,7 +2,6 @@ const rope = document.querySelector(".header__rope") as HTMLElement;
 const goldMiner = document.querySelector(
   ".header__character",
 ) as HTMLDivElement;
-const rocks = document.querySelectorAll(".rockElem") as NodeListOf<Element>;
 const gameBoard = document.querySelector(".container") as HTMLDivElement;
 const gameBoardLeft = gameBoard.getBoundingClientRect().left;
 const gameBoardRight = gameBoard.getBoundingClientRect().right;
@@ -20,9 +19,9 @@ function getElementToPlayer(item) {
     y: rope.getBoundingClientRect().top,
   };
 
-  // item.style.position = "absolute";
-  // item.style.top = -50 + "%";
-  // item.style.left = 50 + "%";
+  item.style.position = "absolute";
+  item.style.top = -50 + "%";
+  item.style.left = 50 + "%";
 
   IdentifyTheStone(item);
 }
@@ -54,7 +53,6 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
       // setTimeout(() => {}, 7000);
       // rope.classList.remove("active", "returnRope");
       getElementToPlayer(item);
-      console.log(item)
     }
   }
 
@@ -67,7 +65,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     rope.classList.remove("active");
     ropeGetUp(levels)
 
-
+    
   } else {
     rope.style.animation = "ropeSideToSide 5s linear infinite; ";
     // rope.classList.remove("returnRope");
@@ -91,9 +89,9 @@ function IdentifyTheStone(item) {
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
 
   changeCharacter(currentElem);
-  ropeGetUp(item, thisLevel, currentElem)
+  ropeGetUp(thisLevel, currentElem)
 
-  //-----------------------------------------------------------------------------
+ //-----------------------------------------------------------------------------
 }
 
 function playPopAnimation() {
@@ -116,11 +114,11 @@ function changeCharacter(currentElem: Rock) {
 }
 
 
-function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
+function ropeGetUp( thisLevel:Level, currentElem:Rock = null) {
   let wait = 3
   // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
-  liftTheStone(item)
-  if (currentElem) {
+  
+  if(currentElem){
     wait = currentElem.width
   }
 
@@ -128,15 +126,14 @@ function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
   // rockHtml.style.left = "50%"
   // rockHtml.style.transition = wait/2 + "s"
   rope.style.width = "40px";
-  rope.style.transition = wait / 2 + "s";
+  rope.style.transition = wait/2 + "s"; 
   setTimeout(
-    () => {
-      rope.style.animationPlayState = "running"
-      character.src = "/project/image/gold miner.png"
-      addScoreAnimation(currentElem, thisLevel)
-
+  ()=> {
+     rope.style.animationPlayState = "running"
+     character.src = "/project/image/gold miner.png"
+     addScoreAnimation(currentElem, thisLevel)
     }
-    , wait / 2 * getRopeLength()
+    , wait/2*getRopeLength()
   )
 }
 
@@ -160,9 +157,9 @@ function handleAnimationEnd(event) {
 }
 
 
-function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
+function addScoreAnimation(currentElem:Rock, thisLevel:Level){
   console.log(currentElem);
-
+  
   thisLevel.score += currentElem.getScore();
   document.querySelector("#scoreValue")!.innerHTML =
     thisLevel.score.toString();
@@ -171,16 +168,4 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
   playPopAnimation();
 
   setLevelsInLs(levels);
-}
-
-
-function liftTheStone(item) {
-  item.classList.add("liftTheStone");
-  item.style.transition = "40s"
-  console.log(item.id)
-  item.addEventListener("animationend", function () {
-    addValuePop.classList.remove("liftTheStone");
-    item.classList.add("none");
-  });
-
 }
