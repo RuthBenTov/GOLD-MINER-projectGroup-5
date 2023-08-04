@@ -179,10 +179,7 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 function liftTheStone(item) {
   item.classList.add("liftTheStone");
   item.style.animationDuration = "5s"; /*לא למחוק*/
-
-  // const targetRect = goldMiner.getBoundingClientRect();
-  // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
-  // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
+  // console.log(goldMiner.getBoundingClientRect().left,)
 
   item.addEventListener('animationend', () => {
 
