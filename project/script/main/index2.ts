@@ -15,6 +15,15 @@ const character = document.querySelector(
 ) as HTMLImageElement;
 
 function getElementToPlayer(item) {
+  let playerPosition = {
+    x: goldMiner.getBoundingClientRect().left,
+    y: rope.getBoundingClientRect().top,
+  };
+
+  // item.style.position = "absolute";
+  // item.style.top = -50 + "%";
+  // item.style.left = 50 + "%";
+
   IdentifyTheStone(item);
 }
 
@@ -75,7 +84,8 @@ setInterval(() => {
 }, 0.5);
 
 function IdentifyTheStone(item) {
-  
+  // console.log(item);
+  // const levels = getLevelsFromLs();
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
@@ -109,10 +119,14 @@ function changeCharacter(currentElem: Rock) {
 function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
   let wait = 3
   // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
+  liftTheStone(item)
   if (currentElem) {
     wait = currentElem.width
   }
 
+  // rockHtml.style.top = "100%"
+  // rockHtml.style.left = "50%"
+  // rockHtml.style.transition = wait/2 + "s"
   rope.style.width = "40px";
   rope.style.transition = wait / 2 + "s";
   setTimeout(
@@ -162,20 +176,20 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 
 
 
-// function liftTheStone(item) {
-//   item.classList.add("liftTheStone");
-//   item.style.animationDuration = "5s"; /*לא למחוק*/
+function liftTheStone(item) {
+  item.classList.add("liftTheStone");
+  item.style.animationDuration = "5s"; /*לא למחוק*/
 
-//   // const targetRect = goldMiner.getBoundingClientRect();
-//   // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
-//   // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
+  // const targetRect = goldMiner.getBoundingClientRect();
+  // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
+  // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
 
-//   item.addEventListener('animationend', () => {
+  item.addEventListener('animationend', () => {
 
-//     item.style.display = 'none';
+    item.style.display = 'none';
 
-//   });
-// }
+  });
+}
 
 // function liftTheStone(item, targetElement) {
 //   const targetRect = goldMiner.getBoundingClientRect();
