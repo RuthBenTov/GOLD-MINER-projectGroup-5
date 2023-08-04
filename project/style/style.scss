@@ -261,29 +261,6 @@
   }
 }
 
-// @keyframes gettingDown {
-
-//   25% {
-//     width: 50px;
-//     // transform: rotate(95deg)
-//   }
-
-//   50% {
-//     width: 150px;
-//     // transform: rotate(95deg)
-//   }
-
-//   75% {
-//     width: 200px;
-//     // transform: rotate(95deg)
-//   }
-
-//   100% {
-//     width: 350px;
-//     // transform: rotate(95deg)
-//   }
-// }
-
 @keyframes gettingUp {
   to {
     top: 5px;
@@ -307,8 +284,4 @@
     display: none;
     opacity: 0%;
   }
-}
-
-.none {
-  display: none;
 }
