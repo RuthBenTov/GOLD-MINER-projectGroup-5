@@ -67,12 +67,16 @@ function displayTime(second: number) {
 
 document.addEventListener("DOMContentLoaded", ()=>{
   // Get the stored images inforamation from localStorage
-  const clickedImgSrc = localStorage.getItem("clickedImgSrc");
+  const clickedImgSrcDynamite = localStorage.getItem("clickedImgSrcDynamite");
+  const additionalTimeString = localStorage.getItem("additionalTime");
 
-  if(clickedImgSrc){
+  // Convert the additionalTimeString to a number
+  const additionalTime = parseInt(additionalTimeString || "0") ;
+
+  if(clickedImgSrcDynamite){
     // Creating an image ELement
     const imgElement = document.createElement("img");
-    imgElement.src = clickedImgSrc;
+    imgElement.src = clickedImgSrcDynamite;
     // Append the image element to the header content
     const containerHeader = document.querySelector(".container__header__itemsFromStore") as HTMLDivElement;
     if(containerHeader){
@@ -80,9 +84,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
     // // Clear the stored data to prevent showing the same image again
-    // localStorage.removeItem("clickedImgSrc");
+    localStorage.removeItem("clickedImgSrcDynamite");
+  }
+
+  if(additionalTime){
+    // Add more 10 sec to the game
+    timeSecond += additionalTime;
+    displayTime(timeSecond);
+    
+
+    // // Clear the stored data to prevent showing the extra 10sec to the timer again
+    localStorage.removeItem("additionalTime");
   }
 });
+
+// timeImg.addEventListener("click", ()=> {
+// })
 
 function checkPassLevelFromExitBtn(){
   checkPassLevel(levels.find(l=> l.isActive)!.score )
