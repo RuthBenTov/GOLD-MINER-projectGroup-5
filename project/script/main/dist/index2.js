@@ -125,30 +125,24 @@ function addScoreAnimation(currentElem, thisLevel) {
     playPopAnimation();
     setLevelsInLs(levels);
 }
+// function liftTheStone(item) {
+//   console.log(item)
+//   item.classList.add("liftTheStone");
+//   item.style.animationDuratio = "4000s"
+//   // console.log(item.id)
+//   // addValuePop.classList.remove("liftTheStone");
+//   // item.classList.add("none");
+//   item.addEventListener('animationend', () => {
+//     const top = parseInt(getComputedStyle(item).top, 10);
+//     if (top === 50) {
+//       item.style.display = 'none';
+//     }
+//   });
+// }
 function liftTheStone(item) {
     item.classList.add("liftTheStone");
-    item.style.animationDuration = "5s"; /*לא למחוק*/
-    // console.log(goldMiner.getBoundingClientRect().left,)
+    item.style.animationDuration = "5s"; /* קבע זמן האנימציה ל-4 שניות */
     item.addEventListener('animationend', function () {
         item.style.display = 'none';
     });
 }
-// function liftTheStone(item, targetElement) {
-//   const targetRect = goldMiner.getBoundingClientRect();
-//   const gettingUpKeyframes = `
-//     @keyframes gettingUp {
-//       to {
-//         top: ${targetRect.top}px;
-//         left: ${targetRect.left}px;
-//       }
-//     }
-//   `;
-//   const styleTag = document.createElement('style');
-//   styleTag.textContent = gettingUpKeyframes;
-//   document.head.appendChild(styleTag);
-//   item.style.animation = 'gettingUp 2s linear 1';
-//   item.style.animationPlayState = 'running';
-//   item.addEventListener('animationend', () => {
-//     item.style.display = 'none';
-//   });
-// }
