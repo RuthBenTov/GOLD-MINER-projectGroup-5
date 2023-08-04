@@ -9,6 +9,7 @@
   z-index: -10;
   border: 0px solid black;
   margin: auto;
+  overflow: hidden;
 }
 .container__header {
   margin-top: 2%;
@@ -139,6 +140,10 @@
   position: absolute;
 }
 
+.liftTheStone {
+  animation: gettingUp 5s linear infinite;
+}
+
 .active {
   transition: all 3s;
   animation-play-state: paused;
@@ -188,23 +193,10 @@
     transform: rotate(10deg);
   }
 }
-@keyframes gettingDown {
-  25% {
-    width: 50px;
-  }
-  50% {
-    width: 150px;
-  }
-  75% {
-    width: 200px;
-  }
-  100% {
-    width: 350px;
-  }
-}
 @keyframes gettingUp {
   to {
-    width: 40px;
+    top: 5px;
+    left: 410px;
   }
 }
 @keyframes fadeInOutAnimation {
@@ -220,4 +212,7 @@
     display: none;
     opacity: 0%;
   }
+}
+.none {
+  display: none;
 }
