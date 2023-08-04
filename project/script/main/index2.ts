@@ -84,7 +84,7 @@ setInterval(() => {
 }, 0.5);
 
 function IdentifyTheStone(item) {
-  console.log(item);
+  // console.log(item);
   // const levels = getLevelsFromLs();
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
@@ -174,13 +174,35 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 }
 
 
+// function liftTheStone(item) {
+//   console.log(item)
+//   item.classList.add("liftTheStone");
+//   item.style.animationDuratio = "4000s"
+//   // console.log(item.id)
+
+//   // addValuePop.classList.remove("liftTheStone");
+//   // item.classList.add("none");
+
+
+
+//   item.addEventListener('animationend', () => {
+//     const top = parseInt(getComputedStyle(item).top, 10);
+//     if (top === 50) {
+//       item.style.display = 'none';
+//     }
+//   });
+
+
+
+// }
+
 function liftTheStone(item) {
   item.classList.add("liftTheStone");
-  item.style.transition = "40s"
-  console.log(item.id)
-  item.addEventListener("animationend", function () {
-    addValuePop.classList.remove("liftTheStone");
-    item.classList.add("none");
-  });
+  item.style.animationDuration = "0.5s"; /* קבע זמן האנימציה ל-4 שניות */
 
+  item.addEventListener('animationend', () => {
+
+    item.style.display = 'none';
+
+  });
 }
