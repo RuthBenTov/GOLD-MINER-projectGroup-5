@@ -43,7 +43,7 @@ class Rock {
       }
     }
     if (this.type === "bag") {
-      this.value = -1;
+      this.value = Math.round(Math.random()*1500);
     }
 
     return this.value;

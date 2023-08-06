@@ -50,8 +50,11 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
   if (
     ropeLeft <= gameBoardLeft ||
     ropeRight >= gameBoardRight ||
+    ropeRight <= gameBoardBottom ||
     ropeBottom >= gameBoardBottom
   ) {
+    // clearInterval(checkCollisionInterval)
+
     rope.style.width = "40px";
     rope.classList.remove("active");
     ropeGetUp(levels)
@@ -83,7 +86,7 @@ function IdentifyTheStone(item) {
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
 
   changeCharacter(currentElem);
-  ropeGetUp(item, thisLevel, currentElem)
+  ropeGetUp(thisLevel, currentElem)
 
   //-----------------------------------------------------------------------------
 }
@@ -108,7 +111,7 @@ function changeCharacter(currentElem: Rock) {
 }
 
 
-function ropeGetUp(item, thisLevel: Level, currentElem: Rock = null) {
+function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
   let wait = 3
   // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
   if (currentElem) {
@@ -167,8 +170,14 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 
 
 function liftTheStone(item) {
-  item.classList.add("liftTheStone");
-  item.style.animationDuration = "5s"; /*לא למחוק*/
+  // item.classList.add("liftTheStone");
+  
+  
+ let timeToDuration = item.width/getRopeLength()
+
+ item.style.top = "0%";
+ item.style.left ='calc (50% - ${item.width}px)';
+  item.style.animationDuration = timeToDuration/2 +"s"; /*לא למחוק*/
 
   // const targetRect = goldMiner.getBoundingClientRect();
   // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
@@ -181,28 +190,6 @@ function liftTheStone(item) {
   });
 }
 
-// function liftTheStone(item, targetElement) {
-//   const targetRect = goldMiner.getBoundingClientRect();
-//   const gettingUpKeyframes = `
-//     @keyframes gettingUp {
-//       to {
-//         top: ${targetRect.top}px;
-//         left: ${targetRect.left}px;
-//       }
-//     }
-//   `;
-
-//   const styleTag = document.createElement('style');
-//   styleTag.textContent = gettingUpKeyframes;
-//   document.head.appendChild(styleTag);
-
-//   item.style.animation = 'gettingUp 2s linear 1';
-//   item.style.animationPlayState = 'running';
-
-//   item.addEventListener('animationend', () => {
-//     item.style.display = 'none';
-//   });
-// }
 
 
 startCollisionInterval(); 

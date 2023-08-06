@@ -35,7 +35,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     }
     if (ropeLeft <= gameBoardLeft ||
         ropeRight >= gameBoardRight ||
+        ropeRight <= gameBoardBottom ||
         ropeBottom >= gameBoardBottom) {
+        // clearInterval(checkCollisionInterval)
         rope.style.width = "40px";
         rope.classList.remove("active");
         ropeGetUp(levels);
@@ -60,7 +62,7 @@ function IdentifyTheStone(item) {
     var thisMap = thisLevel.map;
     var currentElem = thisMap.find(function (elem) { return elem.id === item.id; });
     changeCharacter(currentElem);
-    ropeGetUp(item, thisLevel, currentElem);
+    ropeGetUp(thisLevel, currentElem);
     //-----------------------------------------------------------------------------
 }
 function playPopAnimation() {
@@ -77,7 +79,7 @@ function changeCharacter(currentElem) {
         character.src = "/project/image/effort- gold miner.png";
     }
 }
-function ropeGetUp(item, thisLevel, currentElem) {
+function ropeGetUp(thisLevel, currentElem) {
     if (currentElem === void 0) { currentElem = null; }
     var wait = 3;
     // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
@@ -114,8 +116,11 @@ function addScoreAnimation(currentElem, thisLevel) {
     setLevelsInLs(levels);
 }
 function liftTheStone(item) {
-    item.classList.add("liftTheStone");
-    item.style.animationDuration = "5s"; /*לא למחוק*/
+    // item.classList.add("liftTheStone");
+    var timeToDuration = item.width / getRopeLength();
+    item.style.top = "0%";
+    item.style.left = 'calc (50% - ${item.width}px)';
+    item.style.animationDuration = timeToDuration / 2 + "s"; /*לא למחוק*/
     // const targetRect = goldMiner.getBoundingClientRect();
     // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
     // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
@@ -123,23 +128,4 @@ function liftTheStone(item) {
         item.style.display = 'none';
     });
 }
-// function liftTheStone(item, targetElement) {
-//   const targetRect = goldMiner.getBoundingClientRect();
-//   const gettingUpKeyframes = `
-//     @keyframes gettingUp {
-//       to {
-//         top: ${targetRect.top}px;
-//         left: ${targetRect.left}px;
-//       }
-//     }
-//   `;
-//   const styleTag = document.createElement('style');
-//   styleTag.textContent = gettingUpKeyframes;
-//   document.head.appendChild(styleTag);
-//   item.style.animation = 'gettingUp 2s linear 1';
-//   item.style.animationPlayState = 'running';
-//   item.addEventListener('animationend', () => {
-//     item.style.display = 'none';
-//   });
-// }
 startCollisionInterval();
