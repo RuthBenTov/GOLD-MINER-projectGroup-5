@@ -1,10 +1,8 @@
-var Rocks = /** @class */ (function () {
-    function Rocks(type, //gold, stone, bag
-    value, //how much it worth
+var Rock = /** @class */ (function () {
+    function Rock(type, //gold, stone, bag
     width, position, id) {
         if (id === void 0) { id = createUniqId(); }
         this.type = type;
-        this.value = value;
         this.width = width;
         this.position = position;
         this.id = id;
@@ -15,15 +13,49 @@ var Rocks = /** @class */ (function () {
         if (this.type === "bag")
             this.imgSrc = "../image/bag.png";
     }
-    Rocks.prototype.renderRock = function () {
+    Rock.prototype.getScore = function () {
+        if (this.type === "gold") {
+            switch (this.width) {
+                case 90:
+                    this.value = 650;
+                    break;
+                case 70:
+                    this.value = 550;
+                    break;
+                case 60:
+                    this.value = 300;
+                    break;
+                case 30:
+                    this.value = 200;
+                    break;
+            }
+        }
+        if (this.type === "stone") {
+            switch (this.width) {
+                case 90:
+                    this.value = 50;
+                    break;
+                case 60:
+                    this.value = 20;
+                    break;
+                case 30:
+                    this.value = 11;
+                    break;
+            }
+        }
+        if (this.type === "bag") {
+            this.value = Math.round(Math.random() * 1500);
+        }
+        return this.value;
+    };
+    Rock.prototype.renderRock = function () {
         var game = document.querySelector(".container__footer");
         if (game) {
             game.innerHTML += "\n      <img class=\"rockElem\" \n          id=\"" + this.id + "\" src=\"" + this.imgSrc + "\" alt=\"goldImg\" \n          style=\"width:" + this.width + "px; top: " + this.position.yPos + "%; left: " + this.position.xPos + "%\">";
         }
     };
-    return Rocks;
+    return Rock;
 }());
-;
 // // export default new Rocks;
 // // import { rockMap1Level1 } from '../maps/dist/maps';
 // const __rockMap1Level1 = [

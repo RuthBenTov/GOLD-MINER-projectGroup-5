@@ -1,0 +1,46 @@
+.container {
+    width: 65vw;
+    height: 85vh;
+
+    z-index: -1;
+    border: 2px solid black;
+    margin: auto;
+    background: url("https://play-lh.googleusercontent.com/uCxWq0akPHi4nrdyXuSrmPTZ5QSAD1j-eTcW57MtvgUBkAJwPW248hnleLzN5b1jfQ=w526-h296-rw") no-repeat center center/cover;
+
+    p{
+        color:black;
+        font-weight: 900;
+        text-align: center;
+        position: relative;
+        top: 42vh;
+        background-color: wheat;
+        border-radius: 10px;
+        padding: 3px;
+        margin: 3px;
+        
+
+    }
+
+    img{
+        width: 250px;
+        height: 120px;
+        border-radius: 20px;
+        position: relative;
+        top: 55%;
+        left: 40%;
+    }
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    bottom: 84vh;
+    left: 19%;
+    color: white;
+    background-color: rgb(186, 160, 9);
+    border-radius: 60px;
+    padding: 5px;
+    
+    
+}

@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GOLD-MINER expensive game</title>
     <link rel="stylesheet" href="../style/dist/style.css" />
+    <link rel="icon" type="image/x-icon" href="/project/image/happy-gold miner.png">
     <script src="../script/model/dist/rockClass.js" defer></script>
     <script src="../script/model/dist/playerClass.js" defer></script>
-    <script src="../script/model/dist/rockClass.js" defer></script>
     <script src="../script/main/dist/index.js" defer></script>
     <script src="../script/main/dist/index2.js" defer></script>
     <script src="../script/maps/dist/maps.js" defer></script>
     <script src="../script/model/dist/levelClass.js" defer></script>
+    <script src="../script/main/dist/end-game.js" defer></script>
   </head>
-  <body>
+  <body onload="renderCurrentLevel()">
+
+    <audio src="../image/soundsEffect/musicBackground.mp3" preload="auto"></audio>
     <div class="container">
       <div class="container__header">
+        <div class="container__header__itemsFromStore"></div>
+        <button class="container__header__exitLevel" onclick="checkPassLevelFromExitBtn()">Exit Level</button>
         <div class="head__rightSide">
           <div class="head__rightSide__timer">
             <p id="timerHead">time:</p>
@@ -37,23 +42,24 @@
           </div>
         </div>
         <div class="header__character">
-          <img src="../image/goldMiner.png" alt="goldMiner" />
+          <img src="../image/gold miner.png" alt="goldMiner" />
           <div class="header__rope"></div>
+        </div>
+        <div id="addScoreDiv">
+        <h1></h1>  
         </div>
       </div>
       <div class="container__footer">
         <div class="footer__gold">
-          <!-- <img style="top: 40px;" src="../image/gold.png" alt="goldImg">
-                <img src="../image/gold.png" alt="goldImg" >
-                <img src="../image/gold.png" alt="goldImg">
-                <img src="../image/gold.png" alt="goldImg"> -->
+        
         </div>
         <div class="footer__stone">
-          <!-- <img src="../image/stone.png" alt="stoneImg">
-                <img src="../image/stone.png" alt="stoneImg">
-                <img src="../image/stone.png" alt="stoneImg"> -->
+    
         </div>
       </div>
+      <div id="userData"></div>
+      <span id="loginStatus">Log in</span>
+      <a id="logOut" href="./homePage.html">Log out</a>
     </div>
   </body>
 </html>

@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 60vw;
+  height: 80vh;
+  z-index: -1;
+  border: 2px solid black;
+  margin: auto;
+  background: url(background.png) no-repeat center center/cover;
+}
+.container a {
+  text-decoration: none;
+  color: #e3b359;
+  font-weight: bold;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.container a:hover {
+  color: yellow;
+}
+.container .tryAgain {
+  display: block;
+  font-size: 70px;
+  position: relative;
+  top: 13vh;
+  left: 35vw;
+  transform: rotate(-13deg);
+}
+.container .store {
+  display: block;
+  font-size: 40px;
+  position: relative;
+  top: 25vh;
+  left: 40vw;
+  transform: rotate(-15deg);
+}

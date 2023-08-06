@@ -6,17 +6,52 @@
 .container {
   width: 60vw;
   height: 80vh;
-  z-index: -1;
-  border: 2px solid black;
-  background-color: yellow;
+  z-index: -10;
+  border: 0px solid black;
   margin: auto;
+  overflow: hidden;
 }
 .container__header {
+  margin-top: 2%;
   width: 100%;
-  height: 20%;
+  height: 21%;
   position: relative;
   background-color: #fed034;
   position: relative;
+}
+.container__header__itemsFromStore img {
+  position: absolute;
+  top: 6%;
+  left: 60%;
+  width: 6%;
+}
+.container__header__exitLevel {
+  position: absolute;
+  right: 21%;
+  font-size: 25px;
+  width: 8%;
+  top: 8px;
+  border-radius: 12px;
+  background-color: #FED034;
+  color: #9e6844;
+  cursor: pointer;
+  box-shadow: #99853f 1px 0 10px;
+  border: 1px solid #FED034;
+  right: 21%;
+  font-size: 25px;
+  width: 8%;
+  top: 8px;
+  border-radius: 12px;
+  background-color: #FED034;
+  color: #9e6844;
+  cursor: pointer;
+  box-shadow: #99853f 1px 0 10px;
+  border: 1px solid #FED034;
+  transition: all 0.3;
+}
+.container__header__exitLevel:hover {
+  scale: 1.05;
+  text-shadow: 0px 0px 2px #99853f;
 }
 .container__header .head__rightSide {
   font-size: 30px;
@@ -29,10 +64,12 @@
 .container__header .head__rightSide #timerHead,
 .container__header .head__rightSide #levelHead {
   color: #9e6844;
+  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__rightSide #timerValue,
 .container__header .head__rightSide #levelValue {
   color: red;
+  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__leftSide {
   font-size: 30px;
@@ -47,12 +84,27 @@
 .container__header .head__leftSide__score #scoreHead, .container__header .head__leftSide__target #targetHead,
 .container__header .head__leftSide__target #scoreHead {
   color: #9e6844;
+  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__leftSide__score #targetValue, .container__header .head__leftSide__target #targetValue {
   color: red;
+  text-shadow: 0px 0px 2px #845536ba;
 }
 .container__header .head__leftSide__score #scoreValue, .container__header .head__leftSide__target #scoreValue {
   color: #0bb60b;
+  text-shadow: 0px 0px 2px #845536ba;
+}
+.container__header #addScoreDiv h1 {
+  position: absolute;
+  display: inline-block;
+  z-index: 1000;
+  color: black;
+  bottom: 15%;
+  left: 60%;
+  opacity: 0%;
+}
+.container__header #addScoreDiv .popMoveAnimation {
+  animation: fadeInOutAnimation 2s;
 }
 .container__header .header {
   position: relative;
@@ -62,20 +114,21 @@
   width: 20%;
   height: 100%;
   margin: auto;
-  background-color: #283f9c;
+  background-color: #4259b4;
   border-radius: 125px 125px 0 0;
+  box-shadow: 0px 5px 10px 3px #384b97;
 }
 .container__header .header__character img {
-  width: 25%;
   height: 85%;
+  transition: all 0.4s;
   position: absolute;
   bottom: 0;
-  left: 40%;
+  left: 15%;
 }
 .container__header .header__rope {
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: 90px;
+  left: 37%;
   width: 40px;
   z-index: 100;
   height: 0px;
@@ -87,16 +140,66 @@
   transition: all 6s;
   animation-play-state: paused;
 }
+.container__header .returnRope {
+  animation-name: gettingUp;
+  animation-duration: 4s;
+  animation-play-state: paused;
+}
 .container__footer {
   position: relative;
   width: 100%;
   height: 80%;
-  background-color: #9e6844;
+  background: url("https://st.depositphotos.com/30456762/54970/v/450/depositphotos_549702254-stock-illustration-ground-texture-soil-top-view.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .container .footer {
   position: relative;
 }
 .container .rockElem {
+  position: absolute;
+}
+
+.liftTheStone {
+  animation: gettingUp 5s linear 1;
+}
+
+.active {
+  transition: all 3s;
+  animation-play-state: paused;
+}
+
+#loginStatus {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0px solid #4259B4;
+  background-color: #4259B4;
+  border-radius: 5px;
+  font-size: 30px;
+  font: italic small-caps bold 16px/2 cursive;
+  color: white;
+  top: 0;
+}
+
+#logOut {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0px solid #4259B4;
+  background-color: #4259B4;
+  border-radius: 5px;
+  font-size: 30px;
+  font: italic small-caps bold 16px/2 cursive;
+  color: white;
+  top: 33px;
+  text-decoration: none;
+}
+
+.rockElem {
   position: absolute;
 }
 
@@ -111,13 +214,26 @@
     transform: rotate(10deg);
   }
 }
-@keyframes gettingDown {
+@keyframes gettingUp {
   to {
-    width: 100vh;
+    top: 5px;
+    left: 410px;
   }
 }
-@keyframes gettingDown {
-  to {
-    width: 100vh;
+@keyframes fadeInOutAnimation {
+  0% {
+    opacity: 0;
   }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    left: 80%;
+    bottom: 60%;
+    display: none;
+    opacity: 0%;
+  }
+}
+.none {
+  display: none;
 }

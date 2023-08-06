@@ -1,9 +1,11 @@
 @mixin style-textName {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 12px;
     display: flex;
     flex-direction: column;
-    text-shadow: white 1px 0 10px;
+    text-shadow: black 1px 0 10px;
+    font: italic small-caps bold 16px/2 cursive;
+    color: #C97520;
 }
 
 * {
@@ -16,31 +18,48 @@
     justify-content: center;
   }
   
-  .registration {
-    background: url(https://t4.ftcdn.net/jpg/05/93/63/61/360_F_593636175_EsgfL5Hierf971xfKe699FrwGA8UHBZx.jpg);
+  .registration-root {
+    background: url("https://play-lh.googleusercontent.com/qpRyFnVaAakwHMiGAf_BOmqbZm37bEm6Fn3ETU-srsED7Jk_7q1bSNG62rLkBYtCsQ");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center center;
     text-shadow: #3A261E 1px 0 10px;
     position: relative;
     margin-top: 2%;
     width: 50%;
-    height: 85vh;
-    border: 2px solid black;
+    height: 80vh;
+    border: 0px solid black;
 
     &__details{
     display: flex;
     flex-direction: column;
     left: 5px;
     position: absolute;
-    left: 40%;
-    gap: 30px;
+    left: 50%;
 
     h1{
         margin-top: 20px;
         text-align: center;
         text-shadow: wheat 1px 0 10px;
         font-size: 40px;
+        font: italic small-caps bold 29px/2 cursive;
+        display: flex;
+        font-size: 15px;
+        justify-content: center;
+        align-items: center;
+        background-color: #C97520;
+        border-radius: 12px;
+    }
+
+    a {
+    text-align: center;
+    text-decoration: none;
+    padding: 3px;
+    background-color: brown;
+    border-radius: 12px;
+    color: black;
+    margin-top: 10px;
+    color: wheat;
     }
     }
 }
@@ -61,12 +80,52 @@
     &__signUp{
         text-align: center;
         border: 2px solid wheat;
-        background-color: wheat;
         border-radius: 6px;
-
+        background-color: wheat;
+        
         a{
             text-decoration: none;
             color: white;
         }
     }
 }
+
+
+@media screen and (max-width: 768px) {
+    .registration-root {
+        height: 18vh;
+        &__details {
+            width: 50%;
+            gap: 1px;
+            left: 3%;
+
+            
+            h1{
+                margin-top: 40px;
+                width: 98%;
+                height: 19px;
+    
+            }
+            
+            a {
+                padding: 0;
+                margin-top: 3px;
+            }
+        }
+    }
+    
+    .details {
+        
+        &__userName, &__email, &__password {
+            font-size: 12px;
+
+            label {
+                display: none;
+            }
+            input {
+                font-size: 6px;
+            }
+        }
+
+    }
+  }

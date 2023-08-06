@@ -1,5 +1,3 @@
-console.log("starting game");
-console.log("hi");
 var rope = document.querySelector(".header__rope");
 var goldMiner = document.querySelector(".header__character");
 //-----------------------------Event Handlers-----------------------------
@@ -7,6 +5,8 @@ document.addEventListener("keydown", handlePress);
 function handlePress(ev) {
     if (ev.key === "ArrowDown") {
         rope.style.width = "1000px";
+        rope.style.transition = "4s";
+        rope.style.animationPlayState = "paused";
         rope.classList.add("active");
     }
     if (ev.key === "ArrowLeft") {
@@ -38,6 +38,7 @@ var countDown = setInterval(function () {
         clearInterval(countDown);
         alert("game over");
         // window.location.href = "/project/view/gameOver.html";
+        checkPassLevel(levels.find(function (l) { return l.isActive; }).score);
     }
 }, 1000);
 function displayTime(second) {
@@ -46,4 +47,36 @@ function displayTime(second) {
     if (timer) {
         timer.innerHTML = "" + (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
     }
+}
+// -------------------------Get items from store page to the current page---------------------
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the stored images inforamation from localStorage
+    var clickedImgSrcDynamite = localStorage.getItem("clickedImgSrcDynamite");
+    var additionalTimeString = localStorage.getItem("additionalTime");
+    // Convert the additionalTimeString to a number
+    var additionalTime = parseInt(additionalTimeString || "0");
+    if (clickedImgSrcDynamite) {
+        // Creating an image ELement
+        var imgElement = document.createElement("img");
+        imgElement.src = clickedImgSrcDynamite;
+        // Append the image element to the header content
+        var containerHeader = document.querySelector(".container__header__itemsFromStore");
+        if (containerHeader) {
+            containerHeader.append(imgElement);
+        }
+        // // Clear the stored data to prevent showing the same image again
+        localStorage.removeItem("clickedImgSrcDynamite");
+    }
+    if (additionalTime) {
+        // Add more 10 sec to the game
+        timeSecond += additionalTime;
+        displayTime(timeSecond);
+        // // Clear the stored data to prevent showing the extra 10sec to the timer again
+        localStorage.removeItem("additionalTime");
+    }
+});
+// timeImg.addEventListener("click", ()=> {
+// })
+function checkPassLevelFromExitBtn() {
+    checkPassLevel(levels.find(function (l) { return l.isActive; }).score);
 }
