@@ -96,6 +96,7 @@ function ropeGetUp(thisLevel, currentElem) {
     }
     rope.style.width = "40px";
     rope.style.transition = wait / 2 + "s";
+    document.removeEventListener("keydown", handlePress);
     soundEffectRope.play();
     setTimeout(function () {
         rope.style.animationPlayState = "running";
@@ -104,6 +105,7 @@ function ropeGetUp(thisLevel, currentElem) {
         startCollisionInterval();
         soundEffectRope.pause();
         playSoundEffect(currentElem);
+        document.addEventListenerEventListener("keydown", handlePress);
     }, (wait / 2) * getRopeLength());
 }
 function getRopeLength() {

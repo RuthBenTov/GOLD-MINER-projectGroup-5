@@ -131,6 +131,8 @@ function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
   rope.style.width = "40px";
   rope.style.transition = wait / 2 + "s";
 
+  document.removeEventListener("keydown", handlePress)
+
   soundEffectRope.play();
   setTimeout(() => {
     rope.style.animationPlayState = "running";
@@ -139,6 +141,7 @@ function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
     startCollisionInterval();
     soundEffectRope.pause();
     playSoundEffect(currentElem);
+    document.addEventListenerEventListener("keydown", handlePress)
   }, (wait / 2) * getRopeLength());
 }
 
