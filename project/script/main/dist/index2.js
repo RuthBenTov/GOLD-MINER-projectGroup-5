@@ -128,7 +128,7 @@ function addScoreAnimation(currentElem, thisLevel) {
 function liftTheStone(item) {
     var timeToTransition = item.width;
     item.style.top = "0px";
-    item.style.left = "calc(50% - " + timeToTransition / 2 + "px)";
+    item.style.left = "calc(48% - " + timeToTransition / 2 + "px)";
     item.style.transition = timeToTransition / 10 + "s"; /*לא למחוק*/
     setTimeout(function () {
         item.style.display = "none";
