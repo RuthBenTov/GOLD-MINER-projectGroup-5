@@ -51,20 +51,32 @@ function displayTime(second) {
 // -------------------------Get items from store page to the current page---------------------
 document.addEventListener("DOMContentLoaded", function () {
     // Get the stored images inforamation from localStorage
-    var clickedImgSrc = localStorage.getItem("clickedImgSrc");
-    if (clickedImgSrc) {
+    var clickedImgSrcDynamite = localStorage.getItem("clickedImgSrcDynamite");
+    var additionalTimeString = localStorage.getItem("additionalTime");
+    // Convert the additionalTimeString to a number
+    var additionalTime = parseInt(additionalTimeString || "0");
+    if (clickedImgSrcDynamite) {
         // Creating an image ELement
         var imgElement = document.createElement("img");
-        imgElement.src = clickedImgSrc;
+        imgElement.src = clickedImgSrcDynamite;
         // Append the image element to the header content
         var containerHeader = document.querySelector(".container__header__itemsFromStore");
         if (containerHeader) {
             containerHeader.append(imgElement);
         }
         // // Clear the stored data to prevent showing the same image again
-        // localStorage.removeItem("clickedImgSrc");
+        localStorage.removeItem("clickedImgSrcDynamite");
+    }
+    if (additionalTime) {
+        // Add more 10 sec to the game
+        timeSecond += additionalTime;
+        displayTime(timeSecond);
+        // // Clear the stored data to prevent showing the extra 10sec to the timer again
+        localStorage.removeItem("additionalTime");
     }
 });
+// timeImg.addEventListener("click", ()=> {
+// })
 function checkPassLevelFromExitBtn() {
     checkPassLevel(levels.find(function (l) { return l.isActive; }).score);
 }
