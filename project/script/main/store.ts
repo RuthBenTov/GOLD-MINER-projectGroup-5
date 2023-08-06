@@ -1,23 +1,23 @@
-// Adding styles to the dynamite image
-const dynamiteImg = document.querySelector(".storeContainer__dynamite img") as HTMLImageElement;
-const dynamiteInto = document.querySelector(".storeContainer__dynamite p") as HTMLParagraphElement;
+// // Adding styles to the dynamite image
+// const dynamiteImg = document.querySelector(".storeContainer__dynamite img") as HTMLImageElement;
+// const dynamiteInto = document.querySelector(".storeContainer__dynamite p") as HTMLParagraphElement;
 
 
-dynamiteImg.addEventListener("mouseover", ()=>{
+// dynamiteImg.addEventListener("mouseover", ()=>{
     
-    dynamiteInto.style.display = "block";
-});
+//     dynamiteInto.style.display = "block";
+// });
 
-dynamiteImg.addEventListener("mouseout", ()=> {
-    dynamiteInto.style.display = "none";
-});
+// dynamiteImg.addEventListener("mouseout", ()=> {
+//     dynamiteInto.style.display = "none";
+// });
 
-dynamiteImg.addEventListener("click", ()=>{
-    dynamiteImg.style.display = "none";
+// dynamiteImg.addEventListener("click", ()=>{
+//     dynamiteImg.style.display = "none";
 
-    // Store the clicked image information in localStorage
-    localStorage.setItem("clickedImgSrcDynamite", dynamiteImg.src);
-});
+//     // Store the clicked image information in localStorage
+//     localStorage.setItem("clickedImgSrcDynamite", dynamiteImg.src);
+// });
 
 
 // Adding styles to the pocket watch image
