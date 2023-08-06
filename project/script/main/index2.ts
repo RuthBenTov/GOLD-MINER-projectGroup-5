@@ -14,6 +14,19 @@ const character = document.querySelector(
   ".header__character img",
 ) as HTMLImageElement;
 
+
+
+// soundEffect-----------------------------------
+const soundEffectStone = new Audio("/project/image/soundsEffect/catchStone.mp3") 
+const soundEffectGold = new Audio("/project/image/soundsEffect/catchGold.mp3") 
+const soundEffectRope = new Audio("/project/image/soundsEffect/ropeRolling.mp3")
+const soundEffectGaming = new Audio("/project/image/soundsEffect/musicBackground.mp3")
+
+document.addEventListener("DOMContentLoaded", () =>{
+  soundEffectGaming.play()
+})
+ 
+
 function getElementToPlayer(item) {
   
   IdentifyTheStone(item);
@@ -112,7 +125,7 @@ function changeCharacter(currentElem: Rock) {
 
 
 function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
-  let wait = 3
+  let wait = 5
   // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
   if (currentElem) {
     wait = currentElem.width
@@ -120,6 +133,8 @@ function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
 
   rope.style.width = "40px";
   rope.style.transition = wait / 2 + "s";
+
+  soundEffectRope.play()
   setTimeout(
     () => {
       
@@ -127,6 +142,8 @@ function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
       character.src = "/project/image/gold miner.png"
       addScoreAnimation(currentElem, thisLevel)
       startCollisionInterval(); 
+      soundEffectRope.pause()
+      playSoundEffect(currentElem)
     }
     , wait / 2 * getRopeLength()
   )
@@ -170,26 +187,55 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 
 
 function liftTheStone(item) {
-  // item.classList.add("liftTheStone");
   
   
- let timeToDuration = item.width/getRopeLength()
+ let timeToDuration = item.width
+ item.style.top = "0px";
+ item.style.left = `calc(50% - ${timeToDuration/2}px)`
+  item.style.transition = timeToDuration/10 +"s"; /*לא למחוק*/
 
- item.style.top = "0%";
- item.style.left ='calc (50% - ${item.width}px)';
-  item.style.animationDuration = timeToDuration/2 +"s"; /*לא למחוק*/
-
-  // const targetRect = goldMiner.getBoundingClientRect();
-  // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
-  // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
-
-  item.addEventListener('animationend', () => {
-
+  setTimeout(()=>{
     item.style.display = 'none';
-
-  });
+  }
+  , timeToDuration/2 * getRopeLength());
 }
+
+// function liftTheStone(item) {
+//   // item.classList.add("liftTheStone");
+  
+  
+//  let timeToDuration = item.width/getRopeLength()
+
+//  item.style.top = "0%";
+//  item.style.left ='calc (50% - ${item.width}px)';
+//   item.style.animationDuration = timeToDuration/2 +"s"; /*לא למחוק*/
+
+//   // const targetRect = goldMiner.getBoundingClientRect();
+//   // document.documentElement.style.setProperty('--target-top', `${targetRect.top}px`);
+//   // document.documentElement.style.setProperty('--target-left', `${targetRect.left}px`);
+
+//   item.addEventListener('animationend', () => {
+
+//     item.style.display = 'none';
+
+//   });
+// }
 
 
 
 startCollisionInterval(); 
+
+
+function playSoundEffect(item){
+  if(item.type === "gold"){
+    soundEffectGold.play()
+  }
+  if(item.type === "stone"){
+    soundEffectStone.play()
+  }
+  if(item.type === "bag"){
+    soundEffectGold.play()
+  }
+}
+
+soundEffectGaming.addEventListener("ended", () => soundEffectGaming.play())
