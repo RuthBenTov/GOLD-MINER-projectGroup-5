@@ -133,7 +133,7 @@ function liftTheStone(item) {
     item.style.transition = timeToDuration / 10 + "s"; /*לא למחוק*/
     setTimeout(function () {
         item.style.display = 'none';
-    }, timeToDuration / 2 * getRopeLength());
+    }, timeToDuration / 4 * getRopeLength());
 }
 // function liftTheStone(item) {
 //   // item.classList.add("liftTheStone");

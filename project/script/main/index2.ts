@@ -197,7 +197,7 @@ function liftTheStone(item) {
   setTimeout(() => {
     item.style.display = 'none';
   }
-    , timeToDuration / 2 * getRopeLength());
+    , timeToDuration / 4 * getRopeLength());
 }
 
 // function liftTheStone(item) {
