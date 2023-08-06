@@ -37,12 +37,12 @@ function getElementToPlayer(item) {
 function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
   const rocks = document.querySelectorAll(".rockElem");
 
-  for (let i = 0; i < rocks.length; i++) {
-    const rockLeft = rocks[i].getBoundingClientRect().left;
-    const rockRight = rocks[i].getBoundingClientRect().right;
-    const rockTop = rocks[i].getBoundingClientRect().top;
-    const rockBottom = rocks[i].getBoundingClientRect().bottom;
-    const item = rocks[i];
+  rocks.forEach((rock)=>{
+    const rockLeft = rock.getBoundingClientRect().left;
+    const rockRight = rock.getBoundingClientRect().right;
+    const rockTop = rock.getBoundingClientRect().top;
+    const rockBottom = rock.getBoundingClientRect().bottom;
+    const item = rock;
 
     if (
       (ropeTop != ropeRight &&
@@ -60,7 +60,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
       getElementToPlayer(item);
       liftTheStone(item);
     }
-  }
+
 
   if (
     ropeLeft <= gameBoardLeft ||
@@ -79,6 +79,8 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
 
     // rope.classList.remove("returnRope");
   }
+    
+})
 }
 
 let checkCollisionInterval;

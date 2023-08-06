@@ -20,12 +20,12 @@ function getElementToPlayer(item) {
 }
 function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     var rocks = document.querySelectorAll(".rockElem");
-    for (var i = 0; i < rocks.length; i++) {
-        var rockLeft = rocks[i].getBoundingClientRect().left;
-        var rockRight = rocks[i].getBoundingClientRect().right;
-        var rockTop = rocks[i].getBoundingClientRect().top;
-        var rockBottom = rocks[i].getBoundingClientRect().bottom;
-        var item = rocks[i];
+    rocks.forEach(function (rock) {
+        var rockLeft = rock.getBoundingClientRect().left;
+        var rockRight = rock.getBoundingClientRect().right;
+        var rockTop = rock.getBoundingClientRect().top;
+        var rockBottom = rock.getBoundingClientRect().bottom;
+        var item = rock;
         if ((ropeTop != ropeRight &&
             ropeRight < rockRight &&
             ropeRight > rockLeft &&
@@ -40,21 +40,21 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
             getElementToPlayer(item);
             liftTheStone(item);
         }
-    }
-    if (ropeLeft <= gameBoardLeft ||
-        ropeRight >= gameBoardRight ||
-        ropeRight <= gameBoardBottom ||
-        ropeBottom >= gameBoardBottom) {
-        // clearInterval(checkCollisionInterval)
-        rope.style.width = "40px";
-        rope.classList.remove("active");
-        ropeGetUp(levels);
-    }
-    else {
-        rope.style.animation = "ropeSideToSide 5s linear infinite; ";
-        document.addEventListener("keydown", handlePress);
-        // rope.classList.remove("returnRope");
-    }
+        if (ropeLeft <= gameBoardLeft ||
+            ropeRight >= gameBoardRight ||
+            ropeRight <= gameBoardBottom ||
+            ropeBottom >= gameBoardBottom) {
+            // clearInterval(checkCollisionInterval)
+            rope.style.width = "40px";
+            rope.classList.remove("active");
+            ropeGetUp(levels);
+        }
+        else {
+            rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+            document.addEventListener("keydown", handlePress);
+            // rope.classList.remove("returnRope");
+        }
+    });
 }
 var checkCollisionInterval;
 function startCollisionInterval() {
