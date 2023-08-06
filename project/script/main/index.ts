@@ -33,7 +33,7 @@ function handlePress(ev: any) {
   //   rope.style.width = "40px";
   //   rope.classList.remove("active");
 }
-}
+
 
 //------------------------------------------Timer------------------------------------------
 
