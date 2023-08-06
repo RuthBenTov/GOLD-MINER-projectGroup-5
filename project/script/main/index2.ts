@@ -17,18 +17,18 @@ const character = document.querySelector(
 
 
 // soundEffect-----------------------------------
-const soundEffectStone = new Audio("/project/image/soundsEffect/catchStone.mp3") 
-const soundEffectGold = new Audio("/project/image/soundsEffect/catchGold.mp3") 
+const soundEffectStone = new Audio("/project/image/soundsEffect/catchStone.mp3")
+const soundEffectGold = new Audio("/project/image/soundsEffect/catchGold.mp3")
 const soundEffectRope = new Audio("/project/image/soundsEffect/ropeRolling.mp3")
 const soundEffectGaming = new Audio("/project/image/soundsEffect/musicBackground.mp3")
 
-document.addEventListener("DOMContentLoaded", () =>{
+document.addEventListener("DOMContentLoaded", () => {
   soundEffectGaming.play()
 })
- 
+
 
 function getElementToPlayer(item) {
-  
+
   IdentifyTheStone(item);
 }
 
@@ -54,7 +54,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
-     clearInterval(checkCollisionInterval)
+      clearInterval(checkCollisionInterval)
       getElementToPlayer(item);
       liftTheStone(item)
     }
@@ -74,7 +74,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
 
   } else {
     rope.style.animation = "ropeSideToSide 5s linear infinite; ";
-     // rope.classList.remove("returnRope");
+    // rope.classList.remove("returnRope");
   }
 }
 
@@ -82,18 +82,18 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
 let checkCollisionInterval
 
 function startCollisionInterval() {
-checkCollisionInterval = setInterval(() => {
-  const ropeLeft = rope.getBoundingClientRect().left;
-  const ropeRight = rope.getBoundingClientRect().right;
-  const ropeBottom = rope.getBoundingClientRect().bottom;
-  const ropeTop = rope.getBoundingClientRect().top;
+  checkCollisionInterval = setInterval(() => {
+    const ropeLeft = rope.getBoundingClientRect().left;
+    const ropeRight = rope.getBoundingClientRect().right;
+    const ropeBottom = rope.getBoundingClientRect().bottom;
+    const ropeTop = rope.getBoundingClientRect().top;
 
-  checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-}, .5);
+    checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
+  }, .5);
 }
 
 function IdentifyTheStone(item) {
-  
+
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
@@ -137,11 +137,11 @@ function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
   soundEffectRope.play()
   setTimeout(
     () => {
-      
+
       rope.style.animationPlayState = "running"
       character.src = "/project/image/gold miner.png"
       addScoreAnimation(currentElem, thisLevel)
-      startCollisionInterval(); 
+      startCollisionInterval();
       soundEffectRope.pause()
       playSoundEffect(currentElem)
     }
@@ -187,23 +187,23 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
 
 
 function liftTheStone(item) {
-  
-  
- let timeToDuration = item.width
- item.style.top = "0px";
- item.style.left = `calc(50% - ${timeToDuration/2}px)`
-  item.style.transition = timeToDuration/10 +"s"; /*לא למחוק*/
 
-  setTimeout(()=>{
+
+  let timeToDuration = item.width
+  item.style.top = "0px";
+  item.style.left = `calc(50% - ${timeToDuration / 2}px)`
+  item.style.transition = timeToDuration / 10 + "s"; /*לא למחוק*/
+
+  setTimeout(() => {
     item.style.display = 'none';
   }
-  , timeToDuration/2 * getRopeLength());
+    , timeToDuration / 2 * getRopeLength());
 }
 
 // function liftTheStone(item) {
 //   // item.classList.add("liftTheStone");
-  
-  
+
+
 //  let timeToDuration = item.width/getRopeLength()
 
 //  item.style.top = "0%";
@@ -223,17 +223,17 @@ function liftTheStone(item) {
 
 
 
-startCollisionInterval(); 
+startCollisionInterval();
 
 
-function playSoundEffect(item){
-  if(item.type === "gold"){
+function playSoundEffect(item) {
+  if (item.type === "gold") {
     soundEffectGold.play()
   }
-  if(item.type === "stone"){
+  if (item.type === "stone") {
     soundEffectStone.play()
   }
-  if(item.type === "bag"){
+  if (item.type === "bag") {
     soundEffectGold.play()
   }
 }
