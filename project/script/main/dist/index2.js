@@ -52,6 +52,7 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     }
     else {
         rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+        document.addEventListener("keydown", handlePress);
         // rope.classList.remove("returnRope");
     }
 }
@@ -105,7 +106,7 @@ function ropeGetUp(thisLevel, currentElem) {
         startCollisionInterval();
         soundEffectRope.pause();
         playSoundEffect(currentElem);
-        document.addEventListenerEventListener("keydown", handlePress);
+        document.addEventListener("keydown", handlePress);
     }, (wait / 2) * getRopeLength());
 }
 function getRopeLength() {
