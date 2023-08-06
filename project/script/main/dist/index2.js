@@ -63,7 +63,7 @@ function startCollisionInterval() {
         var ropeBottom = rope.getBoundingClientRect().bottom;
         var ropeTop = rope.getBoundingClientRect().top;
         checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-    }, .5);
+    }, 0.5);
 }
 function IdentifyTheStone(item) {
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
@@ -104,7 +104,7 @@ function ropeGetUp(thisLevel, currentElem) {
         startCollisionInterval();
         soundEffectRope.pause();
         playSoundEffect(currentElem);
-    }, wait / 2 * getRopeLength());
+    }, (wait / 2) * getRopeLength());
 }
 function getRopeLength() {
     var ropeLeft = rope.getBoundingClientRect().left;
@@ -120,20 +120,19 @@ function handleAnimationEnd(event) {
 function addScoreAnimation(currentElem, thisLevel) {
     console.log("currentElem");
     thisLevel.score += currentElem.getScore();
-    document.querySelector("#scoreValue").innerHTML =
-        thisLevel.score.toString();
+    document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
     addValuePop.innerHTML = currentElem.getScore().toString();
     playPopAnimation();
     setLevelsInLs(levels);
 }
 function liftTheStone(item) {
-    var timeToDuration = item.width;
+    var timeToTransition = item.width;
     item.style.top = "0px";
-    item.style.left = "calc(50% - " + timeToDuration / 2 + "px)";
-    item.style.transition = timeToDuration / 10 + "s"; /*לא למחוק*/
+    item.style.left = "calc(50% - " + timeToTransition / 2 + "px)";
+    item.style.transition = timeToTransition / 10 + "s"; /*לא למחוק*/
     setTimeout(function () {
-        item.style.display = 'none';
-    }, timeToDuration / 4 * getRopeLength());
+        item.style.display = "none";
+    }, (timeToTransition / 2) * getRopeLength());
 }
 // function liftTheStone(item) {
 //   // item.classList.add("liftTheStone");

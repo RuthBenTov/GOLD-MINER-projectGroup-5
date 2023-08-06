@@ -14,21 +14,23 @@ const character = document.querySelector(
   ".header__character img",
 ) as HTMLImageElement;
 
-
-
 // soundEffect-----------------------------------
-const soundEffectStone = new Audio("/project/image/soundsEffect/catchStone.mp3")
-const soundEffectGold = new Audio("/project/image/soundsEffect/catchGold.mp3")
-const soundEffectRope = new Audio("/project/image/soundsEffect/ropeRolling.mp3")
-const soundEffectGaming = new Audio("/project/image/soundsEffect/musicBackground.mp3")
+const soundEffectStone = new Audio(
+  "/project/image/soundsEffect/catchStone.mp3",
+);
+const soundEffectGold = new Audio("/project/image/soundsEffect/catchGold.mp3");
+const soundEffectRope = new Audio(
+  "/project/image/soundsEffect/ropeRolling.mp3",
+);
+const soundEffectGaming = new Audio(
+  "/project/image/soundsEffect/musicBackground.mp3",
+);
 
 document.addEventListener("DOMContentLoaded", () => {
-  soundEffectGaming.play()
-})
-
+  soundEffectGaming.play();
+});
 
 function getElementToPlayer(item) {
-
   IdentifyTheStone(item);
 }
 
@@ -54,9 +56,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom < rockBottom &&
         ropeBottom > rockTop)
     ) {
-      clearInterval(checkCollisionInterval)
+      clearInterval(checkCollisionInterval);
       getElementToPlayer(item);
-      liftTheStone(item)
+      liftTheStone(item);
     }
   }
 
@@ -70,16 +72,14 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
 
     rope.style.width = "40px";
     rope.classList.remove("active");
-    ropeGetUp(levels)
-
+    ropeGetUp(levels);
   } else {
     rope.style.animation = "ropeSideToSide 5s linear infinite; ";
     // rope.classList.remove("returnRope");
   }
 }
 
-
-let checkCollisionInterval
+let checkCollisionInterval;
 
 function startCollisionInterval() {
   checkCollisionInterval = setInterval(() => {
@@ -89,17 +89,16 @@ function startCollisionInterval() {
     const ropeTop = rope.getBoundingClientRect().top;
 
     checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-  }, .5);
+  }, 0.5);
 }
 
 function IdentifyTheStone(item) {
-
   const thisLevel = levels.find((level) => level.isActive === true)!;
   const thisMap = thisLevel.map;
   const currentElem = thisMap.find((elem) => elem.id === item.id)!;
 
   changeCharacter(currentElem);
-  ropeGetUp(thisLevel, currentElem)
+  ropeGetUp(thisLevel, currentElem);
 
   //-----------------------------------------------------------------------------
 }
@@ -120,34 +119,27 @@ function changeCharacter(currentElem: Rock) {
   if (currentElem.type === "stone") {
     character.src = "/project/image/effort- gold miner.png";
   }
-
 }
 
-
 function ropeGetUp(thisLevel: Level, currentElem: Rock = null) {
-  let wait = 5
+  let wait = 5;
   // const rockHtml = document.querySelector(`#${currentElem.id}`) as HTMLElement
   if (currentElem) {
-    wait = currentElem.width
+    wait = currentElem.width;
   }
 
   rope.style.width = "40px";
   rope.style.transition = wait / 2 + "s";
 
-  soundEffectRope.play()
-  setTimeout(
-    () => {
-
-      rope.style.animationPlayState = "running"
-      character.src = "/project/image/gold miner.png"
-      addScoreAnimation(currentElem, thisLevel)
-      startCollisionInterval();
-      soundEffectRope.pause()
-      playSoundEffect(currentElem)
-    }
-    , wait / 2 * getRopeLength()
-  )
-
+  soundEffectRope.play();
+  setTimeout(() => {
+    rope.style.animationPlayState = "running";
+    character.src = "/project/image/gold miner.png";
+    addScoreAnimation(currentElem, thisLevel);
+    startCollisionInterval();
+    soundEffectRope.pause();
+    playSoundEffect(currentElem);
+  }, (wait / 2) * getRopeLength());
 }
 
 function getRopeLength() {
@@ -169,13 +161,11 @@ function handleAnimationEnd(event) {
   console.dir(event);
 }
 
-
 function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
   console.log("currentElem");
 
   thisLevel.score += currentElem.getScore();
-  document.querySelector("#scoreValue")!.innerHTML =
-    thisLevel.score.toString();
+  document.querySelector("#scoreValue")!.innerHTML = thisLevel.score.toString();
 
   addValuePop.innerHTML = currentElem.getScore().toString();
   playPopAnimation();
@@ -183,26 +173,19 @@ function addScoreAnimation(currentElem: Rock, thisLevel: Level) {
   setLevelsInLs(levels);
 }
 
-
-
-
 function liftTheStone(item) {
-
-
-  let timeToDuration = item.width
+  let timeToTransition = item.width;
   item.style.top = "0px";
-  item.style.left = `calc(50% - ${timeToDuration / 2}px)`
-  item.style.transition = timeToDuration / 10 + "s"; /*לא למחוק*/
+  item.style.left = `calc(50% - ${timeToTransition / 2}px)`;
+  item.style.transition = timeToTransition / 10 + "s"; /*לא למחוק*/
 
   setTimeout(() => {
-    item.style.display = 'none';
-  }
-    , timeToDuration / 4 * getRopeLength());
+    item.style.display = "none";
+  }, (timeToTransition / 2) * getRopeLength());
 }
 
 // function liftTheStone(item) {
 //   // item.classList.add("liftTheStone");
-
 
 //  let timeToDuration = item.width/getRopeLength()
 
@@ -221,21 +204,18 @@ function liftTheStone(item) {
 //   });
 // }
 
-
-
 startCollisionInterval();
-
 
 function playSoundEffect(item) {
   if (item.type === "gold") {
-    soundEffectGold.play()
+    soundEffectGold.play();
   }
   if (item.type === "stone") {
-    soundEffectStone.play()
+    soundEffectStone.play();
   }
   if (item.type === "bag") {
-    soundEffectGold.play()
+    soundEffectGold.play();
   }
 }
 
-soundEffectGaming.addEventListener("ended", () => soundEffectGaming.play())
+soundEffectGaming.addEventListener("ended", () => soundEffectGaming.play());
