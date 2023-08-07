@@ -153,12 +153,12 @@ function liftTheStoneWithGif(item) {
     item.style.left = "calc(48% - " + timeToTransition / 2 + "px)";
     item.style.transition = timeToTransition / 10 + "s";
     // Replace the rock with the GIF
-    item.src = "https://i.gifer.com/2eSc.gif"; // GIF URL
+    item.src = "https://i.gifer.com/2eSc.gif";
     setTimeout(function () {
         item.style.display = "none";
-        // item.src = "path_to_original_rock_image"; // Change to the original rock image URL
-        setTimeout(function () { return (timeToTransition / 2) * getRopeLength(); });
-    }, (timeToTransition / 2) * getRopeLength());
+        setTimeout(function () {
+        }, 1000); // 1000 milliseconds (1 second)
+    }, 1000); // 1000 milliseconds (1 second)
 }
 // function liftTheStone(item) {
 //   // item.classList.add("liftTheStone");
