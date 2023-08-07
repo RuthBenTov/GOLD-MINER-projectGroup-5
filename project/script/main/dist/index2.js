@@ -37,6 +37,16 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
             clearInterval(checkCollisionInterval);
+            var rockElement = document.querySelector(".container__header__itemsFromStore img");
+            if (rockElement) {
+                // Add event listener for "ArrowUp" key press
+                document.addEventListener("keydown", function (ev) {
+                    if (ev.key === "ArrowUp") {
+                        // Change the rock item to the GIF
+                        liftTheStoneWithGif(item);
+                    }
+                });
+            }
             getElementToPlayer(item);
             liftTheStone(item);
         }
@@ -135,6 +145,19 @@ function liftTheStone(item) {
     item.style.transition = timeToTransition / 10 + "s"; /*לא למחוק*/
     setTimeout(function () {
         item.style.display = "none";
+    }, (timeToTransition / 2) * getRopeLength());
+}
+function liftTheStoneWithGif(item) {
+    var timeToTransition = item.width;
+    item.style.top = "0px";
+    item.style.left = "calc(48% - " + timeToTransition / 2 + "px)";
+    item.style.transition = timeToTransition / 10 + "s";
+    // Replace the rock with the GIF
+    item.src = "https://i.gifer.com/2eSc.gif"; // GIF URL
+    setTimeout(function () {
+        item.style.display = "none";
+        // item.src = "path_to_original_rock_image"; // Change to the original rock image URL
+        setTimeout(function () { return (timeToTransition / 2) * getRopeLength(); });
     }, (timeToTransition / 2) * getRopeLength());
 }
 // function liftTheStone(item) {

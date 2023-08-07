@@ -1,17 +1,17 @@
-// // Adding styles to the dynamite image
-// const dynamiteImg = document.querySelector(".storeContainer__dynamite img") as HTMLImageElement;
-// const dynamiteInto = document.querySelector(".storeContainer__dynamite p") as HTMLParagraphElement;
-// dynamiteImg.addEventListener("mouseover", ()=>{
-//     dynamiteInto.style.display = "block";
-// });
-// dynamiteImg.addEventListener("mouseout", ()=> {
-//     dynamiteInto.style.display = "none";
-// });
-// dynamiteImg.addEventListener("click", ()=>{
-//     dynamiteImg.style.display = "none";
-//     // Store the clicked image information in localStorage
-//     localStorage.setItem("clickedImgSrcDynamite", dynamiteImg.src);
-// });
+// Adding styles to the dynamite image
+var dynamiteImg = document.querySelector(".storeContainer__dynamite img");
+var dynamiteInto = document.querySelector(".storeContainer__dynamite p");
+dynamiteImg.addEventListener("mouseover", function () {
+    dynamiteInto.style.display = "block";
+});
+dynamiteImg.addEventListener("mouseout", function () {
+    dynamiteInto.style.display = "none";
+});
+dynamiteImg.addEventListener("click", function () {
+    dynamiteImg.style.display = "none";
+    // Store the clicked image information in localStorage
+    localStorage.setItem("clickedImgSrcDynamite", dynamiteImg.src);
+});
 // Adding styles to the pocket watch image
 var timeImg = document.querySelector(".storeContainer__time img");
 var timeIntro = document.querySelector(".storeContainer__time p");
