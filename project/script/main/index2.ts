@@ -57,9 +57,9 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
         ropeBottom > rockTop)
     ) {
       clearInterval(checkCollisionInterval);
-        const rockElement = document.querySelector(".container__header__itemsFromStore img") as HTMLImageElement;
+        const dynamiteElement = document.querySelector(".container__header__itemsFromStore img") as HTMLImageElement;
 
-        if (rockElement) {
+        if (dynamiteElement) {
           // Add event listener for "ArrowUp" key press
           document.addEventListener("keydown", (ev) => {
             if (ev.key === "ArrowUp") {
