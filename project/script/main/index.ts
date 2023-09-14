@@ -16,24 +16,26 @@ function handlePress(ev: any) {
     rope.style.animationPlayState = "paused"
     rope.classList.add("active");
   }
-  if (ev.key === "ArrowLeft") {
-    if (Number(goldMiner.style.left.replace("px", "")) > -100)
-      goldMiner.style.left =
-        (Number(goldMiner.style.left.replace("px", "")) - 5).toString() + "px";
-  }
-  if (ev.key === "ArrowRight") {
-    if (Number(goldMiner.style.left.replace("px", "")) < 100)
-      goldMiner.style.left =
-        (Number(goldMiner.style.left.replace("px", "")) + 5).toString() + "px";
-  } else if (
+  // if (ev.key === "ArrowLeft") {
+  //   if (Number(goldMiner.style.left.replace("px", "")) > -100)
+  //     goldMiner.style.left =
+  //       (Number(goldMiner.style.left.replace("px", "")) - 5).toString() + "px";
+  // }
+  // if (ev.key === "ArrowRight") {
+  //   if (Number(goldMiner.style.left.replace("px", "")) < 100)
+  //     goldMiner.style.left =
+  //       (Number(goldMiner.style.left.replace("px", "")) + 5).toString() + "px";
+  // } 
+  else if (
     ev.key != "ArrowRight" &&
     ev.key != "ArrowDown" &&
     ev.key != "ArrowLeft"
   ) {
     rope.style.width = "40px";
     rope.classList.remove("active");
-  }
 }
+}
+
 
 //------------------------------------------Timer------------------------------------------
 
@@ -49,7 +51,7 @@ const countDown = setInterval(() => {
     clearInterval(countDown);
     alert("game over");
     // window.location.href = "/project/view/gameOver.html";
-    checkPassLevel(levels.find(l=> l.isActive)!.score )
+    checkPassLevel(levels.find(l => l.isActive)!.score)
   }
 }, 1000);
 
@@ -65,21 +67,21 @@ function displayTime(second: number) {
 
 // -------------------------Get items from store page to the current page---------------------
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
   // Get the stored images inforamation from localStorage
   const clickedImgSrcDynamite = localStorage.getItem("clickedImgSrcDynamite");
   const additionalTimeString = localStorage.getItem("additionalTime");
 
   // Convert the additionalTimeString to a number
-  const additionalTime = parseInt(additionalTimeString || "0") ;
+  const additionalTime = parseInt(additionalTimeString || "0");
 
-  if(clickedImgSrcDynamite){
+  if (clickedImgSrcDynamite) {
     // Creating an image ELement
     const imgElement = document.createElement("img");
     imgElement.src = clickedImgSrcDynamite;
     // Append the image element to the header content
     const containerHeader = document.querySelector(".container__header__itemsFromStore") as HTMLDivElement;
-    if(containerHeader){
+    if (containerHeader) {
       containerHeader.append(imgElement);
     }
 
@@ -87,11 +89,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     localStorage.removeItem("clickedImgSrcDynamite");
   }
 
-  if(additionalTime){
+  if (additionalTime) {
     // Add more 10 sec to the game
     timeSecond += additionalTime;
     displayTime(timeSecond);
-    
+
 
     // // Clear the stored data to prevent showing the extra 10sec to the timer again
     localStorage.removeItem("additionalTime");
@@ -101,6 +103,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 // timeImg.addEventListener("click", ()=> {
 // })
 
-function checkPassLevelFromExitBtn(){
-  checkPassLevel(levels.find(l=> l.isActive)!.score )
+function checkPassLevelFromExitBtn() {
+  checkPassLevel(levels.find(l => l.isActive)!.score)
 }

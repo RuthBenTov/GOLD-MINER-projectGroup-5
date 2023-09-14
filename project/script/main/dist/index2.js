@@ -20,12 +20,12 @@ function getElementToPlayer(item) {
 }
 function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
     var rocks = document.querySelectorAll(".rockElem");
-    for (var i = 0; i < rocks.length; i++) {
-        var rockLeft = rocks[i].getBoundingClientRect().left;
-        var rockRight = rocks[i].getBoundingClientRect().right;
-        var rockTop = rocks[i].getBoundingClientRect().top;
-        var rockBottom = rocks[i].getBoundingClientRect().bottom;
-        var item = rocks[i];
+    rocks.forEach(function (rock) {
+        var rockLeft = rock.getBoundingClientRect().left;
+        var rockRight = rock.getBoundingClientRect().right;
+        var rockTop = rock.getBoundingClientRect().top;
+        var rockBottom = rock.getBoundingClientRect().bottom;
+        var item = rock;
         if ((ropeTop != ropeRight &&
             ropeRight < rockRight &&
             ropeRight > rockLeft &&
@@ -37,23 +37,34 @@ function checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop) {
                 ropeBottom < rockBottom &&
                 ropeBottom > rockTop)) {
             clearInterval(checkCollisionInterval);
+            var dynamiteElement = document.querySelector(".container__header__itemsFromStore img");
+            if (dynamiteElement) {
+                // Add event listener for "ArrowUp" key press
+                document.addEventListener("keydown", function (ev) {
+                    if (ev.key === "ArrowUp") {
+                        // Change the rock item to the GIF
+                        liftTheStoneWithGif(item);
+                    }
+                });
+            }
             getElementToPlayer(item);
             liftTheStone(item);
         }
-    }
-    if (ropeLeft <= gameBoardLeft ||
-        ropeRight >= gameBoardRight ||
-        ropeRight <= gameBoardBottom ||
-        ropeBottom >= gameBoardBottom) {
-        // clearInterval(checkCollisionInterval)
-        rope.style.width = "40px";
-        rope.classList.remove("active");
-        ropeGetUp(levels);
-    }
-    else {
-        rope.style.animation = "ropeSideToSide 5s linear infinite; ";
-        // rope.classList.remove("returnRope");
-    }
+        if (ropeLeft <= gameBoardLeft ||
+            ropeRight >= gameBoardRight ||
+            ropeRight <= gameBoardBottom ||
+            ropeBottom >= gameBoardBottom) {
+            // clearInterval(checkCollisionInterval)
+            rope.style.width = "40px";
+            rope.classList.remove("active");
+            ropeGetUp(levels);
+        }
+        else {
+            rope.style.animation = "ropeSideToSide 5s linear infinite; ";
+            document.addEventListener("keydown", handlePress);
+            // rope.classList.remove("returnRope");
+        }
+    });
 }
 var checkCollisionInterval;
 function startCollisionInterval() {
@@ -63,7 +74,7 @@ function startCollisionInterval() {
         var ropeBottom = rope.getBoundingClientRect().bottom;
         var ropeTop = rope.getBoundingClientRect().top;
         checkCollision(ropeLeft, ropeRight, ropeBottom, ropeTop);
-    }, .5);
+    }, 0.5);
 }
 function IdentifyTheStone(item) {
     var thisLevel = levels.find(function (level) { return level.isActive === true; });
@@ -96,6 +107,7 @@ function ropeGetUp(thisLevel, currentElem) {
     }
     rope.style.width = "40px";
     rope.style.transition = wait / 2 + "s";
+    document.removeEventListener("keydown", handlePress);
     soundEffectRope.play();
     setTimeout(function () {
         rope.style.animationPlayState = "running";
@@ -104,7 +116,8 @@ function ropeGetUp(thisLevel, currentElem) {
         startCollisionInterval();
         soundEffectRope.pause();
         playSoundEffect(currentElem);
-    }, wait / 2 * getRopeLength());
+        document.addEventListener("keydown", handlePress);
+    }, (wait / 2) * getRopeLength());
 }
 function getRopeLength() {
     var ropeLeft = rope.getBoundingClientRect().left;
@@ -120,20 +133,32 @@ function handleAnimationEnd(event) {
 function addScoreAnimation(currentElem, thisLevel) {
     console.log("currentElem");
     thisLevel.score += currentElem.getScore();
-    document.querySelector("#scoreValue").innerHTML =
-        thisLevel.score.toString();
+    document.querySelector("#scoreValue").innerHTML = thisLevel.score.toString();
     addValuePop.innerHTML = currentElem.getScore().toString();
     playPopAnimation();
     setLevelsInLs(levels);
 }
 function liftTheStone(item) {
-    var timeToDuration = item.width;
+    var timeToTransition = item.width;
     item.style.top = "0px";
-    item.style.left = "calc(50% - " + timeToDuration / 2 + "px)";
-    item.style.transition = timeToDuration / 10 + "s"; /*לא למחוק*/
+    item.style.left = "calc(48% - " + timeToTransition / 2 + "px)";
+    item.style.transition = timeToTransition / 10 + "s"; /*לא למחוק*/
     setTimeout(function () {
-        item.style.display = 'none';
-    }, timeToDuration / 2 * getRopeLength());
+        item.style.display = "none";
+    }, (timeToTransition / 2) * getRopeLength());
+}
+function liftTheStoneWithGif(item) {
+    var timeToTransition = item.width;
+    item.style.top = "0px";
+    item.style.left = "calc(48% - " + timeToTransition / 2 + "px)";
+    item.style.transition = timeToTransition / 10 + "s";
+    // Replace the rock with the GIF
+    item.src = "https://i.gifer.com/2eSc.gif";
+    setTimeout(function () {
+        item.style.display = "none";
+        setTimeout(function () {
+        }, 1000); // 1000 milliseconds (1 second)
+    }, 1000); // 1000 milliseconds (1 second)
 }
 // function liftTheStone(item) {
 //   // item.classList.add("liftTheStone");

@@ -127,7 +127,7 @@
 }
 .container__header .header__rope {
   position: absolute;
-  top: 90px;
+  top: 80%;
   left: 37%;
   width: 40px;
   z-index: 100;
