@@ -1,16 +1,14 @@
-description :
-Created by Ruth, Moriah, Daniel and Yuval
+"Gold Miner Challenge" is an engaging game created by:
+Ruth, Moriah, Daniel, and Yuval.
 
-Gold Miner Challenge" is a captivating game where you play as a skilled miner whose goal is to collect precious stones. Success in each level unlocks the next one, offering increasingly exciting challenges.
+In this game, players assume the role of a skilled miner with the objective of collecting precious stones. Each successful completion of a level unlocks the next one, offering progressively more exciting challenges.
 
-the player need to register login or A single game without login.
-we have 3 different levels, and in each level one of 3 maps is selected in random.
-the goldMiner can moving left and right by pressing on the left/right buttons keyboard.
-and down to collect stone by pressing on down button.
-each stone has a different value , gold- is better than rock , and bag - has random value.
-also there is a store, each user can buy regardless of the amount of money in the account,
-products- "addTime" and "dynamite".
-addTime- to next level, automatically
-dynamite - by pressing keyUp
+Players have the option to either register and log in or play a single game without the need for login credentials.
 
-we use local storage to save data.
+The game features three different levels, and for each level, one of three maps is randomly selected. Players control the gold miner's movement using the left and right keyboard buttons and can descend to collect stones by pressing the down button.
+
+Each type of stone in the game has a different value; gold is more valuable than rock, while bags contain stones with random values.
+
+Additionally, there is an in-game store where users can make purchases, regardless of the amount of money in their account. The available products in the store include "addTime" and "dynamite." "addTime" automatically adds time to the next level, while "dynamite" can be activated by pressing the keyUp button.
+
+The game utilizes local storage to save player data.
